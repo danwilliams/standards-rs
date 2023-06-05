@@ -216,23 +216,23 @@ symbols to allow colouring to be applied to make them stand out. They all start
 with a comment symbol (`//`), followed by a special symbol, followed by *two*
 tabs, followed by the comment text. The special symbols are:
 
-  -  - Divider
-  -  - Section																	
-  -  - Sub-section																
-  -  - Function																
-  - § - Trait																	
-  -  - Struct																	
-  -  - Macro																	
-  -  - Enum																	
-  -  - Error
-  -  - Test																
-  -  - Method																
-  -  - Properties															
-  -  - Logic section									
-  -  - Logic/properties sub-section					
-  -  - Line of interest								
-  -  - Query		
-  -  - Unsafe		
+  - `` - Divider
+  - `` - Section																	
+  - `` - Sub-section																
+  - `` - Function																
+  - `§` - Trait																	
+  - `` - Struct																	
+  - `` - Macro																	
+  - `` - Enum																	
+  - `` - Error
+  - `` - Test																
+  - `` - Method																
+  - `` - Properties															
+  - `` - Logic section									
+  - `` - Logic/properties sub-section					
+  - `` - Line of interest								
+  - `` - Query		
+  - `` - Unsafe		
 
 *Note that you may need to view these in the Markdown source code to see the
 symbols correctly.*
