@@ -2,7 +2,21 @@
 name = "foo"
 version = "0.1.0"
 edition = "2021"
+# For open-source, typically use this:
+license = "MIT"
+# For closed-source, use this:
+#license-file = "LICENSE"
+authors = ["Dotfive Limited"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[profile.release]
+strip = true     # Automatically strip symbols from the binary
+opt-level = "z"  # Optimise for size
+lto = true       # Enable link-time optimisation
+
 [dependencies]
+tempfile = "3.5.0"
+
+[dev-dependencies]
+trybuild = "1.0.80"
