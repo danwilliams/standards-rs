@@ -1,0 +1,114 @@
+<scheme name="_@user_One Dark Vivid Italic" version="142" parent_scheme="Darcula">
+  <option name="FONT_SCALE" value="1.0" />
+  <metaInfo>
+    <property name="created">2023-03-12T07:43:48</property>
+    <property name="ide">Idea</property>
+    <property name="ideVersion">2022.3.3.0.0</property>
+    <property name="modified">2023-05-31T17:47:45</property>
+    <property name="originalScheme">One Dark Vivid Italic</property>
+  </metaInfo>
+  <attributes>
+    <option name="_REGION_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="0" />
+        <option name="BACKGROUND" value="d8dee9" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="b30059" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="269969" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="997326" />
+      </value>
+    </option>
+    <option name="§_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="308020" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="2e6399" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="ff8400" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="5f2966" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="b32d2d" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="739926" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="66532e" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="335266" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="b38f00" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="8080" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="598000" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="4c3d99" />
+      </value>
+    </option>
+    <option name="_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ff0000" />
+        <option name="BACKGROUND" value="ffd500" />
+      </value>
+    </option>
+  </attributes>
+</scheme>

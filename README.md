@@ -85,6 +85,17 @@ you are able to see the symbols correctly.
 As an aside, it's worth also configuring your terminal with a Nerd Font too, so
 that you can see the symbols correctly in any command-line interactions.
 
+### Highlighting
+
+If you are using a JetBrains IDE, then you can import the provided settings from
+the `IDEs/JetBrains` directory in this repository. This will configure the IDE
+to use the correct highlighting for the custom comment headers.
+
+Note that the settings rely upon you having the [Better Highlights plugin](https://plugins.jetbrains.com/plugin/12895-better-highlights)
+installed. This is a free plugin, and is available from the JetBrains plugin
+repository. It is not necessary to use this plugin, but if you do not then you
+will not see the custom comment headers highlighted correctly.
+
 
 ## Code formatting
 

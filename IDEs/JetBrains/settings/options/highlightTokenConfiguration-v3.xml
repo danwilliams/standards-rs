@@ -1,0 +1,52 @@
+<application>
+  <component name="HighlightTokenConfiguration">
+    <highlightTokenMap>
+      <map>
+        <entry key="COMMENT">
+          <value>
+            <list>
+              <option value="" />
+              <option value="" />
+              <option value="" />
+              <option value="§" />
+              <option value="" />
+              <option value="" />
+              <option value="" />
+              <option value="" />
+              <option value="" />
+              <option value="" />
+              <option value="" />
+              <option value="" />
+              <option value="" />
+              <option value="" />
+              <option value="" />
+              <option value="" />
+            </list>
+          </value>
+        </entry>
+        <entry key="REGION_COMMENT">
+          <value>
+            <list>
+              <option value="" />
+            </list>
+          </value>
+        </entry>
+        <entry key="REGEXP">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="KEYWORD">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="METHOD_KEYWORD">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </highlightTokenMap>
+  </component>
+</application>
