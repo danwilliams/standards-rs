@@ -1,12 +1,19 @@
 # Coding standards for Rust
 
 This document describes the coding standards chosen by [Dotfive](https://dotfive.co.uk)
-for Rust code. It is intended to be a living document, and will be updated as
+for [Rust](https://www.rust-lang.org/) code, which are **highly opinionated**.
+We choose to follow these standards instead of formatting with `rustfmt`, mainly
+for reasons of readability.
+
+It is intended to be a living document, and will be updated as
 necessary. It is not intended to be a comprehensive guide to Rust, but rather a
 set of standards that should be followed when writing code for Dotfive projects.
+Notably, when contributing to other codebases, such as client or community
+projects, we follow the rules they have defined rather than ones in this
+document.
 
-For the most part, the standards are based on common Rust community standards,
-but there are some differences. Additionally, this document clarifies our
+For the most part, these standards are based on common Rust community standards,
+but there are some key differences. Additionally, this document clarifies our
 approach in areas that are non-standardised and subjective.
 
 This document is accompanied by example Rust files, and so this whole repository
@@ -22,7 +29,8 @@ when deviating from the standards is the right thing to do, and that is fine,
 providing there is a justifiable reason for doing so. The standards should be
 followed unless there is a good reason not to.
 
-If you feel that the standards should be changed, then please raise a question
+If you are working on one of our projects and feel that the standards should be
+changed, then please raise a question
 describing the change you would like to see. If you feel strongly about it, then
 please also provide a pull request for this repository. We will review the
 changes, and if we agree with them then we will merge them in.
@@ -32,12 +40,12 @@ current standards described in this document should be followed. You may
 personally dislike some of them, and that is absolutely fine - it is impossible
 to please everyone. It is important that we have a consistent approach to
 writing code, and so we must all follow the same standards. You are free to use
-your own preferred standards in your own projects, but **when working on Dotfive
-projects, you must follow the standards described here**.
+your own preferred standards in your own projects, but **when contributing to
+Dotfive projects, you must follow the standards described here**.
 
 If any suggestions are rejected then we will explain why, and we will be happy
 to discuss the reasons for the decision. We will not reject suggestions without
-good reason, but ultimately it is an opinionated process, and someone has to
+good reason, but ultimately it is a very opinionated process, and someone has to
 make the final decision. If we do reject a suggestion, we expect that to be
 accepted with good grace and not subject to argument or further debate, unless
 there is some further information that has not been considered.
@@ -138,6 +146,17 @@ code, then we align them to make it easier to read.
 
 Please line up assignment operators in nearby lines of code, unless there is a
 good reason not to.
+
+*Note: Remember that the intent is to **improve** readability, and not impede
+it. If aligning certain elements makes the code harder to read, then that might
+imply that the alignments should be constrained to a more localised area.*
+
+The one major downside of alignment is that it can cause lines to change due to
+whitespace adjustments when they have no functional differences. This can make
+it harder to see what has actually changed in a commit. However, we feel that
+the benefits of alignment outweigh this downside, the reason being that
+maintaining readable code is more important than avoiding the slight pollution
+of commits.
 
 ##### Examples
 
