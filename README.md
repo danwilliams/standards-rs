@@ -120,7 +120,7 @@ highlighting applied in the [`screenshots`](screenshots/) directory:
 ## Code formatting
 
 This section refers to the formatting of Rust code, rather than Markdown files.
-The formatting of Markdown files is covered in a later section.
+The formatting of Markdown files is covered in a [later section](#general-documentation).
 
 ### Indentation
 
@@ -487,7 +487,8 @@ discoverability.
 All Markdown should follow general Markdown formatting rules, in similar fashion
 to the [Rustdoc documentation](#code-documentation). Broadly speaking, use
 correct headings and other constructs, and align to 80 characters except for
-links (links are allowed to extend out further).
+links (link URLs are allowed to extend out further — their titles must stay
+within the limit though).
 
 
 ## Testing
@@ -567,7 +568,7 @@ a separate test and give rise to an individual integration test function.
 
 A full description of Git etiquette is currently outside the scope of this
 document, but in basic summary you should create meaningful, semantic,
-carefully-stage commits, with appropriate commit messages and descriptions,
+carefully-staged commits, with appropriate commit messages and descriptions,
 following the Dotfive Git standards.
 
 Specifically to the context of Rust projects, you should try not to push any
