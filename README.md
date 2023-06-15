@@ -5,12 +5,11 @@ for [Rust](https://www.rust-lang.org/) code, which are **highly opinionated**.
 We choose to follow these standards instead of formatting with `rustfmt`, mainly
 for reasons of readability.
 
-It is intended to be a living document, and will be updated as
-necessary. It is not intended to be a comprehensive guide to Rust, but rather a
-set of standards that should be followed when writing code for Dotfive projects.
-Notably, when contributing to other codebases, such as client or community
-projects, we follow the rules they have defined rather than ones in this
-document.
+It is intended to be a living document, and will be updated as necessary. It is
+not intended to be a comprehensive guide to Rust, but rather a set of standards
+that should be followed when writing code for Dotfive projects. Notably, when
+contributing to other codebases, such as client or community projects, we follow
+the rules they have defined rather than ones in this document.
 
 For the most part, these standards are based on common Rust community standards,
 but there are some key differences. Additionally, this document clarifies our
@@ -23,21 +22,21 @@ compilable, testable Rust project.
 
 ## Variation and evolution
 
-The standards described in this document are not set in stone. They are
-intended to be a starting point, and will evolve over time. There will be times
-when deviating from the standards is the right thing to do, and that is fine,
+The standards described in this document are not set in stone. They are intended
+to be a starting point, and will evolve over time. There will be times when
+deviating from the standards is the right thing to do, and that is fine,
 providing there is a justifiable reason for doing so. The standards should be
 followed unless there is a good reason not to.
 
 If you are working on one of our projects and feel that the standards should be
-changed, then please raise a question
-describing the change you would like to see. If you feel strongly about it, then
-please also provide a pull request for this repository. We will review the
-changes, and if we agree with them then we will merge them in.
+changed, then please raise a question describing the change you would like to
+see. If you feel strongly about it, then please also provide a pull request for
+this repository. We will review the changes, and if we agree with them then we
+will merge them in.
 
 However, until the point that any suggested changes are approved and merged, the
 current standards described in this document should be followed. You may
-personally dislike some of them, and that is absolutely fine - it is impossible
+personally dislike some of them, and that is absolutely fine — it is impossible
 to please everyone. It is important that we have a consistent approach to
 writing code, and so we must all follow the same standards. You are free to use
 your own preferred standards in your own projects, but **when contributing to
@@ -65,7 +64,7 @@ available from [JetBrains](https://www.jetbrains.com/). It is a commercial
 product, but [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/)
 is free and supports Rust, so that is a viable alternative. (Rust is supported
 as a plugin to all JetBrains IDEs at present.) We recommend CLion over IntelliJ
-purely because of focus - CLion is more targeted towards C/C++ and Rust, whereas
+purely because of focus — CLion is more targeted towards C/C++ and Rust, whereas
 IntelliJ has a wider reach.
 
 We do not currently recommend [Visual Studio Code](https://code.visualstudio.com/),
@@ -103,10 +102,11 @@ If you are using a JetBrains IDE, then you can import the provided settings from
 the `IDEs/JetBrains` directory in this repository. This will configure the IDE
 to use the correct highlighting for the custom comment headers.
 
-Note that the settings rely upon you having the [Better Highlights plugin](https://plugins.jetbrains.com/plugin/12895-better-highlights)
-installed. This is a free plugin, and is available from the JetBrains plugin
-repository. It is not necessary to use this plugin, but if you do not then you
-will not see the custom comment headers highlighted correctly.
+Note that the settings rely upon you having the [Better Highlights
+plugin](https://plugins.jetbrains.com/plugin/12895-better-highlights) installed.
+This is a free plugin, and is available from the JetBrains plugin repository. It
+is not necessary to use this plugin, but if you do not then you will not see the
+custom comment headers highlighted correctly.
 
 There are some screenshots showing our standards in action with this
 highlighting applied in the [`screenshots`](screenshots/) directory:
@@ -307,7 +307,7 @@ block to the correct tab stop afterwards. The rationale behind this is that code
 is often refactored, and things move around. It is annoying to have to reflow
 comments every time this happens, plus for readability a set width is nicest for
 the comment blocks. The only other consideration is that the comment text should
-go beyond the 120th column - if it will do so by following the above rules, then
+go beyond the 120th column — if it will do so by following the above rules, then
 this is likely an indication that your code is nested too deeply, and you should
 consider refactoring it.
 
@@ -362,8 +362,8 @@ A typical Rust project should have the following structure:
   - `LICENSE`
 
 A multi-crate workspace should place each crate under a `crates/` directory,
-with the workspace `Cargo.toml` file at the root of the repository. The
-crate should each follow normal structure in their own subdirectories.
+with the workspace `Cargo.toml` file at the root of the repository. The crate
+should each follow normal structure in their own subdirectories.
 
 If a module grows too large, it should be split into multiple files. These
 should be placed in a subdirectory named after the module, and the module should
@@ -452,8 +452,8 @@ bullets. However, for lists that are part of general documentation prose, they
 should use `  - ` style bullets, i.e. two spaces for indentation, followed by a
 dash, followed by a space.
 
-The "See Also" section should always be a list of links to other items, and
-not contain any prose.
+The "See Also" section should always be a list of links to other items, and not
+contain any prose.
 
 *Note: You should document trait methods on the trait, and not on the
 implementing type.*
@@ -522,7 +522,7 @@ most likely belong together in the same test method.
 Name your test methods after the thing they are testing, e.g. if you are testing
 a method called `foo()` then call your test `foo()`. Any variations that need to
 be tested should then add a suffix of two underscores, followed by a short
-description of the concept - for instance, `foo__valid()` and `foo__invalid()`.
+description of the concept — for instance, `foo__valid()` and `foo__invalid()`.
 
 Try to avoid code duplication by placing common code, such as that used to set
 up and prepare the test environment, into separate (non-test) functions. If your
@@ -544,7 +544,7 @@ The approach to integration tests should broadly follow the same rules as for
 
 In some cases there may be things we need to test that, if they fail, would
 result in compilation failures. In context, this is not the same as something
-generating a panic at runtime - it is a panic at compile-time. Therefore, such
+generating a panic at runtime — it is a panic at compile-time. Therefore, such
 cases cannot be caught in the usual way by using `#[should_panic]`. In order to
 test for expected compilation errors, we use [`trybuild`](https://crates.io/crates/trybuild).
 
@@ -553,8 +553,8 @@ results. It then compares the results against ones already stored. If they
 match, the test is successful. This means that testing for successful or
 unsuccessful builds use exactly the same approach. It also means that a build
 test is a special kind of integration test, and gets run as an integration test
-from the integration tests folder. However, it gets *triggered* from a unit
-test (usually - although it could also be triggered by an integration test).
+from the integration tests folder. However, it gets *triggered* from a unit test
+(usually — although it could also be triggered by an integration test).
 
 We tend to add a `tests/compile_fail` subfolder, and place the files to run
 there (along with the expected output), and then execute them from one function
@@ -609,7 +609,7 @@ approach is considered permanent, add an annotation to disable the associated
 warning for that specific instance.
 
 Otherwise, try to clean things up to eliminate or at least minimise warnings.
-And, it should go without saying - **your code should always compile**.
+And, it should go without saying — **your code should always compile**.
 
 
 ## Templates and examples
