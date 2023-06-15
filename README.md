@@ -75,6 +75,10 @@ JetBrains IDEs. If you choose to use a different tool then you will need to
 configure it to match the settings described here, or otherwise perform the
 necessary actions manually.
 
+*Note: There are some screenshots showing our standards in action in the
+[`screenshots`](screenshots/) directory. See the [Highlighting](#highlighting)
+section for more details.*
+
 ### Fonts
 
 Our custom comment headers use symbols from [Font Awesome](https://fontawesome.com/),
@@ -96,6 +100,14 @@ installed. This is a free plugin, and is available from the JetBrains plugin
 repository. It is not necessary to use this plugin, but if you do not then you
 will not see the custom comment headers highlighted correctly.
 
+There are some screenshots showing our standards in action with this
+highlighting applied in the [`screenshots`](screenshots/) directory:
+
+  - [Main code routine](screenshots/main.png)
+  - [Enums](screenshots/foo-enums.png)
+  - [Structs](screenshots/foo-structs.png)
+  - [Methods](screenshots/foo-methods.png)
+  - [All styles](screenshots/styles.png)
 
 ## Code formatting
 
@@ -234,8 +246,9 @@ tabs, followed by the comment text. The special symbols are:
   - `` - Query		
   - `` - Unsafe		
 
-*Note that you may need to view these in the Markdown source code to see the
-symbols correctly.*
+*Note that you may need to view these in the Markdown source code, using an
+appropriate Nerd Font, to see the symbols correctly. A [screenshot of the
+symbols](screenshots/symbols.png) is also available.*
 
 These each belong to a category, and the category determines the trailing
 whitespace requirements.
@@ -250,7 +263,11 @@ longer sections of code to make them easier to read.
 
 ##### Examples
 
-You can see these demonstrated in the `examples/styles.rs` file.
+You can see these demonstrated in the `examples/styles.rs` file, and there is a
+[screenshot showing all the styles in action](screenshots/styles.png) in the
+[`screenshots`](screenshots/) directory.
+
+*Note: For more screenshots see the [Highlighting](#highlighting) section.*
 
 #### Whole-line comments
 
