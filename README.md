@@ -59,13 +59,9 @@ be configured to support the indentation and whitespace requirements. Preferably
 it will support Rust syntax and be able to validate Rust code, and ideally it
 will allow for the configuration of our custom comment headers.
 
-Our recommended IDE is [CLion](https://www.jetbrains.com/clion/), which is
+Our recommended IDE is [RustRover](https://www.jetbrains.com/rust/), which is
 available from [JetBrains](https://www.jetbrains.com/). It is a commercial
-product, but [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/)
-is free and supports Rust, so that is a viable alternative. (Rust is supported
-as a plugin to all JetBrains IDEs at present.) We recommend CLion over IntelliJ
-purely because of focus — CLion is more targeted towards C/C++ and Rust, whereas
-IntelliJ has a wider reach.
+product, but is currently available as a free preview until full release.
 
 We do not currently recommend [Visual Studio Code](https://code.visualstudio.com/),
 simply because its interaction with Rust is not as smooth as it could be, and it
