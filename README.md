@@ -36,6 +36,20 @@ compilable, testable Rust project.
           - [Structural comments](#structural-comments)
           - [Whole-line comments](#whole-line-comments)
           - [Inline comments](#inline-comments)
+  - [Code linting](#code-linting)
+      - [Complete configuration](#complete-configuration)
+      - [Standard Rust compiler lints](#standard-rust-compiler-lints)
+          - [Future compatibility lints](#future-compatibility-lints)
+          - [Deprecated approach lints](#deprecated-approach-lints)
+          - [Unused code lints](#unused-code-lints)
+          - [Cherry-picked lints](#cherry-picked-lints)
+      - [Clippy lints](#clippy-lints)
+          - [Clippy lint categories](#clippy-lint-categories)
+          - [Clippy cargo lints](#clippy-cargo-lints)
+          - [Clippy nursery lints](#clippy-nursery-lints)
+          - [Clippy pedantic lints](#clippy-pedantic-lints)
+          - [Clippy restriction lints](#clippy-restriction-lints)
+          - [Clippy configuration](#clippy-configuration)
   - [Filesystem layout](#filesystem-layout)
   - [Code documentation](#code-documentation)
       - [Structs](#structs)
@@ -149,6 +163,7 @@ highlighting applied in the [`screenshots`](screenshots/) directory:
   - [Structs](screenshots/foo-structs.png)
   - [Methods](screenshots/foo-methods.png)
   - [All styles](screenshots/styles.png)
+
 
 ## Code formatting
 
@@ -379,6 +394,615 @@ This is an example of an inline comment:
 let foo = bar * 10;  //  This is an inline comment.
 ```
 
+
+## Code linting
+
+There are two levels of linting that are relevant: the Rust compiler, and
+Clippy, which is run via `cargo clippy`. Each has its own set of rules, and
+the recommended configuration is described below.
+
+### Complete configuration
+
+The complete linting configuration is provided here, and described in more
+detail in the following sections. It is recommended that you copy this code
+block into your `main.rs` or `lib.rs` file, and it links back to this
+documentation with the intent of decluttering your codebase.
+
+```rust
+//		Global configuration
+
+//	For an explanation of the following configuration, see:
+//	https://github.com/dotfive/standards-rs#code-linting
+
+//		Standard Rust compiler lints											
+//	Future compatibility lints
+#![deny(future_incompatible)]
+//	Deprecated approach lints
+#![deny(rust_2018_compatibility)]
+#![warn(rust_2018_idioms)]
+#![deny(rust_2021_compatibility)]
+//	Unused code lints
+#![warn(unused)]
+//	Cherry-picked lints
+#![forbid(
+    unsafe_code,
+    unsafe_op_in_unsafe_fn,
+)]
+#![deny(
+    deprecated,
+    deprecated_where_clause_location,
+    incomplete_features,
+    internal_features,
+    macro_use_extern_crate,
+    unknown_lints,
+    unnameable_test_items,
+    unreachable_pub,
+)]
+#![warn(
+    let_underscore_drop,
+    meta_variable_misuse,
+    missing_copy_implementations,
+    missing_debug_implementations,
+    missing_docs,
+    single_use_lifetimes,
+    trivial_casts,
+    trivial_numeric_casts,
+    unused_crate_dependencies,
+    unused_import_braces,
+    unused_lifetimes,
+    unused_qualifications,
+    unused_results,
+    unused_tuple_struct_fields,
+    variant_size_differences,
+)]
+//		Clippy lints															
+//	Clippy lint categories
+#![warn(
+    clippy::cargo,
+    clippy::nursery,
+    clippy::pedantic,
+)]
+//	Clippy cargo lints
+#![deny(
+    clippy::negative_feature_names,
+    clippy::wildcard_dependencies,
+)]
+//	Clippy pedantic lints
+#![allow(
+    clippy::module_name_repetitions,
+)]
+//	Clippy restriction lints
+#![forbid(
+    clippy::allow_attributes_without_reason,
+    clippy::dbg_macro,
+    clippy::exit,
+    clippy::missing_assert_message,
+    clippy::missing_docs_in_private_items,
+    clippy::mod_module_files,
+    clippy::multiple_inherent_impl,
+    clippy::panic_in_result_fn,
+    clippy::str_to_string,
+    clippy::string_to_string,
+    clippy::tests_outside_test_module,
+    clippy::unimplemented,
+    clippy::unwrap_in_result,
+)]
+#![deny(
+    clippy::clone_on_ref_ptr,
+    clippy::empty_structs_with_brackets,
+    clippy::error_impl_error,
+    clippy::exhaustive_enums,
+    clippy::exhaustive_structs,
+    clippy::expect_used,
+    clippy::float_cmp_const,
+    clippy::fn_to_numeric_cast_any,
+    clippy::format_push_string,
+    clippy::get_unwrap,
+    clippy::impl_trait_in_params,
+    clippy::integer_division,
+    clippy::lossy_float_literal,
+    clippy::mem_forget,
+    clippy::panic,
+    clippy::print_stderr,
+    clippy::print_stdout,
+    clippy::rc_mutex,
+    clippy::try_err,
+    clippy::unwrap_used,
+    clippy::wildcard_enum_match_arm,
+)]
+#![warn(
+    clippy::absolute_paths,
+    clippy::arithmetic_side_effects,
+    clippy::as_underscore,
+    clippy::decimal_literal_representation,
+    clippy::default_numeric_fallback,
+    clippy::deref_by_slicing,
+    clippy::empty_drop,
+    clippy::filetype_is_file,
+    clippy::if_then_some_else_none,
+    clippy::indexing_slicing,
+    clippy::let_underscore_must_use,
+    clippy::let_underscore_untyped,
+    clippy::map_err_ignore,
+    clippy::missing_asserts_for_indexing,
+    clippy::mixed_read_write_in_expression,
+    clippy::mutex_atomic,
+    clippy::pattern_type_mismatch,
+    clippy::pub_without_shorthand,
+    clippy::rc_buffer,
+    clippy::redundant_type_annotations,
+    clippy::rest_pat_in_fully_bound_structs,
+    clippy::same_name_method,
+    clippy::semicolon_outside_block,
+    clippy::shadow_reuse,
+    clippy::shadow_same,
+    clippy::shadow_unrelated,
+    clippy::std_instead_of_core,
+    clippy::string_lit_chars_any,
+    clippy::string_slice,
+    clippy::suspicious_xor_used_as_pow,
+    clippy::todo,
+    clippy::unnecessary_safety_comment,
+    clippy::unnecessary_safety_doc,
+    clippy::unneeded_field_pattern,
+    clippy::unreachable,
+    clippy::unseparated_literal_suffix,
+    clippy::use_debug,
+    clippy::verbose_file_reads,
+)]
+```
+
+### Standard Rust compiler lints
+
+The lints configured and described here are correct for Rust 1.74.0.
+
+For further information on specific lints, see the [Rust compiler lint
+documentation](https://doc.rust-lang.org/rustc/lints/index.html).
+
+#### Future compatibility lints
+
+At the time of writing, the only item from the `future_incompatible` category
+not enabled by default is the `pointer_structural_match` lint. The lints in the
+`future_incompatible` category are variously set to `warn` or `deny`, and as
+referencing the category name affects this nuanced distinction, the single
+`pointer_structural_match` lint should be set explicitly instead if a mix of
+`warn` and `deny` is desired. However, as all code should be following the Rust
+2021 approaches and also remain fully future-compatible, this lint category is
+set to `deny`.
+
+There are currently 40 lints in the `future_incompatible` category, so they are
+not listed here.
+
+```rust
+#![deny(future_incompatible)]
+```
+
+#### Deprecated approach lints
+
+##### Rust 2018 compatibility
+
+The defaults for the items included in the `rust_2018_compatibility` category
+are:
+
+| **Lint**                                  | **Default** | **Applied** |
+|-------------------------------------------|-------------|-------------|
+| `absolute_paths_not_starting_with_crate`  | `allow`     | -> `deny`   |
+| `anonymous_parameters`                    | `warn`      | -> `deny`   |
+| `keyword_idents`                          | `allow`     | -> `deny`   |
+| `tyvar_behind_raw_pointer`                | `warn`      | -> `deny`   |
+
+Instead, all of these are set to `deny`, as all code should be following the
+Rust 2021 approaches.
+    
+```rust
+#![deny(rust_2018_compatibility)]
+```
+
+The defaults for the items included in the `rust_2018_idioms` category are:
+
+| **Lint**                                  | **Default** | **Applied**           |
+|-------------------------------------------|-------------|-----------------------|
+| `bare_trait_objects`                      | `warn`      | -> `warn` (no change) |
+| `elided_lifetimes_in_paths`               | `allow`     | -> `warn`             |
+| `ellipsis_inclusive_range_patterns`       | `warn`      | -> `warn` (no change) |
+| `explicit_outlives_requirements`          | `allow`     | -> `warn`             |
+| `unused_extern_crates`                    | `allow`     | -> `warn`             |
+
+Enabling `rust_2018_idioms` sets all of these to `warn`, as all code should be
+following the Rust 2021 approaches.
+
+```rust
+#![warn(rust_2018_idioms)]
+```
+
+##### Rust 2021 compatibility
+
+The defaults for the items included in the `rust_2021_compatibility` category
+are:
+
+| **Lint**                                  | **Default** | **Applied** |
+|-------------------------------------------|-------------|-------------|
+| `array_into_iter`                         | `warn`      | -> `deny`   |
+| `bare_trait_objects`                      | `warn`      | -> `deny`   |
+| `ellipsis_inclusive_range_patterns`       | `warn`      | -> `deny`   |
+| `non_fmt_panics`                          | `warn`      | -> `deny`   |
+| `rust_2021_incompatible_closure_captures` | `allow`     | -> `deny`   |
+| `rust_2021_incompatible_or_patterns`      | `allow`     | -> `deny`   |
+| `rust_2021_prefixes_incompatible_syntax`  | `allow`     | -> `deny`   |
+| `rust_2021_prelude_collisions`            | `allow`     | -> `deny`   |
+
+Instead, all of these are set to `deny`, as all code should be following the
+Rust 2021 approaches.
+
+```rust
+#![deny(rust_2021_compatibility)]
+```
+
+#### Unused code lints
+
+The defaults for the items included in the `unused` category are:
+
+| **Lint**                                  | **Default** | **Applied**           |
+|-------------------------------------------|-------------|-----------------------|
+| `dead_code`                               | `warn`      | -> `warn` (no change) |
+| `map_unit_fn`                             | `warn`      | -> `warn` (no change) |
+| `path_statements`                         | `warn`      | -> `warn` (no change) |
+| `redundant_semicolons`                    | `warn`      | -> `warn` (no change) |
+| `unreachable_code`                        | `warn`      | -> `warn` (no change) |
+| `unreachable_patterns`                    | `warn`      | -> `warn` (no change) |
+| `unused_allocation`                       | `warn`      | -> `warn` (no change) |
+| `unused_assignments`                      | `warn`      | -> `warn` (no change) |
+| `unused_attributes`                       | `warn`      | -> `warn` (no change) |
+| `unused_braces`                           | `warn`      | -> `warn` (no change) |
+| `unused_doc_comments`                     | `warn`      | -> `warn` (no change) |
+| `unused_extern_crates`                    | `allow`     | -> `warn`             |
+| `unused_features`                         | `warn`      | -> `warn` (no change) |
+| `unused_imports`                          | `warn`      | -> `warn` (no change) |
+| `unused_labels`                           | `warn`      | -> `warn` (no change) |
+| `unused_macro_rules`                      | `allow`     | -> `warn`             |
+| `unused_macros`                           | `warn`      | -> `warn` (no change) |
+| `unused_must_use`                         | `warn`      | -> `warn` (no change) |
+| `unused_mut`                              | `warn`      | -> `warn` (no change) |
+| `unused_parens`                           | `warn`      | -> `warn` (no change) |
+| `unused_unsafe`                           | `warn`      | -> `warn` (no change) |
+| `unused_variables`                        | `warn`      | -> `warn` (no change) |
+
+Instead, all of these are set to `warn`.
+
+```rust
+#![warn(unused)]
+```
+
+#### Cherry-picked lints
+
+##### Forbid
+
+The following lints are set to `allow` by default, and have been changed to
+`forbid`:
+
+```rust
+#![forbid(
+	unsafe_code,
+	unsafe_op_in_unsafe_fn,
+)]
+```
+
+##### Deny
+
+The following lints are set to `allow` by default, and have been changed to
+`deny`:
+
+```rust
+#![deny(
+	macro_use_extern_crate,
+	unreachable_pub,
+)]
+```
+
+**Note that `unreachable_pub` should be removed for binaries**, as it only makes
+sense for libraries. The lint behaviour may well change in the future:
+
+  - https://github.com/rust-lang/rust/issues/74970
+
+Additionally, there are some that are currently unstable and should be added
+once they become stable: `fuzzy_provenance_casts`, `lossy_provenance_casts`, and
+`unnameable_types`.
+
+The following lints are set to `warn` by default, and have been changed to
+`deny`:
+
+```rust
+#![deny(
+	deprecated,
+	deprecated_where_clause_location,
+	incomplete_features,
+	internal_features,
+	unknown_lints,
+	unnameable_test_items,
+)]
+```
+
+Additionally, there are some that are currently unstable and should be added
+once they become stable: `unknown_or_malformed_diagnostic_attributes`.
+
+##### Warn
+
+The following lints are set to `allow` by default, and have been changed to
+`warn`:
+
+```rust
+#![warn(
+	let_underscore_drop,
+	meta_variable_misuse,
+	missing_copy_implementations,
+	missing_debug_implementations,
+	missing_docs,
+	single_use_lifetimes,
+	trivial_casts,
+	trivial_numeric_casts,
+	unused_crate_dependencies,
+	unused_import_braces,
+	unused_lifetimes,
+	unused_qualifications,
+	unused_results,
+	unused_tuple_struct_fields,
+	variant_size_differences,
+)]
+```
+
+Additionally, there are some that are currently unstable and should be added
+once they become stable: `must_not_suspend`.
+
+### Clippy lints
+
+The approach to configuring the various Clippy lints is as follows:
+
+  - Lints set to `forbid` mean, "you should never do these things". These lints
+    cannot be contextually allowed, and Clippy will never pass a build with the
+    associated issues present. The code approaches have to be changed before the
+    build will pass.
+
+  - Lints set to `deny` mean, "you need to deal with these things". These lints
+    can be contextually allowed, and either the code should be changed or the
+    approach marked as allowed in context (with a reason) before the build will
+    pass. This is to ensure that the situations have been properly thought about
+    and handled.
+
+  - Lints set to `warn` mean, "you need to be careful of these things". They
+    will not fail the build, so code can potentially still ship, but they should
+    be investigated and either fixed or allowed in context (with a reason).
+
+The configuration is from the perspective of shipping production-ready code. The
+warnings will not hold up local development, and are related to areas that will
+generally not affect functionality, and so a decision can be taken as to whether
+or not they should be fixed before shipping. The higher-level lints that cause
+build errors are considered more important, as they have a functional effect, or
+involve bad practices, or highlight areas that absolutely need to be carefully
+considered before shipping. As the Clippy lints do not affect the standard Rust
+compiler, local development can continue with `cargo build` and the running of
+`cargo clippy` is taken to imply that there is an intent to prepare the code for
+shipping.
+
+For further information on specific lints, see the Clippy documentation:
+
+  - https://doc.rust-lang.org/clippy/
+  - https://rust-lang.github.io/rust-clippy/master/
+
+#### Clippy lint categories
+
+By default, the standard Clippy lint categories are applied as follows:
+
+| **Lint**                                  | **Default** | **Applied**           |
+|-------------------------------------------|-------------|-----------------------|
+| `clippy::cargo`                           | `allow`     | -> `warn`/`deny`      |
+| `clippy::complexity`                      | `warn`      | -> `warn` (no change) |
+| `clippy::correctness`                     | `deny`      | -> `deny` (no change) |
+| `clippy::nursery`                         | `allow`     | -> `warn`             |
+| `clippy::pedantic`                        | `allow`     | -> `warn`             |
+| `clippy::perf`                            | `warn`      | -> `warn` (no change) |
+| `clippy::style`                           | `warn`      | -> `warn` (no change) |
+| `clippy::suspicious`                      | `warn`      | -> `warn` (no change) |
+
+Together, the categories that are enabled by default make up `clippy::all`. Due
+to the nuanced nature of their application, they should be adjusted on a
+per-category basis, or a per-lint basis, rather than adjusting `clippy::all`.
+
+```rust
+#![warn(
+	clippy::cargo,
+	clippy::nursery,
+	clippy::pedantic,
+)]
+```
+
+#### Clippy cargo lints
+
+The following lints are set to `allow` by default, and have been changed to
+`deny`:
+
+```rust
+#![deny(
+	clippy::negative_feature_names,
+	clippy::wildcard_dependencies,
+)]
+```
+
+The remaining lints are set to `allow` by default, and have been changed to
+`warn` at a category level.
+
+#### Clippy nursery lints
+
+There are no specific amendments to the `nursery` lints at present, beyond those
+applied at a category level.
+
+#### Clippy pedantic lints
+
+The following lints are set to `allow` by default, get set to `warn` at the
+`clippy::pedantic` category level, and have been changed back to `allow`:
+
+```rust
+#![allow(
+    clippy::module_name_repetitions,
+)]
+```
+
+#### Clippy restriction lints
+
+Note that the lints configured here assume that unsafe code has been forbidden
+at a Rust compiler level. If working on a project with unsafe code, resulting in
+that compiler lint being relaxed, then it is recommended that the various Clippy
+lints relating to unsafe code be examined, and any relevant ones enabled.
+Otherwise, they are not required.
+
+##### Forbid
+
+The following lints are set to `allow` by default, and have been changed to
+`forbid`:
+
+```rust
+#![forbid(
+    clippy::allow_attributes_without_reason,
+    clippy::dbg_macro,
+    clippy::exit,
+    clippy::missing_assert_message,
+    clippy::missing_docs_in_private_items,
+    clippy::mod_module_files,
+    clippy::multiple_inherent_impl,
+    clippy::panic_in_result_fn,
+    clippy::str_to_string,
+    clippy::string_to_string,
+    clippy::tests_outside_test_module,
+    clippy::unimplemented,
+    clippy::unwrap_in_result,
+)]
+```
+
+##### Deny
+
+The following lints are set to `allow` by default, and have been changed to
+`deny`:
+
+```rust
+#![deny(
+    clippy::clone_on_ref_ptr,
+    clippy::empty_structs_with_brackets,
+    clippy::error_impl_error,
+    clippy::exhaustive_enums,
+    clippy::exhaustive_structs,
+    clippy::expect_used,
+    clippy::float_cmp_const,
+    clippy::fn_to_numeric_cast_any,
+    clippy::format_push_string,
+    clippy::get_unwrap,
+    clippy::impl_trait_in_params,
+    clippy::integer_division,
+    clippy::lossy_float_literal,
+    clippy::mem_forget,
+    clippy::panic,
+    clippy::print_stderr,
+    clippy::print_stdout,
+    clippy::rc_mutex,
+    clippy::try_err,
+    clippy::unwrap_used,
+    clippy::wildcard_enum_match_arm,
+)]
+```
+
+##### Warn
+
+The following lints are set to `allow` by default, and have been changed to
+`warn`:
+
+```rust
+#![warn(
+    clippy::absolute_paths,
+    clippy::arithmetic_side_effects,
+    clippy::as_underscore,
+    clippy::decimal_literal_representation,
+    clippy::default_numeric_fallback,
+    clippy::deref_by_slicing,
+    clippy::empty_drop,
+    clippy::filetype_is_file,
+    clippy::if_then_some_else_none,
+    clippy::indexing_slicing,
+    clippy::let_underscore_must_use,
+    clippy::let_underscore_untyped,
+    clippy::map_err_ignore,
+    clippy::missing_asserts_for_indexing,
+    clippy::mixed_read_write_in_expression,
+    clippy::mutex_atomic,
+    clippy::pattern_type_mismatch,
+    clippy::pub_without_shorthand,
+    clippy::rc_buffer,
+    clippy::redundant_type_annotations,
+    clippy::rest_pat_in_fully_bound_structs,
+    clippy::same_name_method,
+    clippy::semicolon_outside_block,
+    clippy::shadow_reuse,
+    clippy::shadow_same,
+    clippy::shadow_unrelated,
+    clippy::std_instead_of_core,
+    clippy::string_lit_chars_any,
+    clippy::string_slice,
+    clippy::suspicious_xor_used_as_pow,
+    clippy::todo,
+    clippy::unnecessary_safety_comment,
+    clippy::unnecessary_safety_doc,
+    clippy::unneeded_field_pattern,
+    clippy::unreachable,
+    clippy::unseparated_literal_suffix,
+    clippy::use_debug,
+    clippy::verbose_file_reads,
+)]
+```
+
+Note that `clippy::missing_trait_methods` can be useful, but is not enabled by
+default as it can be very noisy. It is recommended that it be enabled on a
+per-trait basis, as required.
+
+Similarly, the `clippy::min_ident_chars` and
+`clippy::single_char_lifetime_names` lints can also be useful, but it is very
+common in idiomatic Rust to use single-character variable and lifetime names,
+and so these are not enabled by default as they cause a lot of noise and would
+result in either unnecessary verbosity or a lot of linting exceptions. It may be
+that they can be useful on a per-file basis.
+
+Additionally, there are some that are currently unstable and should be added
+once they become stable: `clippy::iter_over_hash_type` (coming in Rust 1.75).
+
+#### Clippy configuration
+
+Note that, in addition to the lints themselves, configuration options can be set
+in a `clippy.toml` file. For instance, if using `clippy::min_ident_chars`, the
+following configuration can be used to set the threshold to two characters, and
+to allow the most-commonly-used acceptable short variable names:
+
+```toml
+min-ident-chars-threshold = 2
+allowed-idents-below-min-chars = ["i", "Ok", "id", "ip", "to"]
+```
+
+The `clippy::min_ident_chars` lint is set to trigger at two characters by the
+configuration above, i.e. variable names should be three characters or more. In
+most cases, this will be suitable when combined with the most-commonly-used
+acceptable short variable names listed, namely `i`, `id`, `ip`, and `to` (plus
+`Ok` to handle the `Result::Ok` variant). However, there are many additional
+possibilities, such as `x`, `y`, `z` for co-ordinates; `dy` `dx` for
+differentials; and so on, plus it is idiomatic to use single-character variables
+in many places such as closures, formatters, and conversion functions. If
+self-explanatory short names such as these are common to a project then the
+configuration could be adjusted to list them, or to decrease the threshold to
+one character — if uncommon, then the lint could be disabled for a specific
+function. The ultimate goal is to achieve a high standard of clarity and
+readability, and if one- and two-character variable names are generally not
+descriptive enough, this lint may prove useful. Still, due to the commonality
+and idiomatic nature of single-character variable names, it is not enabled by
+default.
+
+There are currently no Clippy configuration options set by defualt as part of
+the recommended coding standards setup.
+
+
 ## Filesystem layout
 
 A typical Rust project should have the following structure:
@@ -474,9 +1098,9 @@ always applicable, but think about which may be needed and include them if
 they are relevant.
 
   - Parameters
-  - Examples
+  - Errors
   - Panics
-  - Safety
+  - Examples
   - See also
 
 Notably, Markdown lists should follow two individual styles, depending on the
