@@ -19,6 +19,43 @@ This document is accompanied by example Rust files, and so this whole repository
 is a working example of the standards described here, in the form of a
 compilable, testable Rust project.
 
+**Table of contents**
+
+  - [Variation and evolution](#variation-and-evolution)
+  - [IDEs and editors](#ides-and-editors)
+      - [Fonts](#fonts)
+      - [Highlighting](#highlighting)
+  - [Code formatting](#code-formatting)
+      - [Indentation](#indentation)
+      - [Alignment](#alignment)
+      - [Line breaks](#line-breaks)
+      - [Line length](#line-length)
+      - [Whitespace](#whitespace)
+      - [Trailing commas](#trailing-commas)
+      - [Comments](#comments)
+          - [Structural comments](#structural-comments)
+          - [Whole-line comments](#whole-line-comments)
+          - [Inline comments](#inline-comments)
+  - [Filesystem layout](#filesystem-layout)
+  - [Code documentation](#code-documentation)
+      - [Structs](#structs)
+      - [Enums](#enums)
+      - [Traits](#traits)
+      - [Functions and methods](#functions-and-methods)
+      - [Macros](#macros)
+      - [Modules](#modules)
+      - [Tests](#tests)
+  - [General documentation](#general-documentation)
+  - [Testing](#testing)
+      - [Unit tests](#unit-tests)
+      - [Integration tests](#integration-tests)
+      - [Compilation tests](#compilation-tests)
+  - [Version control](#version-control)
+  - [Development process](#development-process)
+  - [Templates and examples](#templates-and-examples)
+      - [Root directory](#root-directory)
+      - [`src`](#src)
+
 
 ## Variation and evolution
 
@@ -440,7 +477,7 @@ they are relevant.
   - Examples
   - Panics
   - Safety
-  - See Also
+  - See also
 
 Notably, Markdown lists should follow two individual styles, depending on the
 context. For parameters and see-also links, the list should use `*` style
