@@ -1,3 +1,10 @@
+//! An example Rust project.
+//! 
+//! This project does nothing useful. It is intended to demonstrate the Rust
+//! coding standards described in this repository.
+
+
+
 //		Global configuration
 
 //	For an explanation of the following configuration, see:
@@ -25,6 +32,7 @@
 	macro_use_extern_crate,
 	unknown_lints,
 	unnameable_test_items,
+	unreachable_pub,
 )]
 #![warn(
 	let_underscore_drop,
@@ -139,6 +147,12 @@
 	clippy::verbose_file_reads,
 )]
 
+//		Lint customisations														
+//	Customisations of the standard linting configuration
+#![allow(
+	unreachable_pub,
+)]
+
 
 
 //		Modules
@@ -152,13 +166,33 @@ mod tests;
 
 //		Packages
 
+use foo::{Foo, Settings, Style};
+
 
 
 //		Functions
 
 //		main																	
+#[allow(clippy::print_stdout)]
 fn main() {
-	println!("Hello, world!");
+	let example1 = Foo::new(
+		Some(42),
+		Settings::default(),
+	);
+	let example2 = Foo::new(
+		None,
+		Settings {
+			Style: Style::Bar,
+		},
+	);
+	match example1.settings().Style {
+		Style::Standard => println!("Hello, number {}!", example1.id.unwrap_or(0)),
+		Style::Bar      => println!("Hi number {}.",     example1.id.unwrap_or(0)),
+	}
+	match example2.settings().Style {
+		Style::Standard => println!("Hello, world!"),
+		Style::Bar      => println!("Hi world."),
+	}
 }
 
 

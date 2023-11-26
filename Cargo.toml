@@ -1,12 +1,17 @@
 [package]
 name = "foo"
 version = "0.1.0"
+description = "Opinionated coding standards for Rust code (example application)"
+categories = ["config", "development-tools", "rust-patterns"]
+keywords = ["utility"]
 edition = "2021"
 # For open-source, typically use this:
 license = "MIT"
 # For closed-source, use this:
 #license-file = "LICENSE"
-authors = ["Dotfive Limited"]
+authors = ["Dan Williams <dan@dotfive.co.uk>"]
+repository = "https://github.com/dotfive/standards-rs"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -16,7 +21,7 @@ opt-level = "z"  # Optimise for size
 lto = true       # Enable link-time optimisation
 
 [dependencies]
-tempfile = "3.5.0"
 
 [dev-dependencies]
+tempfile = "3.5.0"
 trybuild = "1.0.80"
