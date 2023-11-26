@@ -20,6 +20,9 @@ strip = true     # Automatically strip symbols from the binary
 opt-level = "z"  # Optimise for size
 lto = true       # Enable link-time optimisation
 
+[features]
+reasons = []
+
 [dependencies]
 
 [dev-dependencies]

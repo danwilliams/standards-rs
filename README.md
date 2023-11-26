@@ -50,6 +50,7 @@ compilable, testable Rust project.
           - [Clippy pedantic lints](#clippy-pedantic-lints)
           - [Clippy restriction lints](#clippy-restriction-lints)
           - [Clippy configuration](#clippy-configuration)
+      - [Giving reasons](#giving-reasons)
   - [Filesystem layout](#filesystem-layout)
   - [Code documentation](#code-documentation)
       - [Structs](#structs)
@@ -414,6 +415,8 @@ documentation with the intent of decluttering your codebase.
 //	For an explanation of the following configuration, see:
 //	https://github.com/dotfive/standards-rs#code-linting
 
+#![cfg_attr(feature = "reasons", feature(lint_reasons))]
+
 //		Standard Rust compiler lints											
 //	Future compatibility lints
 #![deny(future_incompatible)]
@@ -468,9 +471,8 @@ documentation with the intent of decluttering your codebase.
     clippy::wildcard_dependencies,
 )]
 //	Clippy pedantic lints
-#![allow(
-    clippy::module_name_repetitions,
-)]
+#![cfg_attr(    feature = "reasons",  allow(clippy::module_name_repetitions, reason = "This is not required"))]
+#![cfg_attr(not(feature = "reasons"), allow(clippy::module_name_repetitions))]
 //	Clippy restriction lints
 #![forbid(
     clippy::allow_attributes_without_reason,
@@ -846,6 +848,18 @@ The following lints are set to `allow` by default, get set to `warn` at the
 )]
 ```
 
+Note that if using the `reasons` crate feature, as described in the [Giving
+reasons](#giving-reasons) section below, then the `module_name_repetitions` lint
+will need to be disabled by adding an exception in the following manner:
+
+```rust
+#![cfg_attr(    feature = "reasons",  allow(clippy::module_name_repetitions, reason = "This is not required"))]
+#![cfg_attr(not(feature = "reasons"), allow(clippy::module_name_repetitions))]
+```
+
+This approach is already included in the [complete configuration](#complete-configuration)
+provided above, so if you are using that, there is nothing else to do.
+
 #### Clippy restriction lints
 
 Note that the lints configured here assume that unsafe code has been forbidden
@@ -1001,6 +1015,85 @@ default.
 
 There are currently no Clippy configuration options set by defualt as part of
 the recommended coding standards setup.
+
+### Giving reasons
+
+When a lint is disabled, i.e. an exception is added to allow the associated
+behaviour, it is important to give a reason for doing so. This can be done by
+adding a comment, but it is much better to do so in a manner that is
+enforceable. There is a Rust feature called `lint_reasons` that allows this, but
+it is currently unstable. Discussions have come on a long way recently (i.e. in
+2023), and it looks like it, along with the now-associated `#[expect()]`
+attribute, will be stabilised in the near future.
+
+Therefore, to take advantage of this, the following approach is recommended:
+
+ 1. Add the following to your `Cargo.toml` file:
+    
+    ```toml
+    [features]
+    reasons = []
+    ```
+    
+    This will create a feature on your crate called `reasons`, which will be
+    disabled by default.
+
+ 2. Add the following to your `main.rs` or `lib.rs` file:
+    
+    ```rust
+    #![cfg_attr(feature = "reasons", feature(lint_reasons))]
+    ```
+    
+    This will enable the `lint_reasons` Rust feature if the `reasons` crate
+    feature is enabled. Note, this is included in the [complete configuration](#complete-configuration)
+    provided above.
+
+ 3. When adding an exception for a lint, i.e. allowing the associated behaviour,
+    instead of simply using `#[allow()]`, use the following approach:
+    
+    ```rust
+    #[cfg_attr(    feature = "reasons",  allow(LINTNAME, reason = "EXPLANATION"))]
+    #[cfg_attr(not(feature = "reasons"), allow(LINTNAME))]
+    ```
+    
+    For instance, to allow unused code by disabling the `dead_code` lint:
+    
+    ```rust
+    #[cfg_attr(    feature = "reasons",  allow(dead_code, reason = "This is not intended to be used yet"))]
+    #[cfg_attr(not(feature = "reasons"), allow(dead_code))]
+    ```
+    
+    Note, the same approach applies for file-level declarations, i.e.
+    `#![allow()]`.
+    
+ 4. When building, you can build normally by using `cargo build` and `cargo
+    clippy`. Assuming you are on the `stable` Rust toolchain, the lints will be
+    disabled, and the reasons will be ignored. Then, when you want to run a
+    check that all reasons are present, you can use the following:
+    
+    ```sh
+    cargo +nightly clippy --features reasons
+    ```
+    
+    This will enable the `reasons` crate feature, which will enable the
+    `lint_reasons` Rust feature, which will enable the `reason` attribute.
+    Assuming you are using the recommended lints, the
+    `clippy::allow_attributes_without_reason` lint will be enabled, which will
+    cause Clippy to fail if any reasons are missing.
+
+This approach only requires a single additional line of code per lint, and
+provides a way to enforce the presence of reasons. In that regard it is no more
+verbose than adding a comment, but benefits from linting checks. It is also easy
+to amend when the Rust feature is eventually stabilised.
+
+Note that in order for this approach to work, you will need to have the
+`nightly` Rust toolchain installed. You can do this by running `rustup install
+nightly`. You do not have to switch over to the `nightly` toolchain, as the
+commands above will use it only when specifically requested.
+
+It is advisable to develop using the `stable` toolchain, especially when writing
+libraries, but keeping an eye on the future of Rust and discretely using certain
+features can be very beneficial.
 
 
 ## Filesystem layout

@@ -1,5 +1,8 @@
 //! The foo module.
-#![allow(non_snake_case)]
+#![cfg_attr(    feature = "reasons",  allow(non_snake_case, reason = "The Settings struct uses PascalCase"))]
+#![cfg_attr(not(feature = "reasons"), allow(non_snake_case))]
+
+
 
 //		Modules
 
@@ -35,7 +38,8 @@ pub enum Style {
 
 //		FooError																
 /// The possible errors that can occur when working with a foo.
-#[allow(dead_code)]
+#[cfg_attr(    feature = "reasons",  allow(dead_code, reason = "This is an example error and is not actually used"))]
+#[cfg_attr(not(feature = "reasons"), allow(dead_code))]
 #[derive(Debug)]
 pub enum FooError {
 	/// The foo is invalid.
@@ -44,7 +48,6 @@ pub enum FooError {
 
 impl Display for FooError {
 	//		fmt																	
-	#[allow(clippy::min_ident_chars)]
 	fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
 		let description = match *self {
 			Self::Invalid => "Invalid foo".to_owned(),
@@ -94,7 +97,8 @@ impl Foo {
 	/// * `id`       - The unique id, if there is one.
 	/// * `settings` - The settings to use for the foo.
 	/// 
-	#[allow(clippy::missing_const_for_fn)]
+	#[cfg_attr(    feature = "reasons",  allow(clippy::missing_const_for_fn, reason = "This will do more in future"))]
+	#[cfg_attr(not(feature = "reasons"), allow(clippy::missing_const_for_fn))]
 	pub fn new(
 		id:       Option<u64>,
 		settings: Settings,

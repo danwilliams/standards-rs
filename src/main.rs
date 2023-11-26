@@ -10,6 +10,8 @@
 //	For an explanation of the following configuration, see:
 //	https://github.com/dotfive/standards-rs#code-linting
 
+#![cfg_attr(feature = "reasons", feature(lint_reasons))]
+
 //		Standard Rust compiler lints											
 //	Future compatibility lints
 #![deny(future_incompatible)]
@@ -64,9 +66,8 @@
 	clippy::wildcard_dependencies,
 )]
 //	Clippy pedantic lints
-#![allow(
-	clippy::module_name_repetitions,
-)]
+#![cfg_attr(    feature = "reasons",  allow(clippy::module_name_repetitions, reason = "This is not required"))]
+#![cfg_attr(not(feature = "reasons"), allow(clippy::module_name_repetitions))]
 //	Clippy restriction lints
 #![forbid(
 	clippy::allow_attributes_without_reason,
@@ -149,9 +150,8 @@
 
 //		Lint customisations														
 //	Customisations of the standard linting configuration
-#![allow(
-	unreachable_pub,
-)]
+#![cfg_attr(    feature = "reasons",  allow(unreachable_pub, reason = "Not useful in a binary crate"))]
+#![cfg_attr(not(feature = "reasons"), allow(unreachable_pub))]
 
 
 
@@ -173,7 +173,8 @@ use foo::{Foo, Settings, Style};
 //		Functions
 
 //		main																	
-#[allow(clippy::print_stdout)]
+#[cfg_attr(    feature = "reasons",  allow(clippy::print_stdout, reason = "This is an example app with demo output"))]
+#[cfg_attr(not(feature = "reasons"), allow(clippy::print_stdout))]
 fn main() {
 	let example1 = Foo::new(
 		Some(42),
