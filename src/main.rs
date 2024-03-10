@@ -83,7 +83,6 @@
 	clippy::string_to_string,
 	clippy::tests_outside_test_module,
 	clippy::unimplemented,
-	clippy::unwrap_in_result,
 )]
 #![deny(
 	clippy::clone_on_ref_ptr,
@@ -105,6 +104,7 @@
 	clippy::print_stdout,
 	clippy::rc_mutex,
 	clippy::try_err,
+	clippy::unwrap_in_result,
 	clippy::unwrap_used,
 	clippy::wildcard_enum_match_arm,
 )]
