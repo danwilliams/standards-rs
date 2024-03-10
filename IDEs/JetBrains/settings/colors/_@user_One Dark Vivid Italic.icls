@@ -38,6 +38,12 @@
         <option name="BACKGROUND" value="308020" />
       </value>
     </option>
+    <option name="󰭅_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="ffffff" />
+        <option name="BACKGROUND" value="333a47" />
+      </value>
+    </option>
     <option name="_COMMENT">
       <value>
         <option name="FOREGROUND" value="ffffff" />

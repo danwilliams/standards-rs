@@ -11,10 +11,11 @@
 //		Function																
 //§		Trait																	
 //		Struct																	
-//		Macro																	
 //		Enum																	
 //		Error																	
+//		Macro																	
 //		Test																	
+//󰭅		Implementation															
 
 	//		Method																
 	//		Properties															
