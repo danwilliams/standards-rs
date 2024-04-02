@@ -456,7 +456,6 @@ documentation with the intent of decluttering your codebase.
     unused_lifetimes,
     unused_qualifications,
     unused_results,
-    unused_tuple_struct_fields,
     variant_size_differences,
 )]
 //		Clippy lints															
@@ -758,7 +757,6 @@ The following lints are set to `allow` by default, and have been changed to
 	unused_lifetimes,
 	unused_qualifications,
 	unused_results,
-	unused_tuple_struct_fields,
 	variant_size_differences,
 )]
 ```
