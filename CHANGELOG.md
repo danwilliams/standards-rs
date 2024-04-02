@@ -9,16 +9,33 @@ The format is based on [Keep a Changelog][], and this project adheres to
 [Semantic Versioning][].
 
 
-## 0.3.0 (10 March 2023)
+## 0.4.0 (02 April 2024)
+
+### Added
+
+  - Added new lints available in Rust 1.77
+      - `clippy::pub_underscore_fields`
+      - `clippy::empty_enum_variants_with_brackets`
+      - `clippy::unconditional_recursion`
+
+### Removed
+
+  - Removed lints deprecated in Rust 1.77
+      - `unused_tuple_struct_fields`
+
+
+## 0.3.0 (10 March 2024)
 
 ### Added
 
   - Added new lints available in Rust 1.76
+      - `clippy::infinite_loop`
+      - `clippy::iter_over_hash_type`
   - Added specific style for `impl` section header comments
 
 ### Changed
 
-  - Downgraded the `clippy::unwrap_in_result` lint
+  - Downgraded the `clippy::unwrap_in_result` lint from `forbid` to `deny`
 
 
 ## 0.2.0 (27 November 2023)
