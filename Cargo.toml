@@ -27,4 +27,4 @@ reasons = []
 
 [dev-dependencies]
 tempfile = "3.10.1"
-trybuild = "1.0.89"
+trybuild = "1.0.91"
