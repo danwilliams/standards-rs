@@ -880,6 +880,7 @@ The following lints are set to `allow` by default, and have been changed to
     clippy::allow_attributes_without_reason,
     clippy::dbg_macro,
     clippy::exit,
+    clippy::infinite_loop,
     clippy::missing_assert_message,
     clippy::missing_docs_in_private_items,
     clippy::mod_module_files,
@@ -941,6 +942,7 @@ The following lints are set to `allow` by default, and have been changed to
     clippy::filetype_is_file,
     clippy::if_then_some_else_none,
     clippy::indexing_slicing,
+    clippy::iter_over_hash_type,
     clippy::let_underscore_must_use,
     clippy::let_underscore_untyped,
     clippy::map_err_ignore,
@@ -982,9 +984,6 @@ common in idiomatic Rust to use single-character variable and lifetime names,
 and so these are not enabled by default as they cause a lot of noise and would
 result in either unnecessary verbosity or a lot of linting exceptions. It may be
 that they can be useful on a per-file basis.
-
-Additionally, there are some that are currently unstable and should be added
-once they become stable: `clippy::iter_over_hash_type` (coming in Rust 1.75).
 
 #### Clippy configuration
 
