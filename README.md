@@ -49,6 +49,7 @@ compilable, testable Rust project.
           - [Clippy nursery lints](#clippy-nursery-lints)
           - [Clippy pedantic lints](#clippy-pedantic-lints)
           - [Clippy restriction lints](#clippy-restriction-lints)
+          - [Clippy suspicious lints](#clippy-suspicious-lints)
           - [Clippy configuration](#clippy-configuration)
       - [Giving reasons](#giving-reasons)
   - [Filesystem layout](#filesystem-layout)
@@ -471,6 +472,9 @@ documentation with the intent of decluttering your codebase.
     clippy::wildcard_dependencies,
 )]
 //	Clippy pedantic lints
+#![deny(
+    clippy::pub_underscore_fields,
+)]
 #![cfg_attr(    feature = "reasons",  allow(clippy::module_name_repetitions, reason = "This is not required"))]
 #![cfg_attr(not(feature = "reasons"), allow(clippy::module_name_repetitions))]
 //	Clippy restriction lints
@@ -492,6 +496,7 @@ documentation with the intent of decluttering your codebase.
 )]
 #![deny(
     clippy::clone_on_ref_ptr,
+    clippy::empty_enum_variants_with_brackets,
     clippy::empty_structs_with_brackets,
     clippy::error_impl_error,
     clippy::exhaustive_enums,
@@ -553,6 +558,10 @@ documentation with the intent of decluttering your codebase.
     clippy::unseparated_literal_suffix,
     clippy::use_debug,
     clippy::verbose_file_reads,
+)]
+//	Clippy suspicious lints
+#![deny(
+    clippy::unconditional_recursion,
 )]
 ```
 
@@ -821,6 +830,8 @@ per-category basis, or a per-lint basis, rather than adjusting `clippy::all`.
 
 #### Clippy cargo lints
 
+##### Deny
+
 The following lints are set to `allow` by default, and have been changed to
 `deny`:
 
@@ -840,6 +851,22 @@ There are no specific amendments to the `nursery` lints at present, beyond those
 applied at a category level.
 
 #### Clippy pedantic lints
+
+##### Deny
+
+The following lints are set to `allow` by default, and have been changed to
+`deny`:
+
+```rust
+#![deny(
+    clippy::pub_underscore_fields,
+)]
+```
+
+The remaining lints are set to `allow` by default, and have been changed to
+`warn` at a category level.
+
+##### Allow
 
 The following lints are set to `allow` by default, get set to `warn` at the
 `clippy::pedantic` category level, and have been changed back to `allow`:
@@ -901,6 +928,7 @@ The following lints are set to `allow` by default, and have been changed to
 ```rust
 #![deny(
     clippy::clone_on_ref_ptr,
+    clippy::empty_enum_variants_with_brackets,
     clippy::empty_structs_with_brackets,
     clippy::error_impl_error,
     clippy::exhaustive_enums,
@@ -984,6 +1012,21 @@ common in idiomatic Rust to use single-character variable and lifetime names,
 and so these are not enabled by default as they cause a lot of noise and would
 result in either unnecessary verbosity or a lot of linting exceptions. It may be
 that they can be useful on a per-file basis.
+
+#### Clippy suspicious lints
+
+##### Deny
+
+The following lints are set to `warn` by default, and have been changed to
+`deny`:
+
+```rust
+#![deny(
+    clippy::unconditional_recursion,
+)]
+```
+
+The remaining lints are set to `allow` by default, and remain unchanged.
 
 #### Clippy configuration
 
