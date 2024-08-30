@@ -560,6 +560,7 @@ documentation with the intent of decluttering your codebase.
 )]
 //	Clippy suspicious lints
 #![deny(
+    clippy::const_is_empty,
     clippy::deprecated_clippy_cfg_attr,
     clippy::incompatible_msrv,
     clippy::multiple_bound_locations,
@@ -1024,6 +1025,7 @@ The following lints are set to `warn` by default, and have been changed to
 
 ```rust
 #![deny(
+    clippy::const_is_empty,
     clippy::deprecated_clippy_cfg_attr,
     clippy::incompatible_msrv,
     clippy::multiple_bound_locations,
