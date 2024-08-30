@@ -409,6 +409,8 @@ let foo = bar * 10;  //  This is an inline comment.
 
 ## Code linting
 
+[lint_reasons]: https://doc.rust-lang.org/stable/unstable-book/language-features/lint-reasons.html
+
 There are two levels of linting that are relevant: the Rust compiler, and
 Clippy, which is run via `cargo clippy`. Each has its own set of rules, and
 the recommended configuration is described below.
@@ -1027,12 +1029,14 @@ the recommended coding standards setup.
 When a lint is disabled, i.e. an exception is added to allow the associated
 behaviour, it is important to give a reason for doing so. This can be done by
 adding a comment, but it is much better to do so in a manner that is
-enforceable. There is a Rust feature called `lint_reasons` that allows this, but
-it is currently unstable. Discussions have come on a long way recently (i.e. in
-2023), and it looks like it, along with the now-associated `#[expect()]`
-attribute, will be stabilised in the near future.
+enforceable. There is a Rust feature called [`lint_reasons`][lint_reasons] that
+allows this, but it is currently unstable. However, it has now been merged, and
+is due for release in Rust 1.81, along with the now-associated `#[expect()]`
+attribute:
 
-Therefore, to take advantage of this, the following approach is recommended:
+  - https://github.com/rust-lang/rust/pull/120924
+
+Until then, to take advantage of this, the following approach is recommended:
 
  1. Add the following to your `Cargo.toml` file:
     
@@ -1050,9 +1054,9 @@ Therefore, to take advantage of this, the following approach is recommended:
     #![cfg_attr(feature = "reasons", feature(lint_reasons))]
     ```
     
-    This will enable the `lint_reasons` Rust feature if the `reasons` crate
-    feature is enabled. Note, this is included in the [complete configuration](#complete-configuration)
-    provided above.
+    This will enable the [`lint_reasons`][lint_reasons] Rust feature if the
+    `reasons` crate feature is enabled. Note, this is included in the
+    [complete configuration](#complete-configuration) provided above.
 
  3. When adding an exception for a lint, i.e. allowing the associated behaviour,
     instead of simply using `#[allow()]`, use the following approach:
