@@ -591,21 +591,14 @@ documentation:
 
 #### Future compatibility lints
 
-At the time of writing, the only item from the `future_incompatible` category
-not enabled by default is the `pointer_structural_match` lint. The lints in the
-`future_incompatible` category are variously set to `warn` or `deny`, and as
-referencing the category name affects this nuanced distinction, the single
-`pointer_structural_match` lint should be set explicitly instead if a mix of
-`warn` and `deny` is desired. However, as all code should be following the Rust
-2021 approaches and also remain fully future-compatible, this lint category is
-set to `deny`.
-
-There are currently 40 lints in the `future_incompatible` category, so they are
+There are currently 34 lints in the `future_incompatible` category, so they are
 not listed here.
 
 ```rust
 #![deny(future_incompatible)]
 ```
+
+All of these are set to `deny`.
 
 #### Deprecated approach lints
 
