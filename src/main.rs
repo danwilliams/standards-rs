@@ -154,7 +154,11 @@
 )]
 //	Clippy suspicious lints
 #![deny(
+	clippy::deprecated_clippy_cfg_attr,
+	clippy::incompatible_msrv,
+	clippy::multiple_bound_locations,
 	clippy::unconditional_recursion,
+	clippy::unnecessary_clippy_cfg,
 )]
 
 //		Lint customisations														
