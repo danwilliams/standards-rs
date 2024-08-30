@@ -114,6 +114,7 @@ there is some further information that has not been considered.
 [RustRover]:          https://www.jetbrains.com/rust/
 [Sublime Text]:       https://www.sublimetext.com/
 [Visual Studio Code]: https://code.visualstudio.com/
+[Zed]:                https://zed.dev/
 
 Which IDE or editor is used will be fairly important in order to avoid
 unnecessary friction in following certain aspects of the standards. It does not
@@ -123,13 +124,15 @@ it will support Rust syntax and be able to validate Rust code, and ideally it
 will allow for the configuration of our custom comment headers.
 
 Our recommended IDE is [RustRover][], which is available from [JetBrains][]. It
-is a commercial product, but is currently available as a free preview until full
-release.
+is a commercial product, but significantly better than the free alternatives.
 
 We do not currently recommend [Visual Studio Code][], simply because its
 interaction with Rust is not as smooth as it could be, and it misses out on many
 of the advantages provided by JetBrains IDEs. However, it is a perfectly viable
 alternative, and is free.
+
+Any up-and-coming editor is [Zed][], which is reasonably new, but free, and
+written in Rust. It is not very mature yet, but looks promising.
 
 A worthy mention is [Sublime Text][], which is a commercial product, but is free
 to evaluate. It is a very powerful editor, and is highly configurable, but it
