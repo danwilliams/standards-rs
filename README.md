@@ -591,12 +591,10 @@ documentation:
 
 #### Future compatibility lints
 
-There are currently 34 lints in the `future_incompatible` category, so they are
-not listed here.
+There are currently 34 lints in the [`future_incompatible`][rust::future_incompatible]
+category, so they are not listed here.
 
-```rust
-#![deny(future_incompatible)]
-```
+  - [`future_incompatible`][rust::future_incompatible]
 
 All of these are set to `deny`.
 
@@ -604,8 +602,8 @@ All of these are set to `deny`.
 
 ##### Rust 2018 compatibility
 
-The defaults for the items included in the `rust_2018_compatibility` category
-are:
+The defaults for the items included in the [`rust_2018_compatibility`][rust::rust_2018_compatibility]
+category are:
 
 | **Lint**                                  | **Default** | **Applied** |
 |-------------------------------------------|-------------|-------------|
@@ -616,12 +614,11 @@ are:
 
 Instead, all of these are set to `deny`, as all code should be following the
 Rust 2021 approaches.
-    
-```rust
-#![deny(rust_2018_compatibility)]
-```
 
-The defaults for the items included in the `rust_2018_idioms` category are:
+  - [`rust_2018_compatibility`][rust::rust_2018_compatibility]
+
+The defaults for the items included in the [`rust_2018_idioms`][rust::rust_2018_idioms]
+category are:
 
 | **Lint**                                  | **Default** | **Applied**           |
 |-------------------------------------------|-------------|-----------------------|
@@ -631,17 +628,15 @@ The defaults for the items included in the `rust_2018_idioms` category are:
 | `explicit_outlives_requirements`          | `allow`     | -> `warn`             |
 | `unused_extern_crates`                    | `allow`     | -> `warn`             |
 
-Enabling `rust_2018_idioms` sets all of these to `warn`, as all code should be
-following the Rust 2021 approaches.
+Enabling [`rust_2018_idioms`][rust::rust_2018_idioms] sets all of these to
+`warn`, as all code should be following the Rust 2021 approaches.
 
-```rust
-#![warn(rust_2018_idioms)]
-```
+  - [`rust_2018_idioms`][rust::rust_2018_idioms]
 
 ##### Rust 2021 compatibility
 
-The defaults for the items included in the `rust_2021_compatibility` category
-are:
+The defaults for the items included in the [`rust_2021_compatibility`][rust::rust_2021_compatibility]
+category are:
 
 | **Lint**                                  | **Default** | **Applied** |
 |-------------------------------------------|-------------|-------------|
@@ -657,13 +652,12 @@ are:
 Instead, all of these are set to `deny`, as all code should be following the
 Rust 2021 approaches.
 
-```rust
-#![deny(rust_2021_compatibility)]
-```
+  - [`rust_2021_compatibility`][rust::rust_2021_compatibility]
 
 #### Unused code lints
 
-The defaults for the items included in the `unused` category are:
+The defaults for the items included in the [`unused`][rust::unused] category
+are:
 
 | **Lint**                                  | **Default** | **Applied**           |
 |-------------------------------------------|-------------|-----------------------|
@@ -692,9 +686,7 @@ The defaults for the items included in the `unused` category are:
 
 Instead, all of these are set to `warn`.
 
-```rust
-#![warn(unused)]
-```
+  - [`unused`][rust::unused]
 
 #### Cherry-picked lints
 
@@ -703,27 +695,20 @@ Instead, all of these are set to `warn`.
 The following lints are set to `allow` by default, and have been changed to
 `forbid`:
 
-```rust
-#![forbid(
-	unsafe_code,
-	unsafe_op_in_unsafe_fn,
-)]
-```
+  - [`unsafe_code`][rust::unsafe_code]
+  - [`unsafe_op_in_unsafe_fn`][rust::unsafe_op_in_unsafe_fn]
 
 ##### Deny
 
 The following lints are set to `allow` by default, and have been changed to
 `deny`:
 
-```rust
-#![deny(
-	macro_use_extern_crate,
-	unreachable_pub,
-)]
-```
+  - [`macro_use_extern_crate`][rust::macro_use_extern_crate]
+  - [`unreachable_pub`][rust::unreachable_pub]
 
-**Note that `unreachable_pub` should be removed for binaries**, as it only makes
-sense for libraries. The lint behaviour may well change in the future:
+**Note that [`unreachable_pub`][rust::unreachable_pub] should be removed for
+binaries**, as it only makes sense for libraries. The lint behaviour may well
+change in the future:
 
   - https://github.com/rust-lang/rust/issues/74970
 
@@ -734,16 +719,12 @@ once they become stable: `fuzzy_provenance_casts`, `lossy_provenance_casts`, and
 The following lints are set to `warn` by default, and have been changed to
 `deny`:
 
-```rust
-#![deny(
-	deprecated,
-	deprecated_where_clause_location,
-	incomplete_features,
-	internal_features,
-	unknown_lints,
-	unnameable_test_items,
-)]
-```
+  - [`deprecated`][rust::deprecated]
+  - [`deprecated_where_clause_location`][rust::deprecated_where_clause_location]
+  - [`incomplete_features`][rust::incomplete_features]
+  - [`internal_features`][rust::internal_features]
+  - [`unknown_lints`][rust::unknown_lints]
+  - [`unnameable_test_items`][rust::unnameable_test_items]
 
 Additionally, there are some that are currently unstable and should be added
 once they become stable: `unknown_or_malformed_diagnostic_attributes`.
@@ -753,24 +734,20 @@ once they become stable: `unknown_or_malformed_diagnostic_attributes`.
 The following lints are set to `allow` by default, and have been changed to
 `warn`:
 
-```rust
-#![warn(
-	let_underscore_drop,
-	meta_variable_misuse,
-	missing_copy_implementations,
-	missing_debug_implementations,
-	missing_docs,
-	single_use_lifetimes,
-	trivial_casts,
-	trivial_numeric_casts,
-	unused_crate_dependencies,
-	unused_import_braces,
-	unused_lifetimes,
-	unused_qualifications,
-	unused_results,
-	variant_size_differences,
-)]
-```
+  - [`let_underscore_drop`][rust::let_underscore_drop]
+  - [`meta_variable_misuse`][rust::meta_variable_misuse]
+  - [`missing_copy_implementations`][rust::missing_copy_implementations]
+  - [`missing_debug_implementations`][rust::missing_debug_implementations]
+  - [`missing_docs`][rust::missing_docs]
+  - [`single_use_lifetimes`][rust::single_use_lifetimes]
+  - [`trivial_casts`][rust::trivial_casts]
+  - [`trivial_numeric_casts`][rust::trivial_numeric_casts]
+  - [`unused_crate_dependencies`][rust::unused_crate_dependencies]
+  - [`unused_import_braces`][rust::unused_import_braces]
+  - [`unused_lifetimes`][rust::unused_lifetimes]
+  - [`unused_qualifications`][rust::unused_qualifications]
+  - [`unused_results`][rust::unused_results]
+  - [`variant_size_differences`][rust::variant_size_differences]
 
 Additionally, there are some that are currently unstable and should be added
 once they become stable: `must_not_suspend`.
@@ -829,13 +806,9 @@ Together, the categories that are enabled by default make up `clippy::all`. Due
 to the nuanced nature of their application, they should be adjusted on a
 per-category basis, or a per-lint basis, rather than adjusting `clippy::all`.
 
-```rust
-#![warn(
-	clippy::cargo,
-	clippy::nursery,
-	clippy::pedantic,
-)]
-```
+  - [`clippy::cargo`][clippy::cargo]
+  - [`clippy::nursery`][clippy::nursery]
+  - [`clippy::pedantic`][clippy::pedantic]
 
 #### Clippy cargo lints
 
@@ -844,20 +817,16 @@ per-category basis, or a per-lint basis, rather than adjusting `clippy::all`.
 The following lints are set to `allow` by default, and have been changed to
 `deny`:
 
-```rust
-#![deny(
-	clippy::negative_feature_names,
-	clippy::wildcard_dependencies,
-)]
-```
+  - [`clippy::negative_feature_names`][clippy::negative_feature_names]
+  - [`clippy::wildcard_dependencies`][clippy::wildcard_dependencies]
 
 The remaining lints are set to `allow` by default, and have been changed to
 `warn` at a category level.
 
 #### Clippy nursery lints
 
-There are no specific amendments to the `nursery` lints at present, beyond those
-applied at a category level.
+There are no specific amendments to the [`nursery`][clippy::nursery] lints at
+present, beyond those applied at a category level.
 
 #### Clippy pedantic lints
 
@@ -866,11 +835,7 @@ applied at a category level.
 The following lints are set to `allow` by default, and have been changed to
 `deny`:
 
-```rust
-#![deny(
-    clippy::pub_underscore_fields,
-)]
-```
+  - [`clippy::pub_underscore_fields`][clippy::pub_underscore_fields]
 
 The remaining lints are set to `allow` by default, and have been changed to
 `warn` at a category level.
@@ -878,17 +843,14 @@ The remaining lints are set to `allow` by default, and have been changed to
 ##### Allow
 
 The following lints are set to `allow` by default, get set to `warn` at the
-`clippy::pedantic` category level, and have been changed back to `allow`:
+[`clippy::pedantic`][clippy::pedantic] category level, and have been changed
+back to `allow`:
 
-```rust
-#![allow(
-    clippy::module_name_repetitions,
-)]
-```
+  - [`clippy::module_name_repetitions`][clippy::module_name_repetitions]
 
 Note that if using the `reasons` crate feature, as described in the [Giving
-reasons](#giving-reasons) section below, then the `module_name_repetitions` lint
-will need to be disabled by adding an exception in the following manner:
+reasons](#giving-reasons) section below, then the [`module_name_repetitions`][clippy::module_name_repetitions]
+lint will need to be disabled by adding an exception in the following manner:
 
 ```rust
 #![cfg_attr(    feature = "reasons",  allow(clippy::module_name_repetitions, reason = "This is not required"))]
@@ -911,117 +873,106 @@ Otherwise, they are not required.
 The following lints are set to `allow` by default, and have been changed to
 `forbid`:
 
-```rust
-#![forbid(
-    clippy::allow_attributes_without_reason,
-    clippy::dbg_macro,
-    clippy::exit,
-    clippy::infinite_loop,
-    clippy::missing_docs_in_private_items,
-    clippy::mod_module_files,
-    clippy::multiple_inherent_impl,
-    clippy::panic_in_result_fn,
-    clippy::str_to_string,
-    clippy::string_to_string,
-    clippy::tests_outside_test_module,
-    clippy::unimplemented,
-)]
-```
+  - [`clippy::allow_attributes_without_reason`][clippy::allow_attributes_without_reason]
+  - [`clippy::dbg_macro`][clippy::dbg_macro]
+  - [`clippy::exit`][clippy::exit]
+  - [`clippy::infinite_loop`][clippy::infinite_loop]
+  - [`clippy::missing_docs_in_private_items`][clippy::missing_docs_in_private_items]
+  - [`clippy::mod_module_files`][clippy::mod_module_files]
+  - [`clippy::multiple_inherent_impl`][clippy::multiple_inherent_impl]
+  - [`clippy::panic_in_result_fn`][clippy::panic_in_result_fn]
+  - [`clippy::str_to_string`][clippy::str_to_string]
+  - [`clippy::string_to_string`][clippy::string_to_string]
+  - [`clippy::tests_outside_test_module`][clippy::tests_outside_test_module]
+  - [`clippy::unimplemented`][clippy::unimplemented]
 
 ##### Deny
 
 The following lints are set to `allow` by default, and have been changed to
 `deny`:
 
-```rust
-#![deny(
-    clippy::clone_on_ref_ptr,
-    clippy::empty_enum_variants_with_brackets,
-    clippy::empty_structs_with_brackets,
-    clippy::error_impl_error,
-    clippy::exhaustive_enums,
-    clippy::exhaustive_structs,
-    clippy::expect_used,
-    clippy::float_cmp_const,
-    clippy::fn_to_numeric_cast_any,
-    clippy::format_push_string,
-    clippy::get_unwrap,
-    clippy::impl_trait_in_params,
-    clippy::integer_division,
-    clippy::lossy_float_literal,
-    clippy::mem_forget,
-    clippy::missing_assert_message,
-    clippy::panic,
-    clippy::print_stderr,
-    clippy::print_stdout,
-    clippy::rc_mutex,
-    clippy::renamed_function_params,
-    clippy::try_err,
-    clippy::unwrap_in_result,
-    clippy::unwrap_used,
-    clippy::wildcard_enum_match_arm,
-)]
-```
+  - [`clippy::clone_on_ref_ptr`][clippy::clone_on_ref_ptr]
+  - [`clippy::empty_enum_variants_with_brackets`][clippy::empty_enum_variants_with_brackets]
+  - [`clippy::empty_structs_with_brackets`][clippy::empty_structs_with_brackets]
+  - [`clippy::error_impl_error`][clippy::error_impl_error]
+  - [`clippy::exhaustive_enums`][clippy::exhaustive_enums]
+  - [`clippy::exhaustive_structs`][clippy::exhaustive_structs]
+  - [`clippy::expect_used`][clippy::expect_used]
+  - [`clippy::float_cmp_const`][clippy::float_cmp_const]
+  - [`clippy::fn_to_numeric_cast_any`][clippy::fn_to_numeric_cast_any]
+  - [`clippy::format_push_string`][clippy::format_push_string]
+  - [`clippy::get_unwrap`][clippy::get_unwrap]
+  - [`clippy::impl_trait_in_params`][clippy::impl_trait_in_params]
+  - [`clippy::integer_division`][clippy::integer_division]
+  - [`clippy::lossy_float_literal`][clippy::lossy_float_literal]
+  - [`clippy::mem_forget`][clippy::mem_forget]
+  - [`clippy::missing_assert_message`][clippy::missing_assert_message]
+  - [`clippy::panic`][clippy::panic]
+  - [`clippy::print_stderr`][clippy::print_stderr]
+  - [`clippy::print_stdout`][clippy::print_stdout]
+  - [`clippy::rc_mutex`][clippy::rc_mutex]
+  - [`clippy::renamed_function_params`][clippy::renamed_function_params]
+  - [`clippy::try_err`][clippy::try_err]
+  - [`clippy::unwrap_in_result`][clippy::unwrap_in_result]
+  - [`clippy::unwrap_used`][clippy::unwrap_used]
+  - [`clippy::wildcard_enum_match_arm`][clippy::wildcard_enum_match_arm]
 
 ##### Warn
 
 The following lints are set to `allow` by default, and have been changed to
 `warn`:
 
-```rust
-#![warn(
-    clippy::absolute_paths,
-    clippy::arithmetic_side_effects,
-    clippy::as_underscore,
-    clippy::decimal_literal_representation,
-    clippy::default_numeric_fallback,
-    clippy::deref_by_slicing,
-    clippy::empty_drop,
-    clippy::filetype_is_file,
-    clippy::if_then_some_else_none,
-    clippy::indexing_slicing,
-    clippy::iter_over_hash_type,
-    clippy::let_underscore_must_use,
-    clippy::let_underscore_untyped,
-    clippy::map_err_ignore,
-    clippy::missing_asserts_for_indexing,
-    clippy::mixed_read_write_in_expression,
-    clippy::mutex_atomic,
-    clippy::pattern_type_mismatch,
-    clippy::pub_without_shorthand,
-    clippy::rc_buffer,
-    clippy::redundant_type_annotations,
-    clippy::rest_pat_in_fully_bound_structs,
-    clippy::same_name_method,
-    clippy::semicolon_outside_block,
-    clippy::shadow_reuse,
-    clippy::shadow_same,
-    clippy::shadow_unrelated,
-    clippy::std_instead_of_core,
-    clippy::string_lit_chars_any,
-    clippy::string_slice,
-    clippy::suspicious_xor_used_as_pow,
-    clippy::todo,
-    clippy::unnecessary_safety_comment,
-    clippy::unnecessary_safety_doc,
-    clippy::unneeded_field_pattern,
-    clippy::unreachable,
-    clippy::unseparated_literal_suffix,
-    clippy::use_debug,
-    clippy::verbose_file_reads,
-)]
-```
+  - [`clippy::absolute_paths`][clippy::absolute_paths]
+  - [`clippy::arithmetic_side_effects`][clippy::arithmetic_side_effects]
+  - [`clippy::as_underscore`][clippy::as_underscore]
+  - [`clippy::decimal_literal_representation`][clippy::decimal_literal_representation]
+  - [`clippy::default_numeric_fallback`][clippy::default_numeric_fallback]
+  - [`clippy::deref_by_slicing`][clippy::deref_by_slicing]
+  - [`clippy::empty_drop`][clippy::empty_drop]
+  - [`clippy::filetype_is_file`][clippy::filetype_is_file]
+  - [`clippy::if_then_some_else_none`][clippy::if_then_some_else_none]
+  - [`clippy::indexing_slicing`][clippy::indexing_slicing]
+  - [`clippy::iter_over_hash_type`][clippy::iter_over_hash_type]
+  - [`clippy::let_underscore_must_use`][clippy::let_underscore_must_use]
+  - [`clippy::let_underscore_untyped`][clippy::let_underscore_untyped]
+  - [`clippy::map_err_ignore`][clippy::map_err_ignore]
+  - [`clippy::missing_asserts_for_indexing`][clippy::missing_asserts_for_indexing]
+  - [`clippy::mixed_read_write_in_expression`][clippy::mixed_read_write_in_expression]
+  - [`clippy::mutex_atomic`][clippy::mutex_atomic]
+  - [`clippy::pattern_type_mismatch`][clippy::pattern_type_mismatch]
+  - [`clippy::pub_without_shorthand`][clippy::pub_without_shorthand]
+  - [`clippy::rc_buffer`][clippy::rc_buffer]
+  - [`clippy::redundant_type_annotations`][clippy::redundant_type_annotations]
+  - [`clippy::rest_pat_in_fully_bound_structs`][clippy::rest_pat_in_fully_bound_structs]
+  - [`clippy::same_name_method`][clippy::same_name_method]
+  - [`clippy::semicolon_outside_block`][clippy::semicolon_outside_block]
+  - [`clippy::shadow_reuse`][clippy::shadow_reuse]
+  - [`clippy::shadow_same`][clippy::shadow_same]
+  - [`clippy::shadow_unrelated`][clippy::shadow_unrelated]
+  - [`clippy::std_instead_of_core`][clippy::std_instead_of_core]
+  - [`clippy::string_lit_chars_any`][clippy::string_lit_chars_any]
+  - [`clippy::string_slice`][clippy::string_slice]
+  - [`clippy::suspicious_xor_used_as_pow`][clippy::suspicious_xor_used_as_pow]
+  - [`clippy::todo`][clippy::todo]
+  - [`clippy::unnecessary_safety_comment`][clippy::unnecessary_safety_comment]
+  - [`clippy::unnecessary_safety_doc`][clippy::unnecessary_safety_doc]
+  - [`clippy::unneeded_field_pattern`][clippy::unneeded_field_pattern]
+  - [`clippy::unreachable`][clippy::unreachable]
+  - [`clippy::unseparated_literal_suffix`][clippy::unseparated_literal_suffix]
+  - [`clippy::use_debug`][clippy::use_debug]
+  - [`clippy::verbose_file_reads`][clippy::verbose_file_reads]
 
-Note that `clippy::missing_trait_methods` can be useful, but is not enabled by
-default as it can be very noisy. It is recommended that it be enabled on a
-per-trait basis, as required.
+Note that [`clippy::missing_trait_methods`][clippy::missing_trait_methods] can
+be useful, but is not enabled by default as it can be very noisy. It is
+recommended that it be enabled on a per-trait basis, as required.
 
-Similarly, the `clippy::min_ident_chars` and
-`clippy::single_char_lifetime_names` lints can also be useful, but it is very
-common in idiomatic Rust to use single-character variable and lifetime names,
-and so these are not enabled by default as they cause a lot of noise and would
-result in either unnecessary verbosity or a lot of linting exceptions. It may be
-that they can be useful on a per-file basis.
+Similarly, the [`clippy::min_ident_chars`][clippy::min_ident_chars] and
+[`clippy::single_char_lifetime_names`][clippy::single_char_lifetime_names] lints
+can also be useful, but it is very common in idiomatic Rust to use
+single-character variable and lifetime names, and so these are not enabled by
+default as they cause a lot of noise and would result in either unnecessary
+verbosity or a lot of linting exceptions. It may be that they can be useful on a
+per-file basis.
 
 #### Clippy suspicious lints
 
@@ -1030,25 +981,21 @@ that they can be useful on a per-file basis.
 The following lints are set to `warn` by default, and have been changed to
 `deny`:
 
-```rust
-#![deny(
-    clippy::const_is_empty,
-    clippy::deprecated_clippy_cfg_attr,
-    clippy::incompatible_msrv,
-    clippy::multiple_bound_locations,
-    clippy::unconditional_recursion,
-    clippy::unnecessary_clippy_cfg,
-)]
-```
+  - [`clippy::const_is_empty`][clippy::const_is_empty]
+  - [`clippy::deprecated_clippy_cfg_attr`][clippy::deprecated_clippy_cfg_attr]
+  - [`clippy::incompatible_msrv`][clippy::incompatible_msrv]
+  - [`clippy::multiple_bound_locations`][clippy::multiple_bound_locations]
+  - [`clippy::unconditional_recursion`][clippy::unconditional_recursion]
+  - [`clippy::unnecessary_clippy_cfg`][clippy::unnecessary_clippy_cfg]
 
 The remaining lints are set to `allow` by default, and remain unchanged.
 
 #### Clippy configuration
 
 Note that, in addition to the lints themselves, configuration options can be set
-in a `clippy.toml` file. For instance, if using `clippy::min_ident_chars`, the
-following configuration can be used to set the threshold to two characters, and
-to allow the most-commonly-used acceptable short variable names:
+in a `clippy.toml` file. For instance, if using [`clippy::min_ident_chars`][clippy::min_ident_chars],
+the following configuration can be used to set the threshold to two characters,
+and to allow the most-commonly-used acceptable short variable names:
 
 ```toml
 min-ident-chars-threshold = 2
@@ -1072,7 +1019,7 @@ descriptive enough, this lint may prove useful. Still, due to the commonality
 and idiomatic nature of single-character variable names, it is not enabled by
 default.
 
-There are currently no Clippy configuration options set by defualt as part of
+There are currently no Clippy configuration options set by default as part of
 the recommended coding standards setup.
 
 ### Giving reasons
@@ -1137,8 +1084,9 @@ Therefore, to take advantage of this, the following approach is recommended:
     This will enable the `reasons` crate feature, which will enable the
     `lint_reasons` Rust feature, which will enable the `reason` attribute.
     Assuming you are using the recommended lints, the
-    `clippy::allow_attributes_without_reason` lint will be enabled, which will
-    cause Clippy to fail if any reasons are missing.
+    [`clippy::allow_attributes_without_reason`][clippy::allow_attributes_without_reason]
+    lint will be enabled, which will cause Clippy to fail if any reasons are
+    missing.
 
 This approach only requires a single additional line of code per lint, and
 provides a way to enforce the presence of reasons. In that regard it is no more
@@ -1459,5 +1407,129 @@ They demonstrate the coding styles and standards described in this document.
     is not otherwise available.
   - `styles.rs` - A list of all the comment header styles that are available,
     for quick reference.
+
+
+
+[clippy::absolute_paths]:                    https://rust-lang.github.io/rust-clippy/master/#absolute_paths
+[clippy::allow_attributes_without_reason]:   https://rust-lang.github.io/rust-clippy/master/#allow_attributes_without_reason
+[clippy::arithmetic_side_effects]:           https://rust-lang.github.io/rust-clippy/master/#arithmetic_side_effects
+[clippy::as_underscore]:                     https://rust-lang.github.io/rust-clippy/master/#as_underscore
+[clippy::cargo]:                             https://rust-lang.github.io/rust-clippy/master/#/?groups=cargo
+[clippy::clone_on_ref_ptr]:                  https://rust-lang.github.io/rust-clippy/master/#clone_on_ref_ptr
+[clippy::const_is_empty]:                    https://rust-lang.github.io/rust-clippy/master/#const_is_empty
+[clippy::dbg_macro]:                         https://rust-lang.github.io/rust-clippy/master/#dbg_macro
+[clippy::decimal_literal_representation]:    https://rust-lang.github.io/rust-clippy/master/#decimal_literal_representation
+[clippy::default_numeric_fallback]:          https://rust-lang.github.io/rust-clippy/master/#default_numeric_fallback
+[clippy::deprecated_clippy_cfg_attr]:        https://rust-lang.github.io/rust-clippy/master/#deprecated_clippy_cfg_attr
+[clippy::deref_by_slicing]:                  https://rust-lang.github.io/rust-clippy/master/#deref_by_slicing
+[clippy::empty_drop]:                        https://rust-lang.github.io/rust-clippy/master/#empty_drop
+[clippy::empty_enum_variants_with_brackets]: https://rust-lang.github.io/rust-clippy/master/#empty_enum_variants_with_brackets
+[clippy::empty_structs_with_brackets]:       https://rust-lang.github.io/rust-clippy/master/#empty_structs_with_brackets
+[clippy::error_impl_error]:                  https://rust-lang.github.io/rust-clippy/master/#error_impl_error
+[clippy::exhaustive_enums]:                  https://rust-lang.github.io/rust-clippy/master/#exhaustive_enums
+[clippy::exhaustive_structs]:                https://rust-lang.github.io/rust-clippy/master/#exhaustive_structs
+[clippy::exit]:                              https://rust-lang.github.io/rust-clippy/master/#exit
+[clippy::expect_used]:                       https://rust-lang.github.io/rust-clippy/master/#expect_used
+[clippy::filetype_is_file]:                  https://rust-lang.github.io/rust-clippy/master/#filetype_is_file
+[clippy::float_cmp_const]:                   https://rust-lang.github.io/rust-clippy/master/#float_cmp_const
+[clippy::fn_to_numeric_cast_any]:            https://rust-lang.github.io/rust-clippy/master/#fn_to_numeric_cast_any
+[clippy::format_push_string]:                https://rust-lang.github.io/rust-clippy/master/#format_push_string
+[clippy::get_unwrap]:                        https://rust-lang.github.io/rust-clippy/master/#get_unwrap
+[clippy::if_then_some_else_none]:            https://rust-lang.github.io/rust-clippy/master/#if_then_some_else_none
+[clippy::impl_trait_in_params]:              https://rust-lang.github.io/rust-clippy/master/#impl_trait_in_params
+[clippy::incompatible_msrv]:                 https://rust-lang.github.io/rust-clippy/master/#incompatible_msrv
+[clippy::indexing_slicing]:                  https://rust-lang.github.io/rust-clippy/master/#indexing_slicing
+[clippy::infinite_loop]:                     https://rust-lang.github.io/rust-clippy/master/#infinite_loop
+[clippy::integer_division]:                  https://rust-lang.github.io/rust-clippy/master/#integer_division
+[clippy::iter_over_hash_type]:               https://rust-lang.github.io/rust-clippy/master/#iter_over_hash_type
+[clippy::let_underscore_must_use]:           https://rust-lang.github.io/rust-clippy/master/#let_underscore_must_use
+[clippy::let_underscore_untyped]:            https://rust-lang.github.io/rust-clippy/master/#let_underscore_untyped
+[clippy::lossy_float_literal]:               https://rust-lang.github.io/rust-clippy/master/#lossy_float_literal
+[clippy::map_err_ignore]:                    https://rust-lang.github.io/rust-clippy/master/#map_err_ignore
+[clippy::mem_forget]:                        https://rust-lang.github.io/rust-clippy/master/#mem_forget
+[clippy::min_ident_chars]:                   https://rust-lang.github.io/rust-clippy/master/#min_ident_chars
+[clippy::missing_assert_message]:            https://rust-lang.github.io/rust-clippy/master/#missing_assert_message
+[clippy::missing_asserts_for_indexing]:      https://rust-lang.github.io/rust-clippy/master/#missing_asserts_for_indexing
+[clippy::missing_docs_in_private_items]:     https://rust-lang.github.io/rust-clippy/master/#missing_docs_in_private_items
+[clippy::missing_trait_methods]:             https://rust-lang.github.io/rust-clippy/master/#missing_trait_methods
+[clippy::mixed_read_write_in_expression]:    https://rust-lang.github.io/rust-clippy/master/#mixed_read_write_in_expression
+[clippy::mod_module_files]:                  https://rust-lang.github.io/rust-clippy/master/#mod_module_files
+[clippy::module_name_repetitions]:           https://rust-lang.github.io/rust-clippy/master/#module_name_repetitions
+[clippy::multiple_bound_locations]:          https://rust-lang.github.io/rust-clippy/master/#multiple_bound_locations
+[clippy::multiple_inherent_impl]:            https://rust-lang.github.io/rust-clippy/master/#multiple_inherent_impl
+[clippy::mutex_atomic]:                      https://rust-lang.github.io/rust-clippy/master/#mutex_atomic
+[clippy::negative_feature_names]:            https://rust-lang.github.io/rust-clippy/master/#negative_feature_names
+[clippy::nursery]:                           https://rust-lang.github.io/rust-clippy/master/#/?groups=nursery
+[clippy::panic]:                             https://rust-lang.github.io/rust-clippy/master/#panic
+[clippy::panic_in_result_fn]:                https://rust-lang.github.io/rust-clippy/master/#panic_in_result_fn
+[clippy::pattern_type_mismatch]:             https://rust-lang.github.io/rust-clippy/master/#pattern_type_mismatch
+[clippy::pedantic]:                          https://rust-lang.github.io/rust-clippy/master/#/?groups=pedantic
+[clippy::print_stderr]:                      https://rust-lang.github.io/rust-clippy/master/#print_stderr
+[clippy::print_stdout]:                      https://rust-lang.github.io/rust-clippy/master/#print_stdout
+[clippy::pub_underscore_fields]:             https://rust-lang.github.io/rust-clippy/master/#pub_underscore_fields
+[clippy::pub_without_shorthand]:             https://rust-lang.github.io/rust-clippy/master/#pub_without_shorthand
+[clippy::rc_buffer]:                         https://rust-lang.github.io/rust-clippy/master/#rc_buffer
+[clippy::rc_mutex]:                          https://rust-lang.github.io/rust-clippy/master/#rc_mutex
+[clippy::redundant_type_annotations]:        https://rust-lang.github.io/rust-clippy/master/#redundant_type_annotations
+[clippy::renamed_function_params]:           https://rust-lang.github.io/rust-clippy/master/#renamed_function_params
+[clippy::rest_pat_in_fully_bound_structs]:   https://rust-lang.github.io/rust-clippy/master/#rest_pat_in_fully_bound_structs
+[clippy::same_name_method]:                  https://rust-lang.github.io/rust-clippy/master/#same_name_method
+[clippy::semicolon_outside_block]:           https://rust-lang.github.io/rust-clippy/master/#semicolon_outside_block
+[clippy::shadow_reuse]:                      https://rust-lang.github.io/rust-clippy/master/#shadow_reuse
+[clippy::shadow_same]:                       https://rust-lang.github.io/rust-clippy/master/#shadow_same
+[clippy::shadow_unrelated]:                  https://rust-lang.github.io/rust-clippy/master/#shadow_unrelated
+[clippy::single_char_lifetime_names]:        https://rust-lang.github.io/rust-clippy/master/#single_char_lifetime_names
+[clippy::std_instead_of_core]:               https://rust-lang.github.io/rust-clippy/master/#std_instead_of_core
+[clippy::str_to_string]:                     https://rust-lang.github.io/rust-clippy/master/#str_to_string
+[clippy::string_lit_chars_any]:              https://rust-lang.github.io/rust-clippy/master/#string_lit_chars_any
+[clippy::string_slice]:                      https://rust-lang.github.io/rust-clippy/master/#string_slice
+[clippy::string_to_string]:                  https://rust-lang.github.io/rust-clippy/master/#string_to_string
+[clippy::suspicious_xor_used_as_pow]:        https://rust-lang.github.io/rust-clippy/master/#suspicious_xor_used_as_pow
+[clippy::tests_outside_test_module]:         https://rust-lang.github.io/rust-clippy/master/#tests_outside_test_module
+[clippy::todo]:                              https://rust-lang.github.io/rust-clippy/master/#todo
+[clippy::try_err]:                           https://rust-lang.github.io/rust-clippy/master/#try_err
+[clippy::unconditional_recursion]:           https://rust-lang.github.io/rust-clippy/master/#unconditional_recursion
+[clippy::unimplemented]:                     https://rust-lang.github.io/rust-clippy/master/#unimplemented
+[clippy::unnecessary_clippy_cfg]:            https://rust-lang.github.io/rust-clippy/master/#unnecessary_clippy_cfg
+[clippy::unnecessary_safety_comment]:        https://rust-lang.github.io/rust-clippy/master/#unnecessary_safety_comment
+[clippy::unnecessary_safety_doc]:            https://rust-lang.github.io/rust-clippy/master/#unnecessary_safety_doc
+[clippy::unneeded_field_pattern]:            https://rust-lang.github.io/rust-clippy/master/#unneeded_field_pattern
+[clippy::unreachable]:                       https://rust-lang.github.io/rust-clippy/master/#unreachable
+[clippy::unseparated_literal_suffix]:        https://rust-lang.github.io/rust-clippy/master/#unseparated_literal_suffix
+[clippy::unwrap_in_result]:                  https://rust-lang.github.io/rust-clippy/master/#unwrap_in_result
+[clippy::unwrap_used]:                       https://rust-lang.github.io/rust-clippy/master/#unwrap_used
+[clippy::use_debug]:                         https://rust-lang.github.io/rust-clippy/master/#use_debug
+[clippy::verbose_file_reads]:                https://rust-lang.github.io/rust-clippy/master/#verbose_file_reads
+[clippy::wildcard_dependencies]:             https://rust-lang.github.io/rust-clippy/master/#wildcard_dependencies
+[clippy::wildcard_enum_match_arm]:           https://rust-lang.github.io/rust-clippy/master/#wildcard_enum_match_arm
+[rust::deprecated]:                          https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#deprecated
+[rust::deprecated_where_clause_location]:    https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#deprecated-where-clause-location
+[rust::future_incompatible]:                 https://doc.rust-lang.org/rustc/lints/groups.html
+[rust::incomplete_features]:                 https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#incomplete-features
+[rust::internal_features]:                   https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#internal-features
+[rust::let_underscore_drop]:                 https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#let-underscore-drop
+[rust::macro_use_extern_crate]:              https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#macro-use-extern-crate
+[rust::meta_variable_misuse]:                https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#meta-variable-misuse
+[rust::missing_copy_implementations]:        https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#missing-copy-implementations
+[rust::missing_debug_implementations]:       https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#missing-debug-implementations
+[rust::missing_docs]:                        https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#missing-docs
+[rust::rust_2018_compatibility]:             https://doc.rust-lang.org/rustc/lints/groups.html
+[rust::rust_2018_idioms]:                    https://doc.rust-lang.org/rustc/lints/groups.html
+[rust::rust_2021_compatibility]:             https://doc.rust-lang.org/rustc/lints/groups.html
+[rust::single_use_lifetimes]:                https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#single-use-lifetimes
+[rust::trivial_casts]:                       https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#trivial-casts
+[rust::trivial_numeric_casts]:               https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#trivial-numeric-casts
+[rust::unknown_lints]:                       https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#unknown-lints
+[rust::unnameable_test_items]:               https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#unnameable-test-items
+[rust::unreachable_pub]:                     https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unreachable-pub
+[rust::unsafe_code]:                         https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unsafe-code
+[rust::unsafe_op_in_unsafe_fn]:              https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unsafe-op-in-unsafe-fn
+[rust::unused]:                              https://doc.rust-lang.org/rustc/lints/groups.html
+[rust::unused_crate_dependencies]:           https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-crate-dependencies
+[rust::unused_import_braces]:                https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-import-braces
+[rust::unused_lifetimes]:                    https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-lifetimes
+[rust::unused_qualifications]:               https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-qualifications
+[rust::unused_results]:                      https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-results
+[rust::variant_size_differences]:            https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#variant-size-differences
 
 
