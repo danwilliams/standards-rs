@@ -1,9 +1,11 @@
 # Coding standards for Rust
 
-This document describes the coding standards chosen by [Dotfive](https://dotfive.co.uk)
-for [Rust](https://www.rust-lang.org/) code, which are **highly opinionated**.
-We choose to follow these standards instead of formatting with `rustfmt`, mainly
-for reasons of readability.
+[Dotfive]: https://dotfive.co.uk
+[Rust]:    https://www.rust-lang.org/
+
+This document describes the coding standards chosen by [Dotfive][] for [Rust][]
+code, which are **highly opinionated**. We choose to follow these standards
+instead of formatting with `rustfmt`, mainly for reasons of readability.
 
 It is intended to be a living document, and will be updated as necessary. It is
 not intended to be a comprehensive guide to Rust, but rather a set of standards
@@ -105,6 +107,14 @@ there is some further information that has not been considered.
 
 ## IDEs and editors
 
+[Better Highlights]:  https://plugins.jetbrains.com/plugin/12895-better-highlights
+[Font Awesome]:       https://fontawesome.com/
+[JetBrains]:          https://www.jetbrains.com/
+[Nerd Font]:          https://www.nerdfonts.com/
+[RustRover]:          https://www.jetbrains.com/rust/
+[Sublime Text]:       https://www.sublimetext.com/
+[Visual Studio Code]: https://code.visualstudio.com/
+
 Which IDE or editor is used will be fairly important in order to avoid
 unnecessary friction in following certain aspects of the standards. It does not
 matter exactly which tool is chosen, but it should at the very least be able to
@@ -112,19 +122,18 @@ be configured to support the indentation and whitespace requirements. Preferably
 it will support Rust syntax and be able to validate Rust code, and ideally it
 will allow for the configuration of our custom comment headers.
 
-Our recommended IDE is [RustRover](https://www.jetbrains.com/rust/), which is
-available from [JetBrains](https://www.jetbrains.com/). It is a commercial
-product, but is currently available as a free preview until full release.
+Our recommended IDE is [RustRover][], which is available from [JetBrains][]. It
+is a commercial product, but is currently available as a free preview until full
+release.
 
-We do not currently recommend [Visual Studio Code](https://code.visualstudio.com/),
-simply because its interaction with Rust is not as smooth as it could be, and it
-misses out on many of the advantages provided by JetBrains IDEs. However, it is
-a perfectly viable alternative, and is free.
+We do not currently recommend [Visual Studio Code][], simply because its
+interaction with Rust is not as smooth as it could be, and it misses out on many
+of the advantages provided by JetBrains IDEs. However, it is a perfectly viable
+alternative, and is free.
 
-A worthy mention is [Sublime Text](https://www.sublimetext.com/), which is a
-commercial product, but is free to evaluate. It is a very powerful editor, and
-is highly configurable, but it does not have the same level of support for Rust
-as the JetBrains IDEs.
+A worthy mention is [Sublime Text][], which is a commercial product, but is free
+to evaluate. It is a very powerful editor, and is highly configurable, but it
+does not have the same level of support for Rust as the JetBrains IDEs.
 
 Some of the standards described in this document have settings provided for
 JetBrains IDEs. If you choose to use a different tool then you will need to
@@ -137,10 +146,9 @@ section for more details.*
 
 ### Fonts
 
-Our custom comment headers use symbols from [Font Awesome](https://fontawesome.com/),
-which is available in the [Nerd Font](https://www.nerdfonts.com/) range. We
-therefore suggest that you pick one of the Nerd Fonts for your editor, so that
-you are able to see the symbols correctly.
+Our custom comment headers use symbols from [Font Awesome][], which is available
+in the [Nerd Font][] range. We therefore suggest that you pick one of the Nerd
+Fonts for your editor, so that you are able to see the symbols correctly.
 
 As an aside, it's worth also configuring your terminal with a Nerd Font too, so
 that you can see the symbols correctly in any command-line interactions.
@@ -151,11 +159,10 @@ If you are using a JetBrains IDE, then you can import the provided settings from
 the `IDEs/JetBrains` directory in this repository. This will configure the IDE
 to use the correct highlighting for the custom comment headers.
 
-Note that the settings rely upon you having the [Better Highlights
-plugin](https://plugins.jetbrains.com/plugin/12895-better-highlights) installed.
-This is a free plugin, and is available from the JetBrains plugin repository. It
-is not necessary to use this plugin, but if you do not then you will not see the
-custom comment headers highlighted correctly.
+Note that the settings rely upon you having the [Better Highlights][] plugin
+installed. This is a free plugin, and is available from the JetBrains plugin
+repository. It is not necessary to use this plugin, but if you do not then you
+will not see the custom comment headers highlighted correctly.
 
 There are some screenshots showing our standards in action with this
 highlighting applied in the [`screenshots`](screenshots/) directory:
@@ -574,8 +581,10 @@ documentation with the intent of decluttering your codebase.
 
 The lints configured and described here are correct for Rust 1.80.0.
 
-For further information on specific lints, see the [Rust compiler lint
-documentation](https://doc.rust-lang.org/rustc/lints/index.html).
+For further information on specific lints, see the Rust compiler lint
+documentation:
+
+  - https://doc.rust-lang.org/rustc/lints/index.html
 
 #### Future compatibility lints
 
@@ -1297,6 +1306,8 @@ within the limit though).
 
 ## Testing
 
+[trybuild]: https://crates.io/crates/trybuild
+
 There are essentially three kinds of test that we are interested in: unit tests,
 integration tests, and compilation tests. Compilation tests are a special case,
 as they can only be achieved as a form of integration test, and so are placed
@@ -1351,7 +1362,7 @@ In some cases there may be things we need to test that, if they fail, would
 result in compilation failures. In context, this is not the same as something
 generating a panic at runtime — it is a panic at compile-time. Therefore, such
 cases cannot be caught in the usual way by using `#[should_panic]`. In order to
-test for expected compilation errors, we use [`trybuild`](https://crates.io/crates/trybuild).
+test for expected compilation errors, we use [`trybuild`][trybuild].
 
 The way that `trybuild` works is to wrap the compilation process and catch the
 results. It then compares the results against ones already stored. If they
