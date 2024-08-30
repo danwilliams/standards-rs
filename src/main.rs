@@ -106,6 +106,7 @@
 	clippy::print_stderr,
 	clippy::print_stdout,
 	clippy::rc_mutex,
+	clippy::renamed_function_params,
 	clippy::try_err,
 	clippy::unwrap_in_result,
 	clippy::unwrap_used,

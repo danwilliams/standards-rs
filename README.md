@@ -513,6 +513,7 @@ documentation with the intent of decluttering your codebase.
     clippy::print_stderr,
     clippy::print_stdout,
     clippy::rc_mutex,
+    clippy::renamed_function_params,
     clippy::try_err,
     clippy::unwrap_used,
     clippy::wildcard_enum_match_arm,
@@ -571,7 +572,7 @@ documentation with the intent of decluttering your codebase.
 
 ### Standard Rust compiler lints
 
-The lints configured and described here are correct for Rust 1.74.0.
+The lints configured and described here are correct for Rust 1.80.0.
 
 For further information on specific lints, see the [Rust compiler lint
 documentation](https://doc.rust-lang.org/rustc/lints/index.html).
@@ -949,6 +950,7 @@ The following lints are set to `allow` by default, and have been changed to
     clippy::print_stderr,
     clippy::print_stdout,
     clippy::rc_mutex,
+    clippy::renamed_function_params,
     clippy::try_err,
     clippy::unwrap_in_result,
     clippy::unwrap_used,
