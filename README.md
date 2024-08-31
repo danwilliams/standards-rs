@@ -186,6 +186,15 @@ highlighting applied in the [`screenshots`](screenshots/) directory:
 This section refers to the formatting of Rust code, rather than Markdown files.
 The formatting of Markdown files is covered in a [later section](#general-documentation).
 
+We choose to follow these standards instead of formatting with `rustfmt`, mainly
+for reasons of readability. There are some key aspects such as the alignment of
+assignment operators that are not currently supported by `rustfmt`, and which we
+feel aid code clarity. Note, there are those who are against such practices,
+just like there are those who don't like tabs. Ideally, everything would be
+automatically formatted, and for wider-participation projects that is the best
+approach. There is a [`rustfmt.toml`](rustfmt.toml) provided in this repository
+as an example which is as close to our standards as `rustfmt` can get.
+
 ### Indentation
 
 We use **tabs for indentation**, with a tab width of 4 spaces. Indentation is
