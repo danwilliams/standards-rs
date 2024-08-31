@@ -1,5 +1,22 @@
-#![allow(non_snake_case)]
-#[cfg(test)]
+//	Lints specifically disabled for integration tests
+#![cfg_attr(test, allow(
+	non_snake_case,
+	clippy::cognitive_complexity,
+	clippy::exhaustive_enums,
+	clippy::exhaustive_structs,
+	clippy::expect_used,
+	clippy::indexing_slicing,
+	clippy::let_underscore_untyped,
+	clippy::missing_assert_message,
+	clippy::missing_panics_doc,
+	clippy::must_use_candidate,
+	clippy::panic,
+	clippy::print_stdout,
+	clippy::unwrap_in_result,
+	clippy::unwrap_used,
+))]
+
+
 
 //		Packages
 

@@ -40,6 +40,10 @@ compilable, testable Rust project.
           - [Inline comments](#inline-comments)
   - [Code linting](#code-linting)
       - [Complete configuration](#complete-configuration)
+          - [`Cargo.toml`](#cargotoml)
+          - [`lib.rs`](#librs)
+          - [`main.rs`](#mainrs)
+          - [Integration tests](#integration-tests)
       - [Standard Rust compiler lints](#standard-rust-compiler-lints)
           - [Future compatibility lints](#future-compatibility-lints)
           - [Deprecated approach lints](#deprecated-approach-lints)
@@ -409,178 +413,340 @@ let foo = bar * 10;  //  This is an inline comment.
 
 ## Code linting
 
-[lint_reasons]: https://doc.rust-lang.org/stable/unstable-book/language-features/lint-reasons.html
+[lint_reasons]:     https://doc.rust-lang.org/stable/unstable-book/language-features/lint-reasons.html
+[Rust Cargo lints]: https://blog.rust-lang.org/2023/11/16/Rust-1.74.0.html#lint-configuration-through-cargo
 
 There are two levels of linting that are relevant: the Rust compiler, and
 Clippy, which is run via `cargo clippy`. Each has its own set of rules, and
 the recommended configuration is described below.
 
+However, there are a couple of points to be aware of:
+
+  1. The set of lints below is applied globally, using [`Cargo.toml`](Cargo.toml).
+     [Configuring lints through Cargo was added in Rust 1.74][Rust Cargo lints],
+     and this keeps the lints consistent across all crates in the workspace,
+     plus results in cleaner `lib.rs` and `main.rs` files.
+
+  2. The linting is applied to unit and integration tests as well as the main
+     codebase. This ensures that the tests are also of high quality. However,
+     some lints are disabled in tests, as they are not relevant or useful in
+     that context. This is done globally for unit tests, and currently has to be
+     done individually for integration tests due to Rust compiler limitations
+     (unable to create proc macros to do this). If applying the overrides to all
+     integration tests is annoying, linting tests can just be skipped.
+
+In order to lint fully, `clippy` should be run with the `--all-targets` flag:
+
+```bash
+cargo clippy --all-targets
+```
+
+This ensures that the tests are linted too (by default, `clippy` only lints the
+main codebase).
+
 ### Complete configuration
 
 The complete linting configuration is provided here, and described in more
-detail in the following sections. It is recommended that you copy this code
-block into your `main.rs` or `lib.rs` file, and it links back to this
-documentation with the intent of decluttering your codebase.
+detail in the following sections.
+
+#### `Cargo.toml`
+
+It is recommended that you copy this code block into your `Cargo.toml` file, and
+it links back to this documentation with the intent of de-cluttering your
+codebase.
+
+```toml
+#	For an explanation of the following configuration, see:
+#	https://github.com/dotfive/standards-rs#code-linting
+
+[lints.rust]
+#	Future compatibility lints
+future_incompatible               = { level = "deny", priority = -1 }
+#	Deprecated approach lints
+rust_2018_compatibility           = { level = "deny", priority = -1 }
+rust_2018_idioms                  = { level = "warn", priority = -1 }
+rust_2021_compatibility           = { level = "deny", priority = -1 }
+#	Unused code lints
+unused                            = { level = "warn", priority = -1 }
+#	Cherry-picked lints
+##	Forbid
+unsafe_code                       = "forbid"
+unsafe_op_in_unsafe_fn            = "forbid"
+##	Deny
+deprecated                        = "deny"
+deprecated_where_clause_location  = "deny"
+incomplete_features               = "deny"
+internal_features                 = "deny"
+macro_use_extern_crate            = "deny"
+unknown_lints                     = "deny"
+unnameable_test_items             = "deny"
+unreachable_pub                   = "deny"
+##	Warn
+let_underscore_drop               = "warn"
+meta_variable_misuse              = "warn"
+missing_copy_implementations      = "warn"
+missing_debug_implementations     = "warn"
+missing_docs                      = "warn"
+single_use_lifetimes              = "warn"
+trivial_casts                     = "warn"
+trivial_numeric_casts             = "warn"
+unused_crate_dependencies         = "warn"
+unused_import_braces              = "warn"
+unused_lifetimes                  = "warn"
+unused_qualifications             = "warn"
+unused_results                    = "warn"
+variant_size_differences          = "warn"
+
+[lints.clippy]
+#	Clippy lint categories
+cargo                             = { level = "warn", priority = -1 }
+nursery                           = { level = "warn", priority = -1 }
+pedantic                          = { level = "warn", priority = -1 }
+#	Clippy cargo lints
+negative_feature_names            = "deny"
+wildcard_dependencies             = "deny"
+#	Clippy pedantic lints
+pub_underscore_fields             = "deny"
+module_name_repetitions           = "allow" # This is not required
+#	Clippy restriction lints
+##	Forbid
+allow_attributes_without_reason   = "forbid"
+dbg_macro                         = "forbid"
+exit                              = "forbid"
+infinite_loop                     = "forbid"
+missing_docs_in_private_items     = "forbid"
+mod_module_files                  = "forbid"
+multiple_inherent_impl            = "forbid"
+panic_in_result_fn                = "forbid"
+str_to_string                     = "forbid"
+string_to_string                  = "forbid"
+tests_outside_test_module         = "forbid"
+unimplemented                     = "forbid"
+
+##	Deny
+clone_on_ref_ptr                  = "deny"
+empty_enum_variants_with_brackets = "deny"
+empty_structs_with_brackets       = "deny"
+error_impl_error                  = "deny"
+exhaustive_enums                  = "deny"
+exhaustive_structs                = "deny"
+expect_used                       = "deny"
+float_cmp_const                   = "deny"
+fn_to_numeric_cast_any            = "deny"
+format_push_string                = "deny"
+get_unwrap                        = "deny"
+impl_trait_in_params              = "deny"
+integer_division                  = "deny"
+lossy_float_literal               = "deny"
+mem_forget                        = "deny"
+missing_assert_message            = "deny"
+panic                             = "deny"
+print_stderr                      = "deny"
+print_stdout                      = "deny"
+rc_mutex                          = "deny"
+renamed_function_params           = "deny"
+try_err                           = "deny"
+unwrap_in_result                  = "deny"
+unwrap_used                       = "deny"
+wildcard_enum_match_arm           = "deny"
+##	Warn
+absolute_paths                    = "warn"
+arithmetic_side_effects           = "warn"
+as_underscore                     = "warn"
+decimal_literal_representation    = "warn"
+default_numeric_fallback          = "warn"
+deref_by_slicing                  = "warn"
+empty_drop                        = "warn"
+filetype_is_file                  = "warn"
+if_then_some_else_none            = "warn"
+indexing_slicing                  = "warn"
+iter_over_hash_type               = "warn"
+let_underscore_must_use           = "warn"
+let_underscore_untyped            = "warn"
+map_err_ignore                    = "warn"
+missing_asserts_for_indexing      = "warn"
+mixed_read_write_in_expression    = "warn"
+mutex_atomic                      = "warn"
+pattern_type_mismatch             = "warn"
+pub_without_shorthand             = "warn"
+rc_buffer                         = "warn"
+redundant_type_annotations        = "warn"
+rest_pat_in_fully_bound_structs   = "warn"
+same_name_method                  = "warn"
+semicolon_outside_block           = "warn"
+shadow_reuse                      = "warn"
+shadow_same                       = "warn"
+shadow_unrelated                  = "warn"
+std_instead_of_core               = "warn"
+string_lit_chars_any              = "warn"
+string_slice                      = "warn"
+suspicious_xor_used_as_pow        = "warn"
+todo                              = "warn"
+unnecessary_safety_comment        = "warn"
+unnecessary_safety_doc            = "warn"
+unneeded_field_pattern            = "warn"
+unreachable                       = "warn"
+unseparated_literal_suffix        = "warn"
+use_debug                         = "warn"
+verbose_file_reads                = "warn"
+#	Clippy suspicious lints
+const_is_empty                    = "deny"
+deprecated_clippy_cfg_attr        = "deny"
+incompatible_msrv                 = "deny"
+multiple_bound_locations          = "deny"
+unconditional_recursion           = "deny"
+unnecessary_clippy_cfg            = "deny"
+```
+
+##### Multi-crate workspaces
+
+Note, when working with a multi-crate workspace, add the lints under headings of
+`[workspace.lints.rust]` and `[workspace.lints.clippy]` instead of just
+`[lints.rust]` and `[lints.clippy]`, and then add the following lines to each
+crate's `Cargo.toml`:
+
+```toml
+[lints]
+workspace = true
+```
+
+This will ensure that the lints are applied to all crates in the workspace. Of
+course, any customisations can be made on a per-crate basis, but these currently
+have to be all or nothing, as it's not possible to combine `[lints]` with
+`[lints.rust]` or `[lints.clippy]`. Any subtler customisations based on the
+workspace linting configuration have to be done in the source code files.
+
+#### `lib.rs`
+
+Within the `lib.rs` file, the following configuration should be applied, to set
+up any linting customisations, including the disabling of certain lints for unit
+tests:
 
 ```rust
-//		Global configuration
-
-//	For an explanation of the following configuration, see:
-//	https://github.com/dotfive/standards-rs#code-linting
-
 #![cfg_attr(feature = "reasons", feature(lint_reasons))]
 
-//		Standard Rust compiler lints											
-//	Future compatibility lints
-#![deny(future_incompatible)]
-//	Deprecated approach lints
-#![deny(rust_2018_compatibility)]
-#![warn(rust_2018_idioms)]
-#![deny(rust_2021_compatibility)]
-//	Unused code lints
-#![warn(unused)]
-//	Cherry-picked lints
-#![forbid(
-    unsafe_code,
-    unsafe_op_in_unsafe_fn,
-)]
-#![deny(
-    deprecated,
-    deprecated_where_clause_location,
-    incomplete_features,
-    internal_features,
-    macro_use_extern_crate,
-    unknown_lints,
-    unnameable_test_items,
-    unreachable_pub,
-)]
-#![warn(
-    let_underscore_drop,
-    meta_variable_misuse,
-    missing_copy_implementations,
-    missing_debug_implementations,
-    missing_docs,
-    single_use_lifetimes,
-    trivial_casts,
-    trivial_numeric_casts,
-    unused_crate_dependencies,
-    unused_import_braces,
-    unused_lifetimes,
-    unused_qualifications,
-    unused_results,
-    variant_size_differences,
-)]
-//		Clippy lints															
-//	Clippy lint categories
-#![warn(
-    clippy::cargo,
-    clippy::nursery,
-    clippy::pedantic,
-)]
-//	Clippy cargo lints
-#![deny(
-    clippy::negative_feature_names,
-    clippy::wildcard_dependencies,
-)]
-//	Clippy pedantic lints
-#![deny(
-    clippy::pub_underscore_fields,
-)]
-#![cfg_attr(    feature = "reasons",  allow(clippy::module_name_repetitions, reason = "This is not required"))]
-#![cfg_attr(not(feature = "reasons"), allow(clippy::module_name_repetitions))]
-//	Clippy restriction lints
-#![forbid(
-    clippy::allow_attributes_without_reason,
-    clippy::dbg_macro,
-    clippy::exit,
-    clippy::infinite_loop,
-    clippy::missing_docs_in_private_items,
-    clippy::mod_module_files,
-    clippy::multiple_inherent_impl,
-    clippy::panic_in_result_fn,
-    clippy::str_to_string,
-    clippy::string_to_string,
-    clippy::tests_outside_test_module,
-    clippy::unimplemented,
-    clippy::unwrap_in_result,
-)]
-#![deny(
-    clippy::clone_on_ref_ptr,
-    clippy::empty_enum_variants_with_brackets,
-    clippy::empty_structs_with_brackets,
-    clippy::error_impl_error,
-    clippy::exhaustive_enums,
-    clippy::exhaustive_structs,
-    clippy::expect_used,
-    clippy::float_cmp_const,
-    clippy::fn_to_numeric_cast_any,
-    clippy::format_push_string,
-    clippy::get_unwrap,
-    clippy::impl_trait_in_params,
-    clippy::integer_division,
-    clippy::lossy_float_literal,
-    clippy::mem_forget,
-    clippy::missing_assert_message,
-    clippy::panic,
-    clippy::print_stderr,
-    clippy::print_stdout,
-    clippy::rc_mutex,
-    clippy::renamed_function_params,
-    clippy::try_err,
-    clippy::unwrap_used,
-    clippy::wildcard_enum_match_arm,
-)]
-#![warn(
-    clippy::absolute_paths,
-    clippy::arithmetic_side_effects,
-    clippy::as_underscore,
-    clippy::decimal_literal_representation,
-    clippy::default_numeric_fallback,
-    clippy::deref_by_slicing,
-    clippy::empty_drop,
-    clippy::filetype_is_file,
-    clippy::if_then_some_else_none,
-    clippy::indexing_slicing,
-    clippy::iter_over_hash_type,
-    clippy::let_underscore_must_use,
-    clippy::let_underscore_untyped,
-    clippy::map_err_ignore,
-    clippy::missing_asserts_for_indexing,
-    clippy::mixed_read_write_in_expression,
-    clippy::mutex_atomic,
-    clippy::pattern_type_mismatch,
-    clippy::pub_without_shorthand,
-    clippy::rc_buffer,
-    clippy::redundant_type_annotations,
-    clippy::rest_pat_in_fully_bound_structs,
-    clippy::same_name_method,
-    clippy::semicolon_outside_block,
-    clippy::shadow_reuse,
-    clippy::shadow_same,
-    clippy::shadow_unrelated,
-    clippy::std_instead_of_core,
-    clippy::string_lit_chars_any,
-    clippy::string_slice,
-    clippy::suspicious_xor_used_as_pow,
-    clippy::todo,
-    clippy::unnecessary_safety_comment,
-    clippy::unnecessary_safety_doc,
-    clippy::unneeded_field_pattern,
-    clippy::unreachable,
-    clippy::unseparated_literal_suffix,
-    clippy::use_debug,
-    clippy::verbose_file_reads,
-)]
-//	Clippy suspicious lints
-#![deny(
-    clippy::const_is_empty,
-    clippy::deprecated_clippy_cfg_attr,
-    clippy::incompatible_msrv,
-    clippy::multiple_bound_locations,
-    clippy::unconditional_recursion,
-    clippy::unnecessary_clippy_cfg,
-)]
+//	Lints specifically disabled for unit tests
+#![cfg_attr(test, allow(
+    non_snake_case,
+	clippy::cognitive_complexity,
+	clippy::exhaustive_enums,
+	clippy::exhaustive_structs,
+	clippy::expect_used,
+	clippy::indexing_slicing,
+	clippy::let_underscore_untyped,
+	clippy::missing_assert_message,
+	clippy::missing_panics_doc,
+	clippy::must_use_candidate,
+	clippy::panic,
+	clippy::print_stdout,
+	clippy::unwrap_in_result,
+	clippy::unwrap_used,
+))]
 ```
+
+##### Customisation example
+
+An example of customising the linting configuration for the main codebase might
+be as follows:
+
+```rust
+//	Customisations of the standard linting configuration
+#![cfg_attr(    feature = "reasons",  allow(clippy::doc_markdown, reason = "Annoying number of false positives"))]
+#![cfg_attr(not(feature = "reasons"), allow(clippy::doc_markdown))]
+#![cfg_attr(    feature = "reasons",  allow(clippy::items_after_test_module, reason = "Not needed with separated tests"))]
+#![cfg_attr(not(feature = "reasons"), allow(clippy::items_after_test_module))]
+#![cfg_attr(    feature = "reasons",  allow(clippy::multiple_crate_versions, reason = "Cannot resolve all these"))]
+#![cfg_attr(not(feature = "reasons"), allow(clippy::multiple_crate_versions))]
+```
+
+Note that this syntax assumes use of the `reasons` crate feature, as described
+in the [Giving reasons](#giving-reasons) section below.
+
+#### `main.rs`
+
+Within the `main.rs` file, the following configuration should be applied, to set
+up any linting customisations:
+
+```rust
+#![cfg_attr(feature = "reasons", feature(lint_reasons))]
+
+//	Customisations of the standard linting configuration
+#![cfg_attr(    feature = "reasons",  allow(unreachable_pub, reason = "Not useful in a binary crate"))]
+#![cfg_attr(not(feature = "reasons"), allow(unreachable_pub))]
+
+//	Lints specifically disabled for unit tests
+#![cfg_attr(test, allow(
+	non_snake_case,
+	clippy::cognitive_complexity,
+	clippy::exhaustive_enums,
+	clippy::exhaustive_structs,
+	clippy::expect_used,
+	clippy::indexing_slicing,
+	clippy::let_underscore_untyped,
+	clippy::missing_assert_message,
+	clippy::missing_panics_doc,
+	clippy::must_use_candidate,
+	clippy::panic,
+	clippy::print_stdout,
+	clippy::unwrap_in_result,
+	clippy::unwrap_used,
+))]
+```
+
+Note that this syntax assumes use of the `reasons` crate feature, as described
+in the [Giving reasons](#giving-reasons) section below.
+
+##### Customisation example
+
+An example of customising the linting configuration for the main codebase might
+be as follows:
+
+```rust
+#![cfg_attr(feature = "reasons", feature(lint_reasons))]
+
+//	Customisations of the standard linting configuration
+#![cfg_attr(    feature = "reasons",  allow(unreachable_pub, reason = "Not useful in a binary crate"))]
+#![cfg_attr(not(feature = "reasons"), allow(unreachable_pub))]
+#![cfg_attr(    feature = "reasons",  allow(clippy::doc_markdown, reason = "Annoying number of false positives"))]
+#![cfg_attr(not(feature = "reasons"), allow(clippy::doc_markdown))]
+#![cfg_attr(    feature = "reasons",  allow(clippy::items_after_test_module, reason = "Not needed with separated tests"))]
+#![cfg_attr(not(feature = "reasons"), allow(clippy::items_after_test_module))]
+#![cfg_attr(    feature = "reasons",  allow(clippy::multiple_crate_versions, reason = "Cannot resolve all these"))]
+#![cfg_attr(not(feature = "reasons"), allow(clippy::multiple_crate_versions))]
+#![cfg_attr(    feature = "reasons",  allow(clippy::expect_used, reason = "Acceptable in application code"))]
+#![cfg_attr(not(feature = "reasons"), allow(clippy::expect_used))]
+#![cfg_attr(    feature = "reasons",  allow(clippy::unwrap_used, reason = "Acceptable in application code"))]
+#![cfg_attr(not(feature = "reasons"), allow(clippy::unwrap_used))]
+```
+
+#### Integration tests
+
+Unfortunately, due to current limitations in the Rust compiler, the following
+lines need to be added to each integration test file inside the `/tests`
+directory, if linting is being applied to the tests:
+
+```rust
+//	Lints specifically disabled for integration tests
+#![cfg_attr(test, allow(
+	non_snake_case,
+	clippy::cognitive_complexity,
+	clippy::exhaustive_enums,
+	clippy::exhaustive_structs,
+	clippy::expect_used,
+	clippy::indexing_slicing,
+	clippy::let_underscore_untyped,
+	clippy::missing_assert_message,
+	clippy::missing_panics_doc,
+	clippy::must_use_candidate,
+	clippy::panic,
+	clippy::print_stdout,
+	clippy::unwrap_in_result,
+	clippy::unwrap_used,
+))]
+```
+
+This is because the Rust compiler does not currently allow proc macros to
+operate on inner attributes.
 
 ### Standard Rust compiler lints
 
@@ -849,18 +1015,6 @@ The following lints are set to `allow` by default, get set to `warn` at the
 back to `allow`:
 
   - [`clippy::module_name_repetitions`][clippy::module_name_repetitions]
-
-Note that if using the `reasons` crate feature, as described in the [Giving
-reasons](#giving-reasons) section below, then the [`module_name_repetitions`][clippy::module_name_repetitions]
-lint will need to be disabled by adding an exception in the following manner:
-
-```rust
-#![cfg_attr(    feature = "reasons",  allow(clippy::module_name_repetitions, reason = "This is not required"))]
-#![cfg_attr(not(feature = "reasons"), allow(clippy::module_name_repetitions))]
-```
-
-This approach is already included in the [complete configuration](#complete-configuration)
-provided above, so if you are using that, there is nothing else to do.
 
 #### Clippy restriction lints
 
