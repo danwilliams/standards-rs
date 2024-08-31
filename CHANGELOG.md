@@ -9,14 +9,42 @@ The format is based on [Keep a Changelog][], and this project adheres to
 [Semantic Versioning][].
 
 
+## 0.5.0 (31 August 2024)
+
+### Added
+
+  - Added new lints available in Rust 1.78
+      - `clippy::deprecated_clippy_cfg_attr`: `warn` -> `deny`
+      - `clippy::incompatible_msrv`: `warn` -> `deny`
+      - `clippy::multiple_bound_locations`: `warn` -> `deny`
+      - `clippy::unnecessary_clippy_cfg`: `warn` -> `deny`
+  - Added new lints available in Rust 1.79
+      - `clippy::const_is_empty`: `warn` -> `deny`
+  - Added new lints available in Rust 1.80
+      - `clippy::renamed_function_params`: `allow` -> `deny`
+
+### Changed
+
+  - Downgraded lints:
+      - `clippy::missing_assert_message`: `forbid` -> `deny`
+  - Updated README:
+      - Updated IDEs section
+      - Reformatted lints to link to official docs
+      - Updated details of `lint_reasons`
+  - Moved linting configuration to `Cargo.toml`
+  - Added minimum Rust version to `Cargo.toml`
+  - Updated release profile optimisations
+  - Added example `rustfmt.toml`
+
+
 ## 0.4.0 (02 April 2024)
 
 ### Added
 
   - Added new lints available in Rust 1.77
-      - `clippy::pub_underscore_fields`
-      - `clippy::empty_enum_variants_with_brackets`
-      - `clippy::unconditional_recursion`
+      - `clippy::pub_underscore_fields`: `allow` -> `deny`
+      - `clippy::empty_enum_variants_with_brackets`: `allow` -> `deny`
+      - `clippy::unconditional_recursion`: `warn` -> `deny`
 
 ### Removed
 
@@ -29,13 +57,14 @@ The format is based on [Keep a Changelog][], and this project adheres to
 ### Added
 
   - Added new lints available in Rust 1.76
-      - `clippy::infinite_loop`
-      - `clippy::iter_over_hash_type`
+      - `clippy::infinite_loop`: `allow` -> `forbid`
+      - `clippy::iter_over_hash_type`: `allow` -> `warn`
   - Added specific style for `impl` section header comments
 
 ### Changed
 
-  - Downgraded the `clippy::unwrap_in_result` lint from `forbid` to `deny`
+  - Downgraded lints:
+      - `clippy::unwrap_in_result`: `forbid` -> `deny`
 
 
 ## 0.2.0 (27 November 2023)
