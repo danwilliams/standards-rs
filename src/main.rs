@@ -13,11 +13,15 @@
 //	Lints specifically disabled for unit tests
 #![cfg_attr(test, allow(
 	non_snake_case,
+	clippy::cast_lossless,
+	clippy::cast_precision_loss,
 	clippy::cognitive_complexity,
+	clippy::default_numeric_fallback,
 	clippy::exhaustive_enums,
 	clippy::exhaustive_structs,
 	clippy::expect_used,
 	clippy::indexing_slicing,
+	clippy::let_underscore_must_use,
 	clippy::let_underscore_untyped,
 	clippy::missing_assert_message,
 	clippy::missing_panics_doc,
