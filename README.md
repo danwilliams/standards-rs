@@ -529,7 +529,6 @@ multiple_inherent_impl            = "forbid"
 panic_in_result_fn                = "forbid"
 str_to_string                     = "forbid"
 string_to_string                  = "forbid"
-tests_outside_test_module         = "forbid"
 unimplemented                     = "forbid"
 
 ##	Deny
@@ -554,6 +553,7 @@ print_stderr                      = "deny"
 print_stdout                      = "deny"
 rc_mutex                          = "deny"
 renamed_function_params           = "deny"
+tests_outside_test_module         = "deny"
 try_err                           = "deny"
 unwrap_in_result                  = "deny"
 unwrap_used                       = "deny"
@@ -1026,7 +1026,6 @@ The following lints are set to `allow` by default, and have been changed to
   - [`clippy::panic_in_result_fn`][clippy::panic_in_result_fn]
   - [`clippy::str_to_string`][clippy::str_to_string]
   - [`clippy::string_to_string`][clippy::string_to_string]
-  - [`clippy::tests_outside_test_module`][clippy::tests_outside_test_module]
   - [`clippy::unimplemented`][clippy::unimplemented]
 
 ##### Deny
@@ -1055,6 +1054,7 @@ The following lints are set to `allow` by default, and have been changed to
   - [`clippy::print_stdout`][clippy::print_stdout]
   - [`clippy::rc_mutex`][clippy::rc_mutex]
   - [`clippy::renamed_function_params`][clippy::renamed_function_params]
+  - [`clippy::tests_outside_test_module`][clippy::tests_outside_test_module]
   - [`clippy::try_err`][clippy::try_err]
   - [`clippy::unwrap_in_result`][clippy::unwrap_in_result]
   - [`clippy::unwrap_used`][clippy::unwrap_used]
