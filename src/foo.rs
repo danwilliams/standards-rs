@@ -13,8 +13,10 @@ mod tests;
 
 //		Packages
 
-use core::fmt::{Display, self};
-use std::error::Error;
+use core::{
+	error::Error,
+	fmt::{Display, self},
+};
 
 
 
@@ -37,7 +39,7 @@ pub enum Style {
 
 //		FooError																
 /// The possible errors that can occur when working with a foo.
-#[allow(dead_code, reason = "This is an example error and is not actually used")]
+#[expect(dead_code, reason = "This is an example error and is not actually used")]
 #[derive(Debug)]
 pub enum FooError {
 	/// The foo is invalid.
@@ -95,7 +97,7 @@ impl Foo {
 	/// * `id`       - The unique id, if there is one.
 	/// * `settings` - The settings to use for the foo.
 	/// 
-	#[allow(clippy::missing_const_for_fn, reason = "This will do more in future")]
+	#[expect(clippy::missing_const_for_fn, reason = "This will do more in future")]
 	pub fn new(
 		id:       Option<u64>,
 		settings: Settings,

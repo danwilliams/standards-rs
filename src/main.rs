@@ -52,7 +52,7 @@ use foo::{Foo, Settings, Style};
 //		Functions
 
 //		main																	
-#[allow(clippy::print_stdout, reason = "This is an example app with demo output")]
+#[expect(clippy::print_stdout, reason = "This is an example app with demo output")]
 fn main() {
 	let example1 = Foo::new(
 		Some(42),
