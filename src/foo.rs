@@ -1,6 +1,5 @@
 //! The foo module.
-#![cfg_attr(    feature = "reasons",  allow(non_snake_case, reason = "The Settings struct uses PascalCase"))]
-#![cfg_attr(not(feature = "reasons"), allow(non_snake_case))]
+#![allow(non_snake_case, reason = "The Settings struct uses PascalCase")]
 
 
 
@@ -38,8 +37,7 @@ pub enum Style {
 
 //		FooError																
 /// The possible errors that can occur when working with a foo.
-#[cfg_attr(    feature = "reasons",  allow(dead_code, reason = "This is an example error and is not actually used"))]
-#[cfg_attr(not(feature = "reasons"), allow(dead_code))]
+#[allow(dead_code, reason = "This is an example error and is not actually used")]
 #[derive(Debug)]
 pub enum FooError {
 	/// The foo is invalid.
@@ -97,8 +95,7 @@ impl Foo {
 	/// * `id`       - The unique id, if there is one.
 	/// * `settings` - The settings to use for the foo.
 	/// 
-	#[cfg_attr(    feature = "reasons",  allow(clippy::missing_const_for_fn, reason = "This will do more in future"))]
-	#[cfg_attr(not(feature = "reasons"), allow(clippy::missing_const_for_fn))]
+	#[allow(clippy::missing_const_for_fn, reason = "This will do more in future")]
 	pub fn new(
 		id:       Option<u64>,
 		settings: Settings,

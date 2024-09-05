@@ -7,11 +7,8 @@
 
 //		Global configuration
 
-#![cfg_attr(feature = "reasons", feature(lint_reasons))]
-
 //	Customisations of the standard linting configuration
-#![cfg_attr(    feature = "reasons",  allow(unreachable_pub, reason = "Not useful in a binary crate"))]
-#![cfg_attr(not(feature = "reasons"), allow(unreachable_pub))]
+#![allow(unreachable_pub, reason = "Not useful in a binary crate")]
 
 //	Lints specifically disabled for unit tests
 #![cfg_attr(test, allow(
@@ -51,8 +48,7 @@ use foo::{Foo, Settings, Style};
 //		Functions
 
 //		main																	
-#[cfg_attr(    feature = "reasons",  allow(clippy::print_stdout, reason = "This is an example app with demo output"))]
-#[cfg_attr(not(feature = "reasons"), allow(clippy::print_stdout))]
+#[allow(clippy::print_stdout, reason = "This is an example app with demo output")]
 fn main() {
 	let example1 = Foo::new(
 		Some(42),

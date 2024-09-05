@@ -21,9 +21,6 @@ strip     = true   # Automatically strip symbols from the binary
 opt-level = 3      # Maximum optimisation (this is the cargo default)
 lto       = "thin" # Enable link-time optimisation (fast)
 
-[features]
-reasons = []
-
 [dependencies]
 
 [dev-dependencies]
