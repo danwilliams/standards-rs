@@ -9,6 +9,25 @@ The format is based on [Keep a Changelog][], and this project adheres to
 [Semantic Versioning][].
 
 
+## 0.6.0 (05 September 2024)
+
+### Added
+
+  - Added new lints available in Rust 1.81
+      - `clippy::allow_attributes`: `allow` -> `warn`
+      - `clippy::field_scoped_visibility_modifiers`: `allow` -> `warn`
+
+### Changed
+
+  - Downgraded lints:
+      - `clippy::tests_outside_test_module lint`: `forbid` -> `deny`
+  - Adjusted lint overrides applied to tests
+
+### Removed
+
+  - Removed the `reasons` feature now that `lint_reasons` is stable
+
+
 ## 0.5.0 (31 August 2024)
 
 ### Added
@@ -22,6 +41,7 @@ The format is based on [Keep a Changelog][], and this project adheres to
       - `clippy::const_is_empty`: `warn` -> `deny`
   - Added new lints available in Rust 1.80
       - `clippy::renamed_function_params`: `allow` -> `deny`
+
 
 ### Changed
 

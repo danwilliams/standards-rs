@@ -1,6 +1,6 @@
 [package]
 name         = "foo"
-version      = "0.5.0"
+version      = "0.6.0"
 description  = "Opinionated coding standards for Rust code (example application)"
 categories   = ["config", "development-tools", "rust-patterns"]
 keywords     = ["utility"]
