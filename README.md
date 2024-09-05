@@ -530,7 +530,6 @@ panic_in_result_fn                = "forbid"
 str_to_string                     = "forbid"
 string_to_string                  = "forbid"
 unimplemented                     = "forbid"
-
 ##	Deny
 clone_on_ref_ptr                  = "deny"
 empty_enum_variants_with_brackets = "deny"
@@ -560,12 +559,14 @@ unwrap_used                       = "deny"
 wildcard_enum_match_arm           = "deny"
 ##	Warn
 absolute_paths                    = "warn"
+allow_attributes                  = "warn"
 arithmetic_side_effects           = "warn"
 as_underscore                     = "warn"
 decimal_literal_representation    = "warn"
 default_numeric_fallback          = "warn"
 deref_by_slicing                  = "warn"
 empty_drop                        = "warn"
+field_scoped_visibility_modifiers = "warn"
 filetype_is_file                  = "warn"
 if_then_some_else_none            = "warn"
 indexing_slicing                  = "warn"
@@ -1079,12 +1080,14 @@ The following lints are set to `allow` by default, and have been changed to
 `warn`:
 
   - [`clippy::absolute_paths`][clippy::absolute_paths]
+  - [`clippy::allow_attributes`][clippy::allow_attributes]
   - [`clippy::arithmetic_side_effects`][clippy::arithmetic_side_effects]
   - [`clippy::as_underscore`][clippy::as_underscore]
   - [`clippy::decimal_literal_representation`][clippy::decimal_literal_representation]
   - [`clippy::default_numeric_fallback`][clippy::default_numeric_fallback]
   - [`clippy::deref_by_slicing`][clippy::deref_by_slicing]
   - [`clippy::empty_drop`][clippy::empty_drop]
+  - [`clippy::field_scoped_visibility_modifiers`][clippy::field_scoped_visibility_modifiers]
   - [`clippy::filetype_is_file`][clippy::filetype_is_file]
   - [`clippy::if_then_some_else_none`][clippy::if_then_some_else_none]
   - [`clippy::indexing_slicing`][clippy::indexing_slicing]
@@ -1525,6 +1528,7 @@ They demonstrate the coding styles and standards described in this document.
 
 
 [clippy::absolute_paths]:                    https://rust-lang.github.io/rust-clippy/master/#absolute_paths
+[clippy::allow_attributes]:                  https://rust-lang.github.io/rust-clippy/master/#allow_attributes
 [clippy::allow_attributes_without_reason]:   https://rust-lang.github.io/rust-clippy/master/#allow_attributes_without_reason
 [clippy::arithmetic_side_effects]:           https://rust-lang.github.io/rust-clippy/master/#arithmetic_side_effects
 [clippy::as_underscore]:                     https://rust-lang.github.io/rust-clippy/master/#as_underscore
@@ -1544,6 +1548,7 @@ They demonstrate the coding styles and standards described in this document.
 [clippy::exhaustive_structs]:                https://rust-lang.github.io/rust-clippy/master/#exhaustive_structs
 [clippy::exit]:                              https://rust-lang.github.io/rust-clippy/master/#exit
 [clippy::expect_used]:                       https://rust-lang.github.io/rust-clippy/master/#expect_used
+[clippy::field_scoped_visibility_modifiers]: https://rust-lang.github.io/rust-clippy/master/#field_scoped_visibility_modifiers
 [clippy::filetype_is_file]:                  https://rust-lang.github.io/rust-clippy/master/#filetype_is_file
 [clippy::float_cmp_const]:                   https://rust-lang.github.io/rust-clippy/master/#float_cmp_const
 [clippy::fn_to_numeric_cast_any]:            https://rust-lang.github.io/rust-clippy/master/#fn_to_numeric_cast_any
