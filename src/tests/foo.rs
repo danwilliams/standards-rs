@@ -19,6 +19,7 @@
 	clippy::tests_outside_test_module,
 	clippy::unwrap_in_result,
 	clippy::unwrap_used,
+	reason = "Not useful in integration tests"
 ))]
 
 

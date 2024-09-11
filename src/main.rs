@@ -30,6 +30,7 @@
 	clippy::print_stdout,
 	clippy::unwrap_in_result,
 	clippy::unwrap_used,
+	reason = "Not useful in unit tests"
 ))]
 
 

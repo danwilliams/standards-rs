@@ -653,6 +653,7 @@ tests:
 	clippy::print_stdout,
 	clippy::unwrap_in_result,
 	clippy::unwrap_used,
+	reason = "Not useful in unit tests"
 ))]
 ```
 
@@ -697,6 +698,7 @@ up any linting customisations:
 	clippy::print_stdout,
 	clippy::unwrap_in_result,
 	clippy::unwrap_used,
+	reason = "Not useful in integration tests"
 ))]
 ```
 
