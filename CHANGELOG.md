@@ -9,6 +9,19 @@ The format is based on [Keep a Changelog][], and this project adheres to
 [Semantic Versioning][].
 
 
+## 0.7.0 (30 October 2024)
+
+### Added
+
+  - Added new lints available in Rust 1.82
+      - `clippy::pathbuf_init_then_push`: `allow` -> `warn`
+      - `clippy::unused_result_ok`: `allow` -> `warn`
+
+### Changed
+
+  - Adjusted lint exceptions for tests
+
+
 ## 0.6.0 (05 September 2024)
 
 ### Added
