@@ -577,6 +577,7 @@ map_err_ignore                    = "warn"
 missing_asserts_for_indexing      = "warn"
 mixed_read_write_in_expression    = "warn"
 mutex_atomic                      = "warn"
+pathbuf_init_then_push            = "warn"
 pattern_type_mismatch             = "warn"
 pub_without_shorthand             = "warn"
 rc_buffer                         = "warn"
@@ -597,6 +598,7 @@ unnecessary_safety_doc            = "warn"
 unneeded_field_pattern            = "warn"
 unreachable                       = "warn"
 unseparated_literal_suffix        = "warn"
+unused_result_ok                  = "warn"
 use_debug                         = "warn"
 verbose_file_reads                = "warn"
 #	Clippy suspicious lints
@@ -1100,6 +1102,7 @@ The following lints are set to `allow` by default, and have been changed to
   - [`clippy::missing_asserts_for_indexing`][clippy::missing_asserts_for_indexing]
   - [`clippy::mixed_read_write_in_expression`][clippy::mixed_read_write_in_expression]
   - [`clippy::mutex_atomic`][clippy::mutex_atomic]
+  - [`clippy::pathbuf_init_then_push`][clippy::pathbuf_init_then_push]
   - [`clippy::pattern_type_mismatch`][clippy::pattern_type_mismatch]
   - [`clippy::pub_without_shorthand`][clippy::pub_without_shorthand]
   - [`clippy::rc_buffer`][clippy::rc_buffer]
@@ -1120,6 +1123,7 @@ The following lints are set to `allow` by default, and have been changed to
   - [`clippy::unneeded_field_pattern`][clippy::unneeded_field_pattern]
   - [`clippy::unreachable`][clippy::unreachable]
   - [`clippy::unseparated_literal_suffix`][clippy::unseparated_literal_suffix]
+  - [`clippy::unused_result_ok`][clippy::unused_result_ok]
   - [`clippy::use_debug`][clippy::use_debug]
   - [`clippy::verbose_file_reads`][clippy::verbose_file_reads]
 
@@ -1583,6 +1587,7 @@ They demonstrate the coding styles and standards described in this document.
 [clippy::nursery]:                           https://rust-lang.github.io/rust-clippy/master/#/?groups=nursery
 [clippy::panic]:                             https://rust-lang.github.io/rust-clippy/master/#panic
 [clippy::panic_in_result_fn]:                https://rust-lang.github.io/rust-clippy/master/#panic_in_result_fn
+[clippy::pathbuf_init_then_push]:            https://rust-lang.github.io/rust-clippy/master/#pathbuf_init_then_push
 [clippy::pattern_type_mismatch]:             https://rust-lang.github.io/rust-clippy/master/#pattern_type_mismatch
 [clippy::pedantic]:                          https://rust-lang.github.io/rust-clippy/master/#/?groups=pedantic
 [clippy::print_stderr]:                      https://rust-lang.github.io/rust-clippy/master/#print_stderr
@@ -1617,6 +1622,7 @@ They demonstrate the coding styles and standards described in this document.
 [clippy::unneeded_field_pattern]:            https://rust-lang.github.io/rust-clippy/master/#unneeded_field_pattern
 [clippy::unreachable]:                       https://rust-lang.github.io/rust-clippy/master/#unreachable
 [clippy::unseparated_literal_suffix]:        https://rust-lang.github.io/rust-clippy/master/#unseparated_literal_suffix
+[clippy::unused_result_ok]:                  https://rust-lang.github.io/rust-clippy/master/#unused_result_ok
 [clippy::unwrap_in_result]:                  https://rust-lang.github.io/rust-clippy/master/#unwrap_in_result
 [clippy::unwrap_used]:                       https://rust-lang.github.io/rust-clippy/master/#unwrap_used
 [clippy::use_debug]:                         https://rust-lang.github.io/rust-clippy/master/#use_debug
