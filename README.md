@@ -1,15 +1,14 @@
 # Coding standards for Rust
 
-[Dotfive]: https://dotfive.co.uk
 [Rust]:    https://www.rust-lang.org/
 
-This document describes the coding standards chosen by [Dotfive][] for [Rust][]
-code, which are **highly opinionated**. We choose to follow these standards
-instead of formatting with `rustfmt`, mainly for reasons of readability.
+This document describes the coding standards chosen by us for [Rust][] code,
+which are **highly opinionated**. We choose to follow these standards instead of
+formatting with `rustfmt`, mainly for reasons of readability.
 
 It is intended to be a living document, and will be updated as necessary. It is
 not intended to be a comprehensive guide to Rust, but rather a set of standards
-that should be followed when writing code for Dotfive projects. Notably, when
+that should be followed when writing code for our projects. Notably, when
 contributing to other codebases, such as client or community projects, we follow
 the rules they have defined rather than ones in this document.
 
@@ -99,7 +98,7 @@ personally dislike some of them, and that is absolutely fine — it is impossibl
 to please everyone. It is important that we have a consistent approach to
 writing code, and so we must all follow the same standards. You are free to use
 your own preferred standards in your own projects, but **when contributing to
-Dotfive projects, you must follow the standards described here**.
+our projects, you must follow the standards described here**.
 
 If any suggestions are rejected then we will explain why, and we will be happy
 to discuss the reasons for the decision. We will not reject suggestions without
@@ -466,7 +465,7 @@ codebase.
 
 ```toml
 #	For an explanation of the following configuration, see:
-#	https://github.com/dotfive/standards-rs#code-linting
+#	https://github.com/danwilliams/standards-rs#code-linting
 
 [lints.rust]
 #	Future compatibility lints
@@ -1451,7 +1450,7 @@ a separate test and give rise to an individual integration test function.
 A full description of Git etiquette is currently outside the scope of this
 document, but in basic summary you should create meaningful, semantic,
 carefully-staged commits, with appropriate commit messages and descriptions,
-following the Dotfive Git standards.
+following our Git standards.
 
 Specifically to the context of Rust projects, you should try not to push any
 commits that individually fail tests. As far as possible, each commit should be
@@ -1463,8 +1462,8 @@ submitted for PR, all tests should be passing along with all linting checks.
 
 The general development process should go something like this:
 
-  1. Write your Rust code, using idiomatic approaches, and obeying the Dotfive
-     coding standards.
+  1. Write your Rust code, using idiomatic approaches, and obeying our coding
+     standards.
   2. Write documentation for all new code you produce, in line with the
      requirements in this document.
   3. Ensure that you have complete test coverage for your additions or changes.

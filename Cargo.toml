@@ -10,8 +10,8 @@ rust-version = "1.82.0"
 license      = "MIT"
 # For closed-source, use this:
 #license-file = "LICENSE"
-authors      = ["Dan Williams <dan@dotfive.co.uk>"]
-repository   = "https://github.com/dotfive/standards-rs"
+authors      = ["Dan Williams <dan@ithium.net>"]
+repository   = "https://github.com/danwilliams/standards-rs"
 readme       = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -30,7 +30,7 @@ trybuild = "1.0.99"
 #=================================[  LINTS  ]===================================
 
 #	For an explanation of the following configuration, see:
-#	https://github.com/dotfive/standards-rs#code-linting
+#	https://github.com/danwilliams/standards-rs#code-linting
 
 [lints.rust]
 #	Future compatibility lints
