@@ -8,6 +8,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog][], and this project adheres to
 [Semantic Versioning][].
 
+## 0.8.0 (03 June 2025)
+
+### Added
+
+  - Added new lints available in Rust 1.83
+      - `clippy::non_zero_suggestions`: `allow` -> `deny`
+      - `clippy::unused_trait_names`: `allow` -> `warn`
+      - `clippy::zombie_processes`: `warn` -> `deny`
+  - Added new lints available in Rust 1.84
+      - `clippy::map_with_unused_argument_over_ranges`: `allow` -> `warn`
+      - `clippy::regex_creation_in_loops`: `warn` -> `deny`
+  - Added new lints available in Rust 1.85
+      - `clippy::as_pointer_underscore`: `allow` -> `warn`
+      - `clippy::doc_include_without_cfg`: `allow` -> `deny`
+  - Added new lints available in Rust 1.86
+      - `clippy::doc_overindented_list_items`: `warn` -> `allow`
+      - `clippy::mutex_integer`: `allow` -> `deny`
+      - `clippy::precedence_bits`: `allow` -> `warn`
+      - `clippy::return_and_then`: `allow` -> `warn`
+  - Added Rust 2024 edition compatibility lints
+
+### Changed
+
+  - Upgraded lints:
+      - `clippy::missing_assert_message`: `warn` -> `deny`
+
 
 ## 0.7.0 (30 October 2024)
 
