@@ -5,7 +5,7 @@ description  = "Opinionated coding standards for Rust code (example application)
 categories   = ["config", "development-tools", "rust-patterns"]
 keywords     = ["utility"]
 edition      = "2021"
-rust-version = "1.83.0"
+rust-version = "1.84.0"
 # For open-source, typically use this:
 license      = "MIT"
 # For closed-source, use this:
@@ -80,7 +80,8 @@ negative_feature_names               = "deny"
 wildcard_dependencies                = "deny"
 #	Clippy pedantic lints
 pub_underscore_fields                = "deny"
-module_name_repetitions              = "allow" # This is not required
+#	Clippy perf lints
+regex_creation_in_loops              = "deny"
 #	Clippy restriction lints
 ##	Forbid
 allow_attributes_without_reason      = "forbid"
@@ -139,6 +140,7 @@ iter_over_hash_type                  = "warn"
 let_underscore_must_use              = "warn"
 let_underscore_untyped               = "warn"
 map_err_ignore                       = "warn"
+map_with_unused_argument_over_ranges = "warn"
 missing_asserts_for_indexing         = "warn"
 mixed_read_write_in_expression       = "warn"
 mutex_atomic                         = "warn"
