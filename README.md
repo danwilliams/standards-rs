@@ -551,6 +551,7 @@ integer_division                     = "deny"
 lossy_float_literal                  = "deny"
 mem_forget                           = "deny"
 missing_assert_message               = "deny"
+mutex_atomic                         = "deny"
 mutex_integer                        = "deny"
 non_zero_suggestions                 = "deny"
 panic                                = "deny"
@@ -584,7 +585,6 @@ map_err_ignore                       = "warn"
 map_with_unused_argument_over_ranges = "warn"
 missing_asserts_for_indexing         = "warn"
 mixed_read_write_in_expression       = "warn"
-mutex_atomic                         = "warn"
 pathbuf_init_then_push               = "warn"
 pattern_type_mismatch                = "warn"
 precedence_bits                      = "warn"
@@ -1114,6 +1114,7 @@ The following lints are set to `allow` by default, and have been changed to
   - [`clippy::lossy_float_literal`][clippy::lossy_float_literal]
   - [`clippy::mem_forget`][clippy::mem_forget]
   - [`clippy::missing_assert_message`][clippy::missing_assert_message]
+  - [`clippy::mutex_atomic`][clippy::mutex_atomic]
   - [`clippy::mutex_integer`][clippy::mutex_integer]
   - [`clippy::non_zero_suggestions`][clippy::non_zero_suggestions]
   - [`clippy::panic`][clippy::panic]
@@ -1152,7 +1153,6 @@ The following lints are set to `allow` by default, and have been changed to
   - [`clippy::map_with_unused_argument_over_ranges`][clippy::map_with_unused_argument_over_ranges]
   - [`clippy::missing_asserts_for_indexing`][clippy::missing_asserts_for_indexing]
   - [`clippy::mixed_read_write_in_expression`][clippy::mixed_read_write_in_expression]
-  - [`clippy::mutex_atomic`][clippy::mutex_atomic]
   - [`clippy::pathbuf_init_then_push`][clippy::pathbuf_init_then_push]
   - [`clippy::pattern_type_mismatch`][clippy::pattern_type_mismatch]
   - [`clippy::precedence_bits`][clippy::precedence_bits]
