@@ -56,6 +56,7 @@ compilable, testable Rust project.
           - [Clippy perf lints](#clippy-perf-lints)
           - [Clippy restriction lints](#clippy-restriction-lints)
           - [Clippy suspicious lints](#clippy-suspicious-lints)
+          - [Clippy style lints](#clippy-style-lints)
           - [Clippy configuration](#clippy-configuration)
       - [Giving reasons](#giving-reasons)
   - [Filesystem layout](#filesystem-layout)
@@ -516,6 +517,7 @@ pedantic                             = { level = "warn", priority = -1 }
 negative_feature_names               = "deny"
 wildcard_dependencies                = "deny"
 #	Clippy pedantic lints
+format_push_string                   = "deny"
 pub_underscore_fields                = "deny"
 #	Clippy perf lints
 regex_creation_in_loops              = "deny"
@@ -543,13 +545,13 @@ exhaustive_structs                   = "deny"
 expect_used                          = "deny"
 float_cmp_const                      = "deny"
 fn_to_numeric_cast_any               = "deny"
-format_push_string                   = "deny"
 get_unwrap                           = "deny"
 impl_trait_in_params                 = "deny"
 integer_division                     = "deny"
 lossy_float_literal                  = "deny"
 mem_forget                           = "deny"
 missing_assert_message               = "deny"
+mutex_integer                        = "deny"
 non_zero_suggestions                 = "deny"
 panic                                = "deny"
 print_stderr                         = "deny"
@@ -585,10 +587,12 @@ mixed_read_write_in_expression       = "warn"
 mutex_atomic                         = "warn"
 pathbuf_init_then_push               = "warn"
 pattern_type_mismatch                = "warn"
+precedence_bits                      = "warn"
 pub_without_shorthand                = "warn"
 rc_buffer                            = "warn"
 redundant_type_annotations           = "warn"
 rest_pat_in_fully_bound_structs      = "warn"
+return_and_then                      = "warn"
 same_name_method                     = "warn"
 semicolon_outside_block              = "warn"
 shadow_reuse                         = "warn"
@@ -616,6 +620,8 @@ multiple_bound_locations             = "deny"
 unconditional_recursion              = "deny"
 unnecessary_clippy_cfg               = "deny"
 zombie_processes                     = "deny"
+#	Clippy style lints
+doc_overindented_list_items          = "allow"
 ```
 
 ##### Multi-crate workspaces
@@ -1045,6 +1051,7 @@ present, beyond those applied at a category level.
 The following lints are set to `allow` by default, and have been changed to
 `deny`:
 
+  - [`clippy::format_push_string`][clippy::format_push_string]
   - [`clippy::pub_underscore_fields`][clippy::pub_underscore_fields]
 
 The remaining lints are set to `allow` by default, and have been changed to
@@ -1101,13 +1108,13 @@ The following lints are set to `allow` by default, and have been changed to
   - [`clippy::expect_used`][clippy::expect_used]
   - [`clippy::float_cmp_const`][clippy::float_cmp_const]
   - [`clippy::fn_to_numeric_cast_any`][clippy::fn_to_numeric_cast_any]
-  - [`clippy::format_push_string`][clippy::format_push_string]
   - [`clippy::get_unwrap`][clippy::get_unwrap]
   - [`clippy::impl_trait_in_params`][clippy::impl_trait_in_params]
   - [`clippy::integer_division`][clippy::integer_division]
   - [`clippy::lossy_float_literal`][clippy::lossy_float_literal]
   - [`clippy::mem_forget`][clippy::mem_forget]
   - [`clippy::missing_assert_message`][clippy::missing_assert_message]
+  - [`clippy::mutex_integer`][clippy::mutex_integer]
   - [`clippy::non_zero_suggestions`][clippy::non_zero_suggestions]
   - [`clippy::panic`][clippy::panic]
   - [`clippy::print_stderr`][clippy::print_stderr]
@@ -1148,10 +1155,12 @@ The following lints are set to `allow` by default, and have been changed to
   - [`clippy::mutex_atomic`][clippy::mutex_atomic]
   - [`clippy::pathbuf_init_then_push`][clippy::pathbuf_init_then_push]
   - [`clippy::pattern_type_mismatch`][clippy::pattern_type_mismatch]
+  - [`clippy::precedence_bits`][clippy::precedence_bits]
   - [`clippy::pub_without_shorthand`][clippy::pub_without_shorthand]
   - [`clippy::rc_buffer`][clippy::rc_buffer]
   - [`clippy::redundant_type_annotations`][clippy::redundant_type_annotations]
   - [`clippy::rest_pat_in_fully_bound_structs`][clippy::rest_pat_in_fully_bound_structs]
+  - [`clippy::return_and_then`][clippy::return_and_then]
   - [`clippy::same_name_method`][clippy::same_name_method]
   - [`clippy::semicolon_outside_block`][clippy::semicolon_outside_block]
   - [`clippy::shadow_reuse`][clippy::shadow_reuse]
@@ -1183,6 +1192,17 @@ single-character variable and lifetime names, and so these are not enabled by
 default as they cause a lot of noise and would result in either unnecessary
 verbosity or a lot of linting exceptions. It may be that they can be useful on a
 per-file basis.
+
+#### Clippy style lints
+
+##### Allow
+
+The following lints are set to `warn` by default, and have been changed to
+`allow`:
+
+  - [`clippy::doc_overindented_list_items`][clippy::doc_overindented_list_items]
+
+The remaining lints are set to `warn` by default, and remain unchanged.
 
 #### Clippy suspicious lints
 
@@ -1594,6 +1614,7 @@ They demonstrate the coding styles and standards described in this document.
 [clippy::deprecated_clippy_cfg_attr]:           https://rust-lang.github.io/rust-clippy/master/#deprecated_clippy_cfg_attr
 [clippy::deref_by_slicing]:                     https://rust-lang.github.io/rust-clippy/master/#deref_by_slicing
 [clippy::doc_include_without_cfg]:              https://rust-lang.github.io/rust-clippy/master/#doc_include_without_cfg
+[clippy::doc_overindented_list_items]:          https://rust-lang.github.io/rust-clippy/master/#doc_overindented_list_items
 [clippy::empty_drop]:                           https://rust-lang.github.io/rust-clippy/master/#empty_drop
 [clippy::empty_enum_variants_with_brackets]:    https://rust-lang.github.io/rust-clippy/master/#empty_enum_variants_with_brackets
 [clippy::empty_structs_with_brackets]:          https://rust-lang.github.io/rust-clippy/master/#empty_structs_with_brackets
@@ -1631,6 +1652,7 @@ They demonstrate the coding styles and standards described in this document.
 [clippy::multiple_bound_locations]:             https://rust-lang.github.io/rust-clippy/master/#multiple_bound_locations
 [clippy::multiple_inherent_impl]:               https://rust-lang.github.io/rust-clippy/master/#multiple_inherent_impl
 [clippy::mutex_atomic]:                         https://rust-lang.github.io/rust-clippy/master/#mutex_atomic
+[clippy::mutex_integer]:                        https://rust-lang.github.io/rust-clippy/master/#mutex_integer
 [clippy::negative_feature_names]:               https://rust-lang.github.io/rust-clippy/master/#negative_feature_names
 [clippy::non_zero_suggestions]:                 https://rust-lang.github.io/rust-clippy/master/#non_zero_suggestions
 [clippy::nursery]:                              https://rust-lang.github.io/rust-clippy/master/#/?groups=nursery
@@ -1639,6 +1661,7 @@ They demonstrate the coding styles and standards described in this document.
 [clippy::pathbuf_init_then_push]:               https://rust-lang.github.io/rust-clippy/master/#pathbuf_init_then_push
 [clippy::pattern_type_mismatch]:                https://rust-lang.github.io/rust-clippy/master/#pattern_type_mismatch
 [clippy::pedantic]:                             https://rust-lang.github.io/rust-clippy/master/#/?groups=pedantic
+[clippy::precedence_bits]:                      https://rust-lang.github.io/rust-clippy/master/#precedence_bits
 [clippy::print_stderr]:                         https://rust-lang.github.io/rust-clippy/master/#print_stderr
 [clippy::print_stdout]:                         https://rust-lang.github.io/rust-clippy/master/#print_stdout
 [clippy::pub_underscore_fields]:                https://rust-lang.github.io/rust-clippy/master/#pub_underscore_fields
@@ -1649,6 +1672,7 @@ They demonstrate the coding styles and standards described in this document.
 [clippy::regex_creation_in_loops]:              https://rust-lang.github.io/rust-clippy/master/#regex_creation_in_loops
 [clippy::renamed_function_params]:              https://rust-lang.github.io/rust-clippy/master/#renamed_function_params
 [clippy::rest_pat_in_fully_bound_structs]:      https://rust-lang.github.io/rust-clippy/master/#rest_pat_in_fully_bound_structs
+[clippy::return_and_then]:                      https://rust-lang.github.io/rust-clippy/master/#return_and_then
 [clippy::same_name_method]:                     https://rust-lang.github.io/rust-clippy/master/#same_name_method
 [clippy::semicolon_outside_block]:              https://rust-lang.github.io/rust-clippy/master/#semicolon_outside_block
 [clippy::shadow_reuse]:                         https://rust-lang.github.io/rust-clippy/master/#shadow_reuse
