@@ -469,147 +469,147 @@ codebase.
 
 [lints.rust]
 #	Future compatibility lints
-future_incompatible               = { level = "deny", priority = -1 }
+future_incompatible                  = { level = "deny", priority = -1 }
 #	Deprecated approach lints
-rust_2018_compatibility           = { level = "deny", priority = -1 }
-rust_2018_idioms                  = { level = "warn", priority = -1 }
-rust_2021_compatibility           = { level = "deny", priority = -1 }
+rust_2018_compatibility              = { level = "deny", priority = -1 }
+rust_2018_idioms                     = { level = "warn", priority = -1 }
+rust_2021_compatibility              = { level = "deny", priority = -1 }
 #	Unused code lints
-unused                            = { level = "warn", priority = -1 }
+unused                               = { level = "warn", priority = -1 }
 #	Cherry-picked lints
 ##	Forbid
-unsafe_code                       = "forbid"
-unsafe_op_in_unsafe_fn            = "forbid"
+unsafe_code                          = "forbid"
+unsafe_op_in_unsafe_fn               = "forbid"
 ##	Deny
-deprecated                        = "deny"
-deprecated_where_clause_location  = "deny"
-incomplete_features               = "deny"
-internal_features                 = "deny"
-macro_use_extern_crate            = "deny"
-unknown_lints                     = "deny"
-unnameable_test_items             = "deny"
-unreachable_pub                   = "deny"
+deprecated                           = "deny"
+deprecated_where_clause_location     = "deny"
+incomplete_features                  = "deny"
+internal_features                    = "deny"
+macro_use_extern_crate               = "deny"
+unknown_lints                        = "deny"
+unnameable_test_items                = "deny"
+unreachable_pub                      = "deny"
 ##	Warn
-let_underscore_drop               = "warn"
-meta_variable_misuse              = "warn"
-missing_copy_implementations      = "warn"
-missing_debug_implementations     = "warn"
-missing_docs                      = "warn"
-single_use_lifetimes              = "warn"
-trivial_casts                     = "warn"
-trivial_numeric_casts             = "warn"
-unused_crate_dependencies         = "warn"
-unused_import_braces              = "warn"
-unused_lifetimes                  = "warn"
-unused_qualifications             = "warn"
-unused_results                    = "warn"
-variant_size_differences          = "warn"
+let_underscore_drop                  = "warn"
+meta_variable_misuse                 = "warn"
+missing_copy_implementations         = "warn"
+missing_debug_implementations        = "warn"
+missing_docs                         = "warn"
+single_use_lifetimes                 = "warn"
+trivial_casts                        = "warn"
+trivial_numeric_casts                = "warn"
+unused_crate_dependencies            = "warn"
+unused_import_braces                 = "warn"
+unused_lifetimes                     = "warn"
+unused_qualifications                = "warn"
+unused_results                       = "warn"
+variant_size_differences             = "warn"
 
 [lints.clippy]
 #	Clippy lint categories
-cargo                             = { level = "warn", priority = -1 }
-nursery                           = { level = "warn", priority = -1 }
-pedantic                          = { level = "warn", priority = -1 }
+cargo                                = { level = "warn", priority = -1 }
+nursery                              = { level = "warn", priority = -1 }
+pedantic                             = { level = "warn", priority = -1 }
 #	Clippy cargo lints
-negative_feature_names            = "deny"
-wildcard_dependencies             = "deny"
+negative_feature_names               = "deny"
+wildcard_dependencies                = "deny"
 #	Clippy pedantic lints
-pub_underscore_fields             = "deny"
-module_name_repetitions           = "allow" # This is not required
+pub_underscore_fields                = "deny"
+module_name_repetitions              = "allow" # This is not required
 #	Clippy restriction lints
 ##	Forbid
-allow_attributes_without_reason   = "forbid"
-dbg_macro                         = "forbid"
-exit                              = "forbid"
-infinite_loop                     = "forbid"
-missing_docs_in_private_items     = "forbid"
-mod_module_files                  = "forbid"
-multiple_inherent_impl            = "forbid"
-panic_in_result_fn                = "forbid"
-str_to_string                     = "forbid"
-string_to_string                  = "forbid"
-unimplemented                     = "forbid"
+allow_attributes_without_reason      = "forbid"
+dbg_macro                            = "forbid"
+exit                                 = "forbid"
+infinite_loop                        = "forbid"
+missing_docs_in_private_items        = "forbid"
+mod_module_files                     = "forbid"
+multiple_inherent_impl               = "forbid"
+panic_in_result_fn                   = "forbid"
+str_to_string                        = "forbid"
+string_to_string                     = "forbid"
+unimplemented                        = "forbid"
 ##	Deny
-clone_on_ref_ptr                  = "deny"
-empty_enum_variants_with_brackets = "deny"
-empty_structs_with_brackets       = "deny"
-error_impl_error                  = "deny"
-exhaustive_enums                  = "deny"
-exhaustive_structs                = "deny"
-expect_used                       = "deny"
-float_cmp_const                   = "deny"
-fn_to_numeric_cast_any            = "deny"
-format_push_string                = "deny"
-get_unwrap                        = "deny"
-impl_trait_in_params              = "deny"
-integer_division                  = "deny"
-lossy_float_literal               = "deny"
-mem_forget                        = "deny"
-missing_assert_message            = "deny"
-non_zero_suggestions              = "deny"
-panic                             = "deny"
-print_stderr                      = "deny"
-print_stdout                      = "deny"
-rc_mutex                          = "deny"
-renamed_function_params           = "deny"
-tests_outside_test_module         = "deny"
-try_err                           = "deny"
-unwrap_in_result                  = "deny"
-unwrap_used                       = "deny"
-wildcard_enum_match_arm           = "deny"
+clone_on_ref_ptr                     = "deny"
+empty_enum_variants_with_brackets    = "deny"
+empty_structs_with_brackets          = "deny"
+error_impl_error                     = "deny"
+exhaustive_enums                     = "deny"
+exhaustive_structs                   = "deny"
+expect_used                          = "deny"
+float_cmp_const                      = "deny"
+fn_to_numeric_cast_any               = "deny"
+format_push_string                   = "deny"
+get_unwrap                           = "deny"
+impl_trait_in_params                 = "deny"
+integer_division                     = "deny"
+lossy_float_literal                  = "deny"
+mem_forget                           = "deny"
+missing_assert_message               = "deny"
+non_zero_suggestions                 = "deny"
+panic                                = "deny"
+print_stderr                         = "deny"
+print_stdout                         = "deny"
+rc_mutex                             = "deny"
+renamed_function_params              = "deny"
+tests_outside_test_module            = "deny"
+try_err                              = "deny"
+unwrap_in_result                     = "deny"
+unwrap_used                          = "deny"
+wildcard_enum_match_arm              = "deny"
 ##	Warn
-absolute_paths                    = "warn"
-allow_attributes                  = "warn"
-arithmetic_side_effects           = "warn"
-as_underscore                     = "warn"
-decimal_literal_representation    = "warn"
-default_numeric_fallback          = "warn"
-deref_by_slicing                  = "warn"
-empty_drop                        = "warn"
-field_scoped_visibility_modifiers = "warn"
-filetype_is_file                  = "warn"
-if_then_some_else_none            = "warn"
-indexing_slicing                  = "warn"
-iter_over_hash_type               = "warn"
-let_underscore_must_use           = "warn"
-let_underscore_untyped            = "warn"
-map_err_ignore                    = "warn"
-missing_asserts_for_indexing      = "warn"
-mixed_read_write_in_expression    = "warn"
-mutex_atomic                      = "warn"
-pathbuf_init_then_push            = "warn"
-pattern_type_mismatch             = "warn"
-pub_without_shorthand             = "warn"
-rc_buffer                         = "warn"
-redundant_type_annotations        = "warn"
-rest_pat_in_fully_bound_structs   = "warn"
-same_name_method                  = "warn"
-semicolon_outside_block           = "warn"
-shadow_reuse                      = "warn"
-shadow_same                       = "warn"
-shadow_unrelated                  = "warn"
-std_instead_of_core               = "warn"
-string_lit_chars_any              = "warn"
-string_slice                      = "warn"
-suspicious_xor_used_as_pow        = "warn"
-todo                              = "warn"
-unnecessary_safety_comment        = "warn"
-unnecessary_safety_doc            = "warn"
-unneeded_field_pattern            = "warn"
-unreachable                       = "warn"
-unseparated_literal_suffix        = "warn"
-unused_result_ok                  = "warn"
-unused_trait_names                = "warn"
-use_debug                         = "warn"
-verbose_file_reads                = "warn"
+absolute_paths                       = "warn"
+allow_attributes                     = "warn"
+arithmetic_side_effects              = "warn"
+as_underscore                        = "warn"
+decimal_literal_representation       = "warn"
+default_numeric_fallback             = "warn"
+deref_by_slicing                     = "warn"
+empty_drop                           = "warn"
+field_scoped_visibility_modifiers    = "warn"
+filetype_is_file                     = "warn"
+if_then_some_else_none               = "warn"
+indexing_slicing                     = "warn"
+iter_over_hash_type                  = "warn"
+let_underscore_must_use              = "warn"
+let_underscore_untyped               = "warn"
+map_err_ignore                       = "warn"
+missing_asserts_for_indexing         = "warn"
+mixed_read_write_in_expression       = "warn"
+mutex_atomic                         = "warn"
+pathbuf_init_then_push               = "warn"
+pattern_type_mismatch                = "warn"
+pub_without_shorthand                = "warn"
+rc_buffer                            = "warn"
+redundant_type_annotations           = "warn"
+rest_pat_in_fully_bound_structs      = "warn"
+same_name_method                     = "warn"
+semicolon_outside_block              = "warn"
+shadow_reuse                         = "warn"
+shadow_same                          = "warn"
+shadow_unrelated                     = "warn"
+std_instead_of_core                  = "warn"
+string_lit_chars_any                 = "warn"
+string_slice                         = "warn"
+suspicious_xor_used_as_pow           = "warn"
+todo                                 = "warn"
+unnecessary_safety_comment           = "warn"
+unnecessary_safety_doc               = "warn"
+unneeded_field_pattern               = "warn"
+unreachable                          = "warn"
+unseparated_literal_suffix           = "warn"
+unused_result_ok                     = "warn"
+unused_trait_names                   = "warn"
+use_debug                            = "warn"
+verbose_file_reads                   = "warn"
 #	Clippy suspicious lints
-const_is_empty                    = "deny"
-deprecated_clippy_cfg_attr        = "deny"
-incompatible_msrv                 = "deny"
-multiple_bound_locations          = "deny"
-unconditional_recursion           = "deny"
-unnecessary_clippy_cfg            = "deny"
-zombie_processes                  = "deny"
+const_is_empty                       = "deny"
+deprecated_clippy_cfg_attr           = "deny"
+incompatible_msrv                    = "deny"
+multiple_bound_locations             = "deny"
+unconditional_recursion              = "deny"
+unnecessary_clippy_cfg               = "deny"
+zombie_processes                     = "deny"
 ```
 
 ##### Multi-crate workspaces
@@ -1538,133 +1538,133 @@ They demonstrate the coding styles and standards described in this document.
 
 
 
-[clippy::absolute_paths]:                    https://rust-lang.github.io/rust-clippy/master/#absolute_paths
-[clippy::allow_attributes]:                  https://rust-lang.github.io/rust-clippy/master/#allow_attributes
-[clippy::allow_attributes_without_reason]:   https://rust-lang.github.io/rust-clippy/master/#allow_attributes_without_reason
-[clippy::arithmetic_side_effects]:           https://rust-lang.github.io/rust-clippy/master/#arithmetic_side_effects
-[clippy::as_underscore]:                     https://rust-lang.github.io/rust-clippy/master/#as_underscore
-[clippy::cargo]:                             https://rust-lang.github.io/rust-clippy/master/#/?groups=cargo
-[clippy::clone_on_ref_ptr]:                  https://rust-lang.github.io/rust-clippy/master/#clone_on_ref_ptr
-[clippy::const_is_empty]:                    https://rust-lang.github.io/rust-clippy/master/#const_is_empty
-[clippy::dbg_macro]:                         https://rust-lang.github.io/rust-clippy/master/#dbg_macro
-[clippy::decimal_literal_representation]:    https://rust-lang.github.io/rust-clippy/master/#decimal_literal_representation
-[clippy::default_numeric_fallback]:          https://rust-lang.github.io/rust-clippy/master/#default_numeric_fallback
-[clippy::deprecated_clippy_cfg_attr]:        https://rust-lang.github.io/rust-clippy/master/#deprecated_clippy_cfg_attr
-[clippy::deref_by_slicing]:                  https://rust-lang.github.io/rust-clippy/master/#deref_by_slicing
-[clippy::empty_drop]:                        https://rust-lang.github.io/rust-clippy/master/#empty_drop
-[clippy::empty_enum_variants_with_brackets]: https://rust-lang.github.io/rust-clippy/master/#empty_enum_variants_with_brackets
-[clippy::empty_structs_with_brackets]:       https://rust-lang.github.io/rust-clippy/master/#empty_structs_with_brackets
-[clippy::error_impl_error]:                  https://rust-lang.github.io/rust-clippy/master/#error_impl_error
-[clippy::exhaustive_enums]:                  https://rust-lang.github.io/rust-clippy/master/#exhaustive_enums
-[clippy::exhaustive_structs]:                https://rust-lang.github.io/rust-clippy/master/#exhaustive_structs
-[clippy::exit]:                              https://rust-lang.github.io/rust-clippy/master/#exit
-[clippy::expect_used]:                       https://rust-lang.github.io/rust-clippy/master/#expect_used
-[clippy::field_scoped_visibility_modifiers]: https://rust-lang.github.io/rust-clippy/master/#field_scoped_visibility_modifiers
-[clippy::filetype_is_file]:                  https://rust-lang.github.io/rust-clippy/master/#filetype_is_file
-[clippy::float_cmp_const]:                   https://rust-lang.github.io/rust-clippy/master/#float_cmp_const
-[clippy::fn_to_numeric_cast_any]:            https://rust-lang.github.io/rust-clippy/master/#fn_to_numeric_cast_any
-[clippy::format_push_string]:                https://rust-lang.github.io/rust-clippy/master/#format_push_string
-[clippy::get_unwrap]:                        https://rust-lang.github.io/rust-clippy/master/#get_unwrap
-[clippy::if_then_some_else_none]:            https://rust-lang.github.io/rust-clippy/master/#if_then_some_else_none
-[clippy::impl_trait_in_params]:              https://rust-lang.github.io/rust-clippy/master/#impl_trait_in_params
-[clippy::incompatible_msrv]:                 https://rust-lang.github.io/rust-clippy/master/#incompatible_msrv
-[clippy::indexing_slicing]:                  https://rust-lang.github.io/rust-clippy/master/#indexing_slicing
-[clippy::infinite_loop]:                     https://rust-lang.github.io/rust-clippy/master/#infinite_loop
-[clippy::integer_division]:                  https://rust-lang.github.io/rust-clippy/master/#integer_division
-[clippy::iter_over_hash_type]:               https://rust-lang.github.io/rust-clippy/master/#iter_over_hash_type
-[clippy::let_underscore_must_use]:           https://rust-lang.github.io/rust-clippy/master/#let_underscore_must_use
-[clippy::let_underscore_untyped]:            https://rust-lang.github.io/rust-clippy/master/#let_underscore_untyped
-[clippy::lossy_float_literal]:               https://rust-lang.github.io/rust-clippy/master/#lossy_float_literal
-[clippy::map_err_ignore]:                    https://rust-lang.github.io/rust-clippy/master/#map_err_ignore
-[clippy::mem_forget]:                        https://rust-lang.github.io/rust-clippy/master/#mem_forget
-[clippy::min_ident_chars]:                   https://rust-lang.github.io/rust-clippy/master/#min_ident_chars
-[clippy::missing_assert_message]:            https://rust-lang.github.io/rust-clippy/master/#missing_assert_message
-[clippy::missing_asserts_for_indexing]:      https://rust-lang.github.io/rust-clippy/master/#missing_asserts_for_indexing
-[clippy::missing_docs_in_private_items]:     https://rust-lang.github.io/rust-clippy/master/#missing_docs_in_private_items
-[clippy::missing_trait_methods]:             https://rust-lang.github.io/rust-clippy/master/#missing_trait_methods
-[clippy::mixed_read_write_in_expression]:    https://rust-lang.github.io/rust-clippy/master/#mixed_read_write_in_expression
-[clippy::mod_module_files]:                  https://rust-lang.github.io/rust-clippy/master/#mod_module_files
-[clippy::module_name_repetitions]:           https://rust-lang.github.io/rust-clippy/master/#module_name_repetitions
-[clippy::multiple_bound_locations]:          https://rust-lang.github.io/rust-clippy/master/#multiple_bound_locations
-[clippy::multiple_inherent_impl]:            https://rust-lang.github.io/rust-clippy/master/#multiple_inherent_impl
-[clippy::mutex_atomic]:                      https://rust-lang.github.io/rust-clippy/master/#mutex_atomic
-[clippy::negative_feature_names]:            https://rust-lang.github.io/rust-clippy/master/#negative_feature_names
-[clippy::non_zero_suggestions]:              https://rust-lang.github.io/rust-clippy/master/#non_zero_suggestions
-[clippy::nursery]:                           https://rust-lang.github.io/rust-clippy/master/#/?groups=nursery
-[clippy::panic]:                             https://rust-lang.github.io/rust-clippy/master/#panic
-[clippy::panic_in_result_fn]:                https://rust-lang.github.io/rust-clippy/master/#panic_in_result_fn
-[clippy::pathbuf_init_then_push]:            https://rust-lang.github.io/rust-clippy/master/#pathbuf_init_then_push
-[clippy::pattern_type_mismatch]:             https://rust-lang.github.io/rust-clippy/master/#pattern_type_mismatch
-[clippy::pedantic]:                          https://rust-lang.github.io/rust-clippy/master/#/?groups=pedantic
-[clippy::print_stderr]:                      https://rust-lang.github.io/rust-clippy/master/#print_stderr
-[clippy::print_stdout]:                      https://rust-lang.github.io/rust-clippy/master/#print_stdout
-[clippy::pub_underscore_fields]:             https://rust-lang.github.io/rust-clippy/master/#pub_underscore_fields
-[clippy::pub_without_shorthand]:             https://rust-lang.github.io/rust-clippy/master/#pub_without_shorthand
-[clippy::rc_buffer]:                         https://rust-lang.github.io/rust-clippy/master/#rc_buffer
-[clippy::rc_mutex]:                          https://rust-lang.github.io/rust-clippy/master/#rc_mutex
-[clippy::redundant_type_annotations]:        https://rust-lang.github.io/rust-clippy/master/#redundant_type_annotations
-[clippy::renamed_function_params]:           https://rust-lang.github.io/rust-clippy/master/#renamed_function_params
-[clippy::rest_pat_in_fully_bound_structs]:   https://rust-lang.github.io/rust-clippy/master/#rest_pat_in_fully_bound_structs
-[clippy::same_name_method]:                  https://rust-lang.github.io/rust-clippy/master/#same_name_method
-[clippy::semicolon_outside_block]:           https://rust-lang.github.io/rust-clippy/master/#semicolon_outside_block
-[clippy::shadow_reuse]:                      https://rust-lang.github.io/rust-clippy/master/#shadow_reuse
-[clippy::shadow_same]:                       https://rust-lang.github.io/rust-clippy/master/#shadow_same
-[clippy::shadow_unrelated]:                  https://rust-lang.github.io/rust-clippy/master/#shadow_unrelated
-[clippy::single_char_lifetime_names]:        https://rust-lang.github.io/rust-clippy/master/#single_char_lifetime_names
-[clippy::std_instead_of_core]:               https://rust-lang.github.io/rust-clippy/master/#std_instead_of_core
-[clippy::str_to_string]:                     https://rust-lang.github.io/rust-clippy/master/#str_to_string
-[clippy::string_lit_chars_any]:              https://rust-lang.github.io/rust-clippy/master/#string_lit_chars_any
-[clippy::string_slice]:                      https://rust-lang.github.io/rust-clippy/master/#string_slice
-[clippy::string_to_string]:                  https://rust-lang.github.io/rust-clippy/master/#string_to_string
-[clippy::suspicious_xor_used_as_pow]:        https://rust-lang.github.io/rust-clippy/master/#suspicious_xor_used_as_pow
-[clippy::tests_outside_test_module]:         https://rust-lang.github.io/rust-clippy/master/#tests_outside_test_module
-[clippy::todo]:                              https://rust-lang.github.io/rust-clippy/master/#todo
-[clippy::try_err]:                           https://rust-lang.github.io/rust-clippy/master/#try_err
-[clippy::unconditional_recursion]:           https://rust-lang.github.io/rust-clippy/master/#unconditional_recursion
-[clippy::unimplemented]:                     https://rust-lang.github.io/rust-clippy/master/#unimplemented
-[clippy::unnecessary_clippy_cfg]:            https://rust-lang.github.io/rust-clippy/master/#unnecessary_clippy_cfg
-[clippy::unnecessary_safety_comment]:        https://rust-lang.github.io/rust-clippy/master/#unnecessary_safety_comment
-[clippy::unnecessary_safety_doc]:            https://rust-lang.github.io/rust-clippy/master/#unnecessary_safety_doc
-[clippy::unneeded_field_pattern]:            https://rust-lang.github.io/rust-clippy/master/#unneeded_field_pattern
-[clippy::unreachable]:                       https://rust-lang.github.io/rust-clippy/master/#unreachable
-[clippy::unseparated_literal_suffix]:        https://rust-lang.github.io/rust-clippy/master/#unseparated_literal_suffix
-[clippy::unused_result_ok]:                  https://rust-lang.github.io/rust-clippy/master/#unused_result_ok
-[clippy::unused_trait_names]:                https://rust-lang.github.io/rust-clippy/master/#unused_trait_names
-[clippy::unwrap_in_result]:                  https://rust-lang.github.io/rust-clippy/master/#unwrap_in_result
-[clippy::unwrap_used]:                       https://rust-lang.github.io/rust-clippy/master/#unwrap_used
-[clippy::use_debug]:                         https://rust-lang.github.io/rust-clippy/master/#use_debug
-[clippy::verbose_file_reads]:                https://rust-lang.github.io/rust-clippy/master/#verbose_file_reads
-[clippy::wildcard_dependencies]:             https://rust-lang.github.io/rust-clippy/master/#wildcard_dependencies
-[clippy::wildcard_enum_match_arm]:           https://rust-lang.github.io/rust-clippy/master/#wildcard_enum_match_arm
-[clippy::zombie_processes]:                  https://rust-lang.github.io/rust-clippy/master/#zombie_processes
-[rust::deprecated]:                          https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#deprecated
-[rust::deprecated_where_clause_location]:    https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#deprecated-where-clause-location
-[rust::future_incompatible]:                 https://doc.rust-lang.org/rustc/lints/groups.html
-[rust::incomplete_features]:                 https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#incomplete-features
-[rust::internal_features]:                   https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#internal-features
-[rust::let_underscore_drop]:                 https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#let-underscore-drop
-[rust::macro_use_extern_crate]:              https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#macro-use-extern-crate
-[rust::meta_variable_misuse]:                https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#meta-variable-misuse
-[rust::missing_copy_implementations]:        https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#missing-copy-implementations
-[rust::missing_debug_implementations]:       https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#missing-debug-implementations
-[rust::missing_docs]:                        https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#missing-docs
-[rust::rust_2018_compatibility]:             https://doc.rust-lang.org/rustc/lints/groups.html
-[rust::rust_2018_idioms]:                    https://doc.rust-lang.org/rustc/lints/groups.html
-[rust::rust_2021_compatibility]:             https://doc.rust-lang.org/rustc/lints/groups.html
-[rust::single_use_lifetimes]:                https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#single-use-lifetimes
-[rust::trivial_casts]:                       https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#trivial-casts
-[rust::trivial_numeric_casts]:               https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#trivial-numeric-casts
-[rust::unknown_lints]:                       https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#unknown-lints
-[rust::unnameable_test_items]:               https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#unnameable-test-items
-[rust::unreachable_pub]:                     https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unreachable-pub
-[rust::unsafe_code]:                         https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unsafe-code
-[rust::unsafe_op_in_unsafe_fn]:              https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unsafe-op-in-unsafe-fn
-[rust::unused]:                              https://doc.rust-lang.org/rustc/lints/groups.html
-[rust::unused_crate_dependencies]:           https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-crate-dependencies
-[rust::unused_import_braces]:                https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-import-braces
-[rust::unused_lifetimes]:                    https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-lifetimes
-[rust::unused_qualifications]:               https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-qualifications
-[rust::unused_results]:                      https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-results
-[rust::variant_size_differences]:            https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#variant-size-differences
+[clippy::absolute_paths]:                       https://rust-lang.github.io/rust-clippy/master/#absolute_paths
+[clippy::allow_attributes]:                     https://rust-lang.github.io/rust-clippy/master/#allow_attributes
+[clippy::allow_attributes_without_reason]:      https://rust-lang.github.io/rust-clippy/master/#allow_attributes_without_reason
+[clippy::arithmetic_side_effects]:              https://rust-lang.github.io/rust-clippy/master/#arithmetic_side_effects
+[clippy::as_underscore]:                        https://rust-lang.github.io/rust-clippy/master/#as_underscore
+[clippy::cargo]:                                https://rust-lang.github.io/rust-clippy/master/#/?groups=cargo
+[clippy::clone_on_ref_ptr]:                     https://rust-lang.github.io/rust-clippy/master/#clone_on_ref_ptr
+[clippy::const_is_empty]:                       https://rust-lang.github.io/rust-clippy/master/#const_is_empty
+[clippy::dbg_macro]:                            https://rust-lang.github.io/rust-clippy/master/#dbg_macro
+[clippy::decimal_literal_representation]:       https://rust-lang.github.io/rust-clippy/master/#decimal_literal_representation
+[clippy::default_numeric_fallback]:             https://rust-lang.github.io/rust-clippy/master/#default_numeric_fallback
+[clippy::deprecated_clippy_cfg_attr]:           https://rust-lang.github.io/rust-clippy/master/#deprecated_clippy_cfg_attr
+[clippy::deref_by_slicing]:                     https://rust-lang.github.io/rust-clippy/master/#deref_by_slicing
+[clippy::empty_drop]:                           https://rust-lang.github.io/rust-clippy/master/#empty_drop
+[clippy::empty_enum_variants_with_brackets]:    https://rust-lang.github.io/rust-clippy/master/#empty_enum_variants_with_brackets
+[clippy::empty_structs_with_brackets]:          https://rust-lang.github.io/rust-clippy/master/#empty_structs_with_brackets
+[clippy::error_impl_error]:                     https://rust-lang.github.io/rust-clippy/master/#error_impl_error
+[clippy::exhaustive_enums]:                     https://rust-lang.github.io/rust-clippy/master/#exhaustive_enums
+[clippy::exhaustive_structs]:                   https://rust-lang.github.io/rust-clippy/master/#exhaustive_structs
+[clippy::exit]:                                 https://rust-lang.github.io/rust-clippy/master/#exit
+[clippy::expect_used]:                          https://rust-lang.github.io/rust-clippy/master/#expect_used
+[clippy::field_scoped_visibility_modifiers]:    https://rust-lang.github.io/rust-clippy/master/#field_scoped_visibility_modifiers
+[clippy::filetype_is_file]:                     https://rust-lang.github.io/rust-clippy/master/#filetype_is_file
+[clippy::float_cmp_const]:                      https://rust-lang.github.io/rust-clippy/master/#float_cmp_const
+[clippy::fn_to_numeric_cast_any]:               https://rust-lang.github.io/rust-clippy/master/#fn_to_numeric_cast_any
+[clippy::format_push_string]:                   https://rust-lang.github.io/rust-clippy/master/#format_push_string
+[clippy::get_unwrap]:                           https://rust-lang.github.io/rust-clippy/master/#get_unwrap
+[clippy::if_then_some_else_none]:               https://rust-lang.github.io/rust-clippy/master/#if_then_some_else_none
+[clippy::impl_trait_in_params]:                 https://rust-lang.github.io/rust-clippy/master/#impl_trait_in_params
+[clippy::incompatible_msrv]:                    https://rust-lang.github.io/rust-clippy/master/#incompatible_msrv
+[clippy::indexing_slicing]:                     https://rust-lang.github.io/rust-clippy/master/#indexing_slicing
+[clippy::infinite_loop]:                        https://rust-lang.github.io/rust-clippy/master/#infinite_loop
+[clippy::integer_division]:                     https://rust-lang.github.io/rust-clippy/master/#integer_division
+[clippy::iter_over_hash_type]:                  https://rust-lang.github.io/rust-clippy/master/#iter_over_hash_type
+[clippy::let_underscore_must_use]:              https://rust-lang.github.io/rust-clippy/master/#let_underscore_must_use
+[clippy::let_underscore_untyped]:               https://rust-lang.github.io/rust-clippy/master/#let_underscore_untyped
+[clippy::lossy_float_literal]:                  https://rust-lang.github.io/rust-clippy/master/#lossy_float_literal
+[clippy::map_err_ignore]:                       https://rust-lang.github.io/rust-clippy/master/#map_err_ignore
+[clippy::mem_forget]:                           https://rust-lang.github.io/rust-clippy/master/#mem_forget
+[clippy::min_ident_chars]:                      https://rust-lang.github.io/rust-clippy/master/#min_ident_chars
+[clippy::missing_assert_message]:               https://rust-lang.github.io/rust-clippy/master/#missing_assert_message
+[clippy::missing_asserts_for_indexing]:         https://rust-lang.github.io/rust-clippy/master/#missing_asserts_for_indexing
+[clippy::missing_docs_in_private_items]:        https://rust-lang.github.io/rust-clippy/master/#missing_docs_in_private_items
+[clippy::missing_trait_methods]:                https://rust-lang.github.io/rust-clippy/master/#missing_trait_methods
+[clippy::mixed_read_write_in_expression]:       https://rust-lang.github.io/rust-clippy/master/#mixed_read_write_in_expression
+[clippy::mod_module_files]:                     https://rust-lang.github.io/rust-clippy/master/#mod_module_files
+[clippy::module_name_repetitions]:              https://rust-lang.github.io/rust-clippy/master/#module_name_repetitions
+[clippy::multiple_bound_locations]:             https://rust-lang.github.io/rust-clippy/master/#multiple_bound_locations
+[clippy::multiple_inherent_impl]:               https://rust-lang.github.io/rust-clippy/master/#multiple_inherent_impl
+[clippy::mutex_atomic]:                         https://rust-lang.github.io/rust-clippy/master/#mutex_atomic
+[clippy::negative_feature_names]:               https://rust-lang.github.io/rust-clippy/master/#negative_feature_names
+[clippy::non_zero_suggestions]:                 https://rust-lang.github.io/rust-clippy/master/#non_zero_suggestions
+[clippy::nursery]:                              https://rust-lang.github.io/rust-clippy/master/#/?groups=nursery
+[clippy::panic]:                                https://rust-lang.github.io/rust-clippy/master/#panic
+[clippy::panic_in_result_fn]:                   https://rust-lang.github.io/rust-clippy/master/#panic_in_result_fn
+[clippy::pathbuf_init_then_push]:               https://rust-lang.github.io/rust-clippy/master/#pathbuf_init_then_push
+[clippy::pattern_type_mismatch]:                https://rust-lang.github.io/rust-clippy/master/#pattern_type_mismatch
+[clippy::pedantic]:                             https://rust-lang.github.io/rust-clippy/master/#/?groups=pedantic
+[clippy::print_stderr]:                         https://rust-lang.github.io/rust-clippy/master/#print_stderr
+[clippy::print_stdout]:                         https://rust-lang.github.io/rust-clippy/master/#print_stdout
+[clippy::pub_underscore_fields]:                https://rust-lang.github.io/rust-clippy/master/#pub_underscore_fields
+[clippy::pub_without_shorthand]:                https://rust-lang.github.io/rust-clippy/master/#pub_without_shorthand
+[clippy::rc_buffer]:                            https://rust-lang.github.io/rust-clippy/master/#rc_buffer
+[clippy::rc_mutex]:                             https://rust-lang.github.io/rust-clippy/master/#rc_mutex
+[clippy::redundant_type_annotations]:           https://rust-lang.github.io/rust-clippy/master/#redundant_type_annotations
+[clippy::renamed_function_params]:              https://rust-lang.github.io/rust-clippy/master/#renamed_function_params
+[clippy::rest_pat_in_fully_bound_structs]:      https://rust-lang.github.io/rust-clippy/master/#rest_pat_in_fully_bound_structs
+[clippy::same_name_method]:                     https://rust-lang.github.io/rust-clippy/master/#same_name_method
+[clippy::semicolon_outside_block]:              https://rust-lang.github.io/rust-clippy/master/#semicolon_outside_block
+[clippy::shadow_reuse]:                         https://rust-lang.github.io/rust-clippy/master/#shadow_reuse
+[clippy::shadow_same]:                          https://rust-lang.github.io/rust-clippy/master/#shadow_same
+[clippy::shadow_unrelated]:                     https://rust-lang.github.io/rust-clippy/master/#shadow_unrelated
+[clippy::single_char_lifetime_names]:           https://rust-lang.github.io/rust-clippy/master/#single_char_lifetime_names
+[clippy::std_instead_of_core]:                  https://rust-lang.github.io/rust-clippy/master/#std_instead_of_core
+[clippy::str_to_string]:                        https://rust-lang.github.io/rust-clippy/master/#str_to_string
+[clippy::string_lit_chars_any]:                 https://rust-lang.github.io/rust-clippy/master/#string_lit_chars_any
+[clippy::string_slice]:                         https://rust-lang.github.io/rust-clippy/master/#string_slice
+[clippy::string_to_string]:                     https://rust-lang.github.io/rust-clippy/master/#string_to_string
+[clippy::suspicious_xor_used_as_pow]:           https://rust-lang.github.io/rust-clippy/master/#suspicious_xor_used_as_pow
+[clippy::tests_outside_test_module]:            https://rust-lang.github.io/rust-clippy/master/#tests_outside_test_module
+[clippy::todo]:                                 https://rust-lang.github.io/rust-clippy/master/#todo
+[clippy::try_err]:                              https://rust-lang.github.io/rust-clippy/master/#try_err
+[clippy::unconditional_recursion]:              https://rust-lang.github.io/rust-clippy/master/#unconditional_recursion
+[clippy::unimplemented]:                        https://rust-lang.github.io/rust-clippy/master/#unimplemented
+[clippy::unnecessary_clippy_cfg]:               https://rust-lang.github.io/rust-clippy/master/#unnecessary_clippy_cfg
+[clippy::unnecessary_safety_comment]:           https://rust-lang.github.io/rust-clippy/master/#unnecessary_safety_comment
+[clippy::unnecessary_safety_doc]:               https://rust-lang.github.io/rust-clippy/master/#unnecessary_safety_doc
+[clippy::unneeded_field_pattern]:               https://rust-lang.github.io/rust-clippy/master/#unneeded_field_pattern
+[clippy::unreachable]:                          https://rust-lang.github.io/rust-clippy/master/#unreachable
+[clippy::unseparated_literal_suffix]:           https://rust-lang.github.io/rust-clippy/master/#unseparated_literal_suffix
+[clippy::unused_result_ok]:                     https://rust-lang.github.io/rust-clippy/master/#unused_result_ok
+[clippy::unused_trait_names]:                   https://rust-lang.github.io/rust-clippy/master/#unused_trait_names
+[clippy::unwrap_in_result]:                     https://rust-lang.github.io/rust-clippy/master/#unwrap_in_result
+[clippy::unwrap_used]:                          https://rust-lang.github.io/rust-clippy/master/#unwrap_used
+[clippy::use_debug]:                            https://rust-lang.github.io/rust-clippy/master/#use_debug
+[clippy::verbose_file_reads]:                   https://rust-lang.github.io/rust-clippy/master/#verbose_file_reads
+[clippy::wildcard_dependencies]:                https://rust-lang.github.io/rust-clippy/master/#wildcard_dependencies
+[clippy::wildcard_enum_match_arm]:              https://rust-lang.github.io/rust-clippy/master/#wildcard_enum_match_arm
+[clippy::zombie_processes]:                     https://rust-lang.github.io/rust-clippy/master/#zombie_processes
+[rust::deprecated]:                             https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#deprecated
+[rust::deprecated_where_clause_location]:       https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#deprecated-where-clause-location
+[rust::future_incompatible]:                    https://doc.rust-lang.org/rustc/lints/groups.html
+[rust::incomplete_features]:                    https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#incomplete-features
+[rust::internal_features]:                      https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#internal-features
+[rust::let_underscore_drop]:                    https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#let-underscore-drop
+[rust::macro_use_extern_crate]:                 https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#macro-use-extern-crate
+[rust::meta_variable_misuse]:                   https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#meta-variable-misuse
+[rust::missing_copy_implementations]:           https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#missing-copy-implementations
+[rust::missing_debug_implementations]:          https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#missing-debug-implementations
+[rust::missing_docs]:                           https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#missing-docs
+[rust::rust_2018_compatibility]:                https://doc.rust-lang.org/rustc/lints/groups.html
+[rust::rust_2018_idioms]:                       https://doc.rust-lang.org/rustc/lints/groups.html
+[rust::rust_2021_compatibility]:                https://doc.rust-lang.org/rustc/lints/groups.html
+[rust::single_use_lifetimes]:                   https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#single-use-lifetimes
+[rust::trivial_casts]:                          https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#trivial-casts
+[rust::trivial_numeric_casts]:                  https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#trivial-numeric-casts
+[rust::unknown_lints]:                          https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#unknown-lints
+[rust::unnameable_test_items]:                  https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#unnameable-test-items
+[rust::unreachable_pub]:                        https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unreachable-pub
+[rust::unsafe_code]:                            https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unsafe-code
+[rust::unsafe_op_in_unsafe_fn]:                 https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unsafe-op-in-unsafe-fn
+[rust::unused]:                                 https://doc.rust-lang.org/rustc/lints/groups.html
+[rust::unused_crate_dependencies]:              https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-crate-dependencies
+[rust::unused_import_braces]:                   https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-import-braces
+[rust::unused_lifetimes]:                       https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-lifetimes
+[rust::unused_qualifications]:                  https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-qualifications
+[rust::unused_results]:                         https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#unused-results
+[rust::variant_size_differences]:               https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#variant-size-differences
 
 
