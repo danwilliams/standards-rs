@@ -4,8 +4,8 @@ version      = "0.7.0"
 description  = "Opinionated coding standards for Rust code (example application)"
 categories   = ["config", "development-tools", "rust-patterns"]
 keywords     = ["utility"]
-edition      = "2021"
-rust-version = "1.84.0"
+edition      = "2024"
+rust-version = "1.85.0"
 # For open-source, typically use this:
 license      = "MIT"
 # For closed-source, use this:
@@ -97,6 +97,7 @@ string_to_string                     = "forbid"
 unimplemented                        = "forbid"
 ##	Deny
 clone_on_ref_ptr                     = "deny"
+doc_include_without_cfg              = "deny"
 empty_enum_variants_with_brackets    = "deny"
 empty_structs_with_brackets          = "deny"
 error_impl_error                     = "deny"
@@ -127,6 +128,7 @@ wildcard_enum_match_arm              = "deny"
 absolute_paths                       = "warn"
 allow_attributes                     = "warn"
 arithmetic_side_effects              = "warn"
+as_pointer_underscore                = "warn"
 as_underscore                        = "warn"
 decimal_literal_representation       = "warn"
 default_numeric_fallback             = "warn"
