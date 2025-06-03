@@ -475,6 +475,7 @@ future_incompatible                  = { level = "deny", priority = -1 }
 rust_2018_compatibility              = { level = "deny", priority = -1 }
 rust_2018_idioms                     = { level = "warn", priority = -1 }
 rust_2021_compatibility              = { level = "deny", priority = -1 }
+rust_2024_compatibility              = { level = "deny", priority = -1 }
 #	Unused code lints
 unused                               = { level = "warn", priority = -1 }
 #	Cherry-picked lints
@@ -793,7 +794,7 @@ category are:
 | `tyvar_behind_raw_pointer`                | `warn`      | -> `deny`   |
 
 Instead, all of these are set to `deny`, as all code should be following the
-Rust 2021 approaches.
+Rust 2024 approaches.
 
   - [`rust_2018_compatibility`][rust::rust_2018_compatibility]
 
@@ -809,7 +810,7 @@ category are:
 | `unused_extern_crates`                    | `allow`     | -> `warn`             |
 
 Enabling [`rust_2018_idioms`][rust::rust_2018_idioms] sets all of these to
-`warn`, as all code should be following the Rust 2021 approaches.
+`warn`, as all code should be following the Rust 2024 approaches.
 
   - [`rust_2018_idioms`][rust::rust_2018_idioms]
 
@@ -830,9 +831,38 @@ category are:
 | `rust_2021_prelude_collisions`            | `allow`     | -> `deny`   |
 
 Instead, all of these are set to `deny`, as all code should be following the
-Rust 2021 approaches.
+Rust 2024 approaches.
 
   - [`rust_2021_compatibility`][rust::rust_2021_compatibility]
+
+##### Rust 2024 compatibility
+
+The defaults for the items included in the [`rust_2024_compatibility`][rust::rust_2024_compatibility]
+category are:
+
+| **Lint**                                       | **Default** | **Applied** |
+|------------------------------------------------|-------------|-------------|
+| `boxed_slice_into_iter`                        | `warn`      | -> `deny`   |
+| `dependency_on_unit_never_type_fallback`       | `warn`      | -> `deny`   |
+| `deprecated_safe_2024`                         | `allow`     | -> `deny`   |
+| `edition_2024_expr_fragment_specifier`         | `allow`     | -> `deny`   |
+| `if_let_rescope`                               | `allow`     | -> `deny`   |
+| `impl_trait_overcaptures`                      | `allow`     | -> `deny`   |
+| `keyword_idents_2024`                          | `allow`     | -> `deny`   |
+| `missing_unsafe_on_extern`                     | `allow`     | -> `deny`   |
+| `never_type_fallback_flowing_into_unsafe`      | `warn`      | -> `deny`   |
+| `rust_2024_guarded_string_incompatible_syntax` | `allow`     | -> `deny`   |
+| `rust_2024_incompatible_pat`                   | `allow`     | -> `deny`   |
+| `rust_2024_prelude_collisions`                 | `allow`     | -> `deny`   |
+| `static_mut_refs`                              | `warn`      | -> `deny`   |
+| `tail_expr_drop_order`                         | `allow`     | -> `deny`   |
+| `unsafe_attr_outside_unsafe`                   | `allow`     | -> `deny`   |
+| `unsafe_op_in_unsafe_fn`                       | `allow`     | -> `deny`   |
+
+Instead, all of these are set to `deny`, as all code should be following the
+Rust 2024 approaches.
+
+  - [`rust_2024_compatibility`][rust::rust_2024_compatibility]
 
 #### Unused code lints
 
@@ -1665,6 +1695,7 @@ They demonstrate the coding styles and standards described in this document.
 [rust::rust_2018_compatibility]:                https://doc.rust-lang.org/rustc/lints/groups.html
 [rust::rust_2018_idioms]:                       https://doc.rust-lang.org/rustc/lints/groups.html
 [rust::rust_2021_compatibility]:                https://doc.rust-lang.org/rustc/lints/groups.html
+[rust::rust_2024_compatibility]:                https://doc.rust-lang.org/rustc/lints/groups.html
 [rust::single_use_lifetimes]:                   https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#single-use-lifetimes
 [rust::trivial_casts]:                          https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#trivial-casts
 [rust::trivial_numeric_casts]:                  https://doc.rust-lang.org/rustc/lints/listing/allowed-by-default.html#trivial-numeric-casts
