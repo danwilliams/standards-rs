@@ -546,6 +546,7 @@ integer_division                  = "deny"
 lossy_float_literal               = "deny"
 mem_forget                        = "deny"
 missing_assert_message            = "deny"
+non_zero_suggestions              = "deny"
 panic                             = "deny"
 print_stderr                      = "deny"
 print_stdout                      = "deny"
@@ -598,6 +599,7 @@ unneeded_field_pattern            = "warn"
 unreachable                       = "warn"
 unseparated_literal_suffix        = "warn"
 unused_result_ok                  = "warn"
+unused_trait_names                = "warn"
 use_debug                         = "warn"
 verbose_file_reads                = "warn"
 #	Clippy suspicious lints
@@ -607,6 +609,7 @@ incompatible_msrv                 = "deny"
 multiple_bound_locations          = "deny"
 unconditional_recursion           = "deny"
 unnecessary_clippy_cfg            = "deny"
+zombie_processes                  = "deny"
 ```
 
 ##### Multi-crate workspaces
@@ -1066,6 +1069,7 @@ The following lints are set to `allow` by default, and have been changed to
   - [`clippy::lossy_float_literal`][clippy::lossy_float_literal]
   - [`clippy::mem_forget`][clippy::mem_forget]
   - [`clippy::missing_assert_message`][clippy::missing_assert_message]
+  - [`clippy::non_zero_suggestions`][clippy::non_zero_suggestions]
   - [`clippy::panic`][clippy::panic]
   - [`clippy::print_stderr`][clippy::print_stderr]
   - [`clippy::print_stdout`][clippy::print_stdout]
@@ -1123,6 +1127,7 @@ The following lints are set to `allow` by default, and have been changed to
   - [`clippy::unreachable`][clippy::unreachable]
   - [`clippy::unseparated_literal_suffix`][clippy::unseparated_literal_suffix]
   - [`clippy::unused_result_ok`][clippy::unused_result_ok]
+  - [`clippy::unused_trait_names`][clippy::unused_trait_names]
   - [`clippy::use_debug`][clippy::use_debug]
   - [`clippy::verbose_file_reads`][clippy::verbose_file_reads]
 
@@ -1151,6 +1156,7 @@ The following lints are set to `warn` by default, and have been changed to
   - [`clippy::multiple_bound_locations`][clippy::multiple_bound_locations]
   - [`clippy::unconditional_recursion`][clippy::unconditional_recursion]
   - [`clippy::unnecessary_clippy_cfg`][clippy::unnecessary_clippy_cfg]
+  - [`clippy::zombie_processes`][clippy::zombie_processes]
 
 The remaining lints are set to `allow` by default, and remain unchanged.
 
@@ -1583,6 +1589,7 @@ They demonstrate the coding styles and standards described in this document.
 [clippy::multiple_inherent_impl]:            https://rust-lang.github.io/rust-clippy/master/#multiple_inherent_impl
 [clippy::mutex_atomic]:                      https://rust-lang.github.io/rust-clippy/master/#mutex_atomic
 [clippy::negative_feature_names]:            https://rust-lang.github.io/rust-clippy/master/#negative_feature_names
+[clippy::non_zero_suggestions]:              https://rust-lang.github.io/rust-clippy/master/#non_zero_suggestions
 [clippy::nursery]:                           https://rust-lang.github.io/rust-clippy/master/#/?groups=nursery
 [clippy::panic]:                             https://rust-lang.github.io/rust-clippy/master/#panic
 [clippy::panic_in_result_fn]:                https://rust-lang.github.io/rust-clippy/master/#panic_in_result_fn
@@ -1622,12 +1629,14 @@ They demonstrate the coding styles and standards described in this document.
 [clippy::unreachable]:                       https://rust-lang.github.io/rust-clippy/master/#unreachable
 [clippy::unseparated_literal_suffix]:        https://rust-lang.github.io/rust-clippy/master/#unseparated_literal_suffix
 [clippy::unused_result_ok]:                  https://rust-lang.github.io/rust-clippy/master/#unused_result_ok
+[clippy::unused_trait_names]:                https://rust-lang.github.io/rust-clippy/master/#unused_trait_names
 [clippy::unwrap_in_result]:                  https://rust-lang.github.io/rust-clippy/master/#unwrap_in_result
 [clippy::unwrap_used]:                       https://rust-lang.github.io/rust-clippy/master/#unwrap_used
 [clippy::use_debug]:                         https://rust-lang.github.io/rust-clippy/master/#use_debug
 [clippy::verbose_file_reads]:                https://rust-lang.github.io/rust-clippy/master/#verbose_file_reads
 [clippy::wildcard_dependencies]:             https://rust-lang.github.io/rust-clippy/master/#wildcard_dependencies
 [clippy::wildcard_enum_match_arm]:           https://rust-lang.github.io/rust-clippy/master/#wildcard_enum_match_arm
+[clippy::zombie_processes]:                  https://rust-lang.github.io/rust-clippy/master/#zombie_processes
 [rust::deprecated]:                          https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#deprecated
 [rust::deprecated_where_clause_location]:    https://doc.rust-lang.org/rustc/lints/listing/warn-by-default.html#deprecated-where-clause-location
 [rust::future_incompatible]:                 https://doc.rust-lang.org/rustc/lints/groups.html
