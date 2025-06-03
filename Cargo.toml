@@ -5,7 +5,7 @@ description  = "Opinionated coding standards for Rust code (example application)
 categories   = ["config", "development-tools", "rust-patterns"]
 keywords     = ["utility"]
 edition      = "2021"
-rust-version = "1.82.0"
+rust-version = "1.83.0"
 # For open-source, typically use this:
 license      = "MIT"
 # For closed-source, use this:
@@ -111,6 +111,7 @@ integer_division                  = "deny"
 lossy_float_literal               = "deny"
 mem_forget                        = "deny"
 missing_assert_message            = "deny"
+non_zero_suggestions              = "deny"
 panic                             = "deny"
 print_stderr                      = "deny"
 print_stdout                      = "deny"
@@ -163,6 +164,7 @@ unneeded_field_pattern            = "warn"
 unreachable                       = "warn"
 unseparated_literal_suffix        = "warn"
 unused_result_ok                  = "warn"
+unused_trait_names                = "warn"
 use_debug                         = "warn"
 verbose_file_reads                = "warn"
 #	Clippy suspicious lints
@@ -172,3 +174,4 @@ incompatible_msrv                 = "deny"
 multiple_bound_locations          = "deny"
 unconditional_recursion           = "deny"
 unnecessary_clippy_cfg            = "deny"
+zombie_processes                  = "deny"
